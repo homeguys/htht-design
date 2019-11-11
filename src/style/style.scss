@@ -1,0 +1,24 @@
+@import './default.scss';
+
+html,
+body {
+	font-size: 625%;
+	background: #fff;
+
+	// @include changeAntdCss();
+}
+
+html,
+body,
+#root {
+	width: 100%;
+	height: 100%;
+}
+
+#root {
+	padding-top: $header-height;
+
+	// .main-wrapper {
+	// 	height: 100%;
+	// }
+}

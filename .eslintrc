@@ -23,7 +23,8 @@
 		"react/jsx-uses-vars": "error",
 		"new-cap": ["off"],
 		"react/prop-types": ["off"],
-		"import/prefer-default-export": 0,
-		"react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+		"import/prefer-default-export": ["off"],
+		"react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+		"react/display-name": ["off"]
 	}
 }

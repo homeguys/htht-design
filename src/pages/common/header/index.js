@@ -12,7 +12,7 @@ class Header extends React.Component {
 				<div id="logo">
 					<Link to="/">
 						<img src={logoPic} alt="logo" />
-						<h1>航天宏图组件库</h1>
+						<h1>南京航天宏图组件库</h1>
 					</Link>
 				</div>
 				<div id="nav">

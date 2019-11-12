@@ -16,9 +16,12 @@ body,
 }
 
 #root {
-	padding-top: $header-height;
+	.main-wrapper {
+		height: calc(100% - #{$header-height});
 
-	// .main-wrapper {
-	// 	height: 100%;
-	// }
+		& > div {
+			height: 100%;
+			padding-top: 0.2rem;
+		}
+	}
 }

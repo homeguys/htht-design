@@ -1,20 +1,18 @@
-@import '../../../style/default.scss';
-@import '../../../style/theme.scss';
+@import '../../style/default.scss';
+@import '../../style/theme.scss';
 
-#header {
+##{$htht-prefix}-header {
 	display: flex;
 	justify-content: space-between;
 	width: 100%;
 	// max-width: 12rem;
+	// margin: 0 auto;
 	padding: 0 0.4rem;
-	z-index: 1;
-	position: fixed;
-	top: 0;
+	z-index: 2;
 	height: $header-height;
 	border-bottom: 1px solid #f0f0f0;
 	box-shadow: 0 2px 8px #f0f1f2;
-	left: 50%;
-	transform: translateX(-50%);
+	background: #fff;
 
 	#logo {
 		a {

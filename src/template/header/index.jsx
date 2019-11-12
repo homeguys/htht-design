@@ -1,14 +1,18 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logoPic from '../../../static/images/logo.jpeg'
+import logoPic from '../../static/images/logo.jpeg'
+import { Links } from '../../router/main_router'
+import { varibles } from '../../config'
 import './style.scss'
+
+const { hthtPrefix } = varibles
 
 class Header extends React.Component {
 	componentDidMount() {}
 
 	render() {
 		return (
-			<div id="header">
+			<div id={`${hthtPrefix}-header`}>
 				<div id="logo">
 					<Link to="/">
 						<img src={logoPic} alt="logo" />
@@ -16,14 +20,7 @@ class Header extends React.Component {
 					</Link>
 				</div>
 				<div id="nav">
-					<ul>
-						<li>
-							<Link to="/">首页</Link>
-						</li>
-						<li>
-							<Link to="/docs">组件</Link>
-						</li>
-					</ul>
+					<Links />
 				</div>
 			</div>
 		)

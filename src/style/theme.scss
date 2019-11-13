@@ -1,1 +1,10 @@
 $font-gray-color: #314659;
+
+@mixin changeAntdCss() {
+	.ant-spin-spinning {
+		position: relative;
+		left: 50%;
+		top: 40%;
+		transform: translateX(-50%);
+	}
+}

@@ -1,8 +1,8 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import logoPic from '../../static/images/logo.jpeg'
-import { Links } from '../../router/main_router'
-import { varibles } from '../../config'
+import logoPic from '../../../static/images/logo.jpeg'
+import { Links } from '../../../router/main_router'
+import { varibles } from '../../../config'
 import './style.scss'
 
 const { hthtPrefix } = varibles

@@ -1,11 +1,12 @@
 @import './default.scss';
+@import './theme.scss';
 
 html,
 body {
 	font-size: 625%;
 	background: #fff;
 
-	// @include changeAntdCss();
+	@include changeAntdCss();
 }
 
 html,
@@ -18,6 +19,7 @@ body,
 #root {
 	.main-wrapper {
 		height: calc(100% - #{$header-height});
+		overflow: hidden;
 
 		& > div {
 			height: 100%;

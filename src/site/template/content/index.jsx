@@ -1,4 +1,3 @@
-/*eslint-disable*/
 import React from 'react'
 import { Icon } from 'antd'
 import { varibles } from '../../../config'

@@ -1,4 +1,4 @@
-import Links from './links'
 import Routers from './routers'
+import routerConfig from './routerConfig'
 
-export { Links, Routers } 
+export { routerConfig, Routers }

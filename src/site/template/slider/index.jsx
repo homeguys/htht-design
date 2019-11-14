@@ -1,3 +1,6 @@
+/**
+ * 默认展开已写死，后期需要重新写活公用
+ */
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Menu } from 'antd'
@@ -9,8 +12,7 @@ const { SubMenu } = Menu
 
 @withRouter
 class Slider extends React.Component {
-	renderMenuItems = data => {
-		console.warn(this.props)
+	renderMenuItems = (data, parentPath = '') => {
 		const { match } = this.props
 		const { url } = match
 
@@ -25,13 +27,13 @@ class Slider extends React.Component {
 							</span>
 						}
 					>
-						{this.renderMenuItems(item.children)}
+						{this.renderMenuItems(item.children, `${item.path}/`)}
 					</SubMenu>
 				)
 			}
 			return (
 				<Menu.Item key={item.path}>
-					<Link to={`${url}/${item.path}`}>{item.name}</Link>
+					<Link to={`${url}/${parentPath}${item.path}`}>{item.name}</Link>
 				</Menu.Item>
 			)
 		})
@@ -39,9 +41,10 @@ class Slider extends React.Component {
 
 	render() {
 		const { menuConfig } = this.props
+
 		return (
 			<div id={`${hthtPrefix}-slider`}>
-				<Menu onClick={this.handleClick} defaultSelectedKeys={['preface']} defaultOpenKeys={['sub1']} mode="inline">
+				<Menu onClick={this.handleClick} defaultSelectedKeys={['nav']} defaultOpenKeys={['component']} mode="inline">
 					{this.renderMenuItems(menuConfig)}
 				</Menu>
 			</div>

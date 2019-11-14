@@ -1,14 +1,12 @@
 import React from 'react'
+import MainContent from '../../site/template/content'
+import manifest from './manifest.json'
 
 class Preface extends React.Component {
 	componentDidMount() {}
 
 	render() {
-		return (
-			<div className="preface">
-				<span>Preface</span>
-			</div>
-		)
+		return <MainContent manifest={manifest} />
 	}
 }
 

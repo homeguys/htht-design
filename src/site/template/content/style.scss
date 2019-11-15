@@ -57,6 +57,16 @@
 					section.code-box-meta {
 						border-bottom: 1px dashed #ebedf0;
 					}
+
+					.code-box-actions {
+						i.icon-expend {
+							background-image: url('../../../static/images/icon_shrink.png') !important;
+						}
+					}
+
+					section.highlight-wrapper {
+						display: block;
+					}
 				}
 
 				section.code-box-demo {
@@ -92,26 +102,43 @@
 
 					.code-box-actions {
 						height: 0.4rem;
-						padding-top: 0.12rem;
+						padding-top: 0.1rem;
 						text-align: center;
 						border-top: 1px dashed #ebedf0;
 						opacity: 0.7;
 						transition: opacity 0.3s;
 
 						&:hover {
-							opacity: 1;
+							opacity: 0.9;
+						}
+
+						button {
+							border: none;
 						}
 
 						i {
-							font-size: 0.16rem;
+							font-size: 0.18rem;
 							cursor: pointer;
 							margin-left: 0.12rem;
+							width: 0.2rem;
+							height: 0.2rem;
+							display: inline-block;
+							background-size: contain;
+
+							&.icon-copy {
+								background-image: url(../../../static/images/icon_copy.png);
+							}
+
+							&.icon-expend {
+								background-image: url(../../../static/images/icon_expend.png);
+							}
 						}
 					}
 				}
 
 				section.highlight-wrapper {
 					// height: 600px;
+					display: none;
 
 					pre {
 						code {

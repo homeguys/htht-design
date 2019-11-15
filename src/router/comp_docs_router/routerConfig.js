@@ -6,7 +6,7 @@ import React, { lazy } from 'react'
 
 const Preface = lazy(() => import(/* webpackChunkName: 'preface' */ '../../components/preface'))
 const Changelog = lazy(() => import(/* webpackChunkName: 'changelog' */ '../../components/changelog'))
-const Nav = lazy(() => import(/* webpackChunkName: 'nav' */ '../../components/nav'))
+const Menu = lazy(() => import(/* webpackChunkName: 'nav' */ '../../components/menu'))
 const Slider = lazy(() => import(/* webpackChunkName: 'slider' */ '../../components/slider'))
 
 export default [
@@ -27,7 +27,7 @@ export default [
 			{
 				path: 'nav',
 				name: '导航',
-				component: <Nav />
+				component: <Menu />
 			},
 			{
 				path: 'slider',

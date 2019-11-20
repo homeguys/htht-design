@@ -1,64 +1,111 @@
 $htht-prefix: 'htht';
 $main-color: #1890ff;
+$form-title-width: 0.7rem;
 
-// 时间选择
-.#{$htht-prefix}-time-choice {
-  &.#{$htht-prefix}-time-choice-horizontal {
+// 表单公用样式
+@mixin formCommon() {
+  .item {
     display: flex;
     align-items: center;
+    margin-bottom: 0.1rem;
 
     .title {
       margin-right: 0.1rem;
+      width: $form-title-width;
     }
 
     .gap {
       margin: 0 0.05rem;
     }
-  }
 
-  &.#{$htht-prefix}-time-choice-vertical {
-    .item {
-      display: flex;
-      align-items: center;
+    .sub-title {
+      font-size: 0.13rem;
+      margin-right: 0.1rem;
+      width: $form-title-width;
+      text-align: center;
 
-      span.title {
-        margin-right: 0.1rem;
+      i {
+        font-style: normal;
+        background-color: $main-color;
+        border-radius: 0.06rem;
+        color: #fff;
+        padding: 0 0.1rem;
       }
     }
+  }
+}
+
+//横向时间选择
+@mixin timeChoiceHorizontal() {
+  .#{$htht-prefix}-time-choice.#{$htht-prefix}-time-choice-horizontal {
+    @include formCommon();
+  }
+}
+
+//纵向时间选择
+@mixin timeChoiceVertical() {
+  .#{$htht-prefix}-time-choice.#{$htht-prefix}-time-choice-vertical {
+    @include formCommon();
+  }
+}
+
+// 时间选择
+@mixin timeChoice() {
+  @include timeChoiceHorizontal();
+  @include timeChoiceVertical();
+}
+
+@include timeChoice();
+
+/***********************************************************************************/
+
+// 两行空间选择
+@mixin spaceChoiceTwoLine() {
+  .#{$htht-prefix}-space-choice.htht-space-choice-two-line {
+    @include formCommon();
   }
 }
 
 // 空间选择
-.#{$htht-prefix}-space-choice {
-  &.htht-space-choice-two-line {
-    .title {
-      display: block;
-    }
+@mixin spaceChoice() {
+  @include spaceChoiceTwoLine();
+}
 
-    .item {
-      display: flex;
-      align-items: center;
-      margin-bottom: 0.1rem;
+@include spaceChoice();
 
-      &:last-child {
-        margin-bottom: 0;
-      }
+/***********************************************************************************/
 
-      .sub-title {
-        margin: 0 0.1rem;
-        background-color: $main-color;
-        padding: 0 0.05rem;
-        border-radius: 0.06rem;
-        color: #fff;
-        font-size: 0.13rem;
-      }
-
-      .gap {
-        margin: 0 0.05rem;
-      }
-    }
+// 单选横向排列
+@mixin radioChoicehorizontal() {
+  .#{$htht-prefix}-radio-choice.htht-radio-choice-horizontal {
+    @include formCommon();
   }
 }
+
+// 单选
+@mixin radioChoice() {
+  @include radioChoicehorizontal();
+}
+
+@include radioChoice();
+
+/***********************************************************************************/
+
+// 纵向选择框
+@mixin searchBoxVertical() {
+  .#{$htht-prefix}-search-box.htht-search-box-horizontal {
+    @include formCommon();
+  }
+}
+
+// 纵向选择框
+@mixin searchBox() {
+  @include searchBoxVertical();
+}
+
+@include searchBox();
+
+/***********************************************************************************/
 
 // 修改antd默认样式
 #root {

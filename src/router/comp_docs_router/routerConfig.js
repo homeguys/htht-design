@@ -10,7 +10,7 @@ const Changelog = lazy(() =>
 )
 const Menu = lazy(() => import(/* webpackChunkName: 'Menu' */ '../../components/menu'))
 const SearchBox = lazy(() =>
-  import(/* webpackChunkName: 'SearchBox' */ '../../components/searchBox')
+  import(/* webpackChunkName: 'SearchBox' */ '../../components/search-box')
 )
 const List = lazy(() => import(/* webpackChunkName: 'List' */ '../../components/list'))
 const TimeChoice = lazy(() =>
@@ -37,7 +37,7 @@ export default [
     children: [
       {
         path: 'searchbox',
-        name: '搜索框',
+        name: 'searchbox 搜索框',
         component: <SearchBox />
       }
     ]

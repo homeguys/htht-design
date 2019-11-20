@@ -9,7 +9,9 @@ function SpaceChoice(props) {
     <div className="htht-space-choice htht-space-choice-two-line">
       <span className="title">空间选择：</span>
       <div className="item">
-        <span className="sub-title">经度</span>
+        <span className="sub-title">
+          <i>经度</i>
+        </span>
         <Form.Item>
           {getFieldDecorator('minLong', {
             rules: [{ required: true, message: '请输入最小经度！' }]
@@ -28,7 +30,9 @@ function SpaceChoice(props) {
       </div>
 
       <div className="item">
-        <span className="sub-title">纬度</span>
+        <span className="sub-title">
+          <i>纬度</i>
+        </span>
         <Form.Item>
           {getFieldDecorator('minLat', {
             rules: [{ required: true, message: '请输入最小纬度！' }]

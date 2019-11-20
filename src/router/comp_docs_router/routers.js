@@ -1,6 +1,7 @@
-import React, { Suspense } from 'react'
-import { Switch, Route } from 'react-router-dom'
+import React, { Suspense, Fragment } from 'react'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { Spin } from 'antd'
+import Slider from '../../site/template/slider'
 import routerConfig from './routerConfig'
 import { flattenArr, deepCloneObject } from '../../utils/utils'
 
@@ -24,14 +25,20 @@ export default props => {
 	const { url } = props
 
 	return (
-		<Switch>
-			{data.map(item => {
-				return (
-					<Route path={`${url}/${item.path}`} key={item.path}>
-						<Suspense fallback={<Spin size="large" />}>{item.component}</Suspense>
-					</Route>
-				)
-			})}
-		</Switch>
+		<Fragment>
+			<Suspense fallback={<Spin size="large" />}>
+				<Slider menuConfig={routerConfig} />
+				<Switch>
+					{data.map(item => {
+						return (
+							<Route path={`${url}/${item.path}`} key={item.path}>
+								{item.component}
+							</Route>
+						)
+					})}
+					<Redirect to={`${url}/${data[0].path}`} />
+				</Switch>
+			</Suspense>
+		</Fragment>
 	)
 }

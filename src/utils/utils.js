@@ -59,17 +59,19 @@ export function getParents(el, parentSelector) {
 
 /**
  * 将两个数组组装成数组对象
- * @param arr1
- * @param arr2
+ * @param arr1 component
+ * @param arr2 demo code
+ * @param arr3 demo description
  * @return {*}
  */
-export function handleArrs(arr1, arr2) {
+export function handleArrs(arr1, arr2, arr3) {
 	const len = arr1.length
 	const arr = []
 	for (let i = 0; i < len; i++) {
 		const data = {
 			component: arr1[i],
-			code: arr2[i]
+			code: arr2[i],
+			desc: arr3[i]
 		}
 
 		arr.push(data)

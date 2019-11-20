@@ -1,0 +1,73 @@
+$htht-prefix: 'htht';
+$main-color: #1890ff;
+
+// 时间选择
+.#{$htht-prefix}-time-choice {
+  &.#{$htht-prefix}-time-choice-horizontal {
+    display: flex;
+    align-items: center;
+
+    .title {
+      margin-right: 0.1rem;
+    }
+
+    .gap {
+      margin: 0 0.05rem;
+    }
+  }
+
+  &.#{$htht-prefix}-time-choice-vertical {
+    .item {
+      display: flex;
+      align-items: center;
+
+      span.title {
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+
+// 空间选择
+.#{$htht-prefix}-space-choice {
+  &.htht-space-choice-two-line {
+    .title {
+      display: block;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      .sub-title {
+        margin: 0 0.1rem;
+        background-color: $main-color;
+        padding: 0 0.05rem;
+        border-radius: 0.06rem;
+        color: #fff;
+        font-size: 0.13rem;
+      }
+
+      .gap {
+        margin: 0 0.05rem;
+      }
+    }
+  }
+}
+
+// 修改antd默认样式
+#root {
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+
+  .ant-form-explain {
+    position: absolute;
+    font-size: 0.1rem;
+  }
+}

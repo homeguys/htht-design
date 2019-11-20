@@ -8,7 +8,7 @@ import manifest from './demo/manifest.md'
 import { handleArrs } from '../../utils/utils'
 import Demos from './demo'
 
-class Nav extends React.Component {
+class SearchBox extends React.Component {
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -32,4 +32,4 @@ class Nav extends React.Component {
 	}
 }
 
-export default Nav
+export default SearchBox

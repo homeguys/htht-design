@@ -44,7 +44,12 @@ class Slider extends React.Component {
 
 		return (
 			<div id={`${hthtPrefix}-slider`}>
-				<Menu onClick={this.handleClick} defaultSelectedKeys={['nav']} defaultOpenKeys={['component']} mode="inline">
+				<Menu
+					onClick={this.handleClick}
+					defaultSelectedKeys={['preface']}
+					defaultOpenKeys={['component', 'structure']}
+					mode="inline"
+				>
 					{this.renderMenuItems(menuConfig)}
 				</Menu>
 			</div>

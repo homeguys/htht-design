@@ -1,5 +1,4 @@
 /* eslint-disable no-plusplus */
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 import hljs from 'highlight.js'
 

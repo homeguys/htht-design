@@ -23,7 +23,7 @@
 				}
 			}
 
-			p.description {
+			p.main-desc {
 				text-indent: 2em;
 			}
 
@@ -114,6 +114,13 @@
 
 						button {
 							border: none;
+							width: 0.2rem;
+							height: 0.2rem;
+							padding: 0;
+
+							i {
+								margin-left: 0;
+							}
 						}
 
 						i {
@@ -127,6 +134,10 @@
 
 							&.icon-copy {
 								background-image: url(../../../static/images/icon_copy.png);
+							}
+
+							&.icon-done {
+								background-image: url(../../../static/images/icon_done.png);
 							}
 
 							&.icon-expend {

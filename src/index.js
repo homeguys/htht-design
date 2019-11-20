@@ -9,6 +9,7 @@ import reducer from './store/reducer'
 import { Routers } from './router/main_router'
 import Header from './site/template/header'
 import './style/style.scss'
+import './style/htht.scss'
 import './style/reset.scss'
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose

@@ -12,49 +12,67 @@ const { SubMenu } = Menu
 
 @withRouter
 class Slider extends React.Component {
-	renderMenuItems = (data, parentPath = '') => {
-		const { match } = this.props
-		const { url } = match
+  renderMenuItems = (data, parentPath = '') => {
+    const { match } = this.props
+    const { url } = match
 
-		return data.map(item => {
-			if (item.children) {
-				return (
-					<SubMenu
-						key={item.path}
-						title={
-							<span>
-								<span>{item.name}</span>
-							</span>
-						}
-					>
-						{this.renderMenuItems(item.children, `${item.path}/`)}
-					</SubMenu>
-				)
-			}
-			return (
-				<Menu.Item key={item.path}>
-					<Link to={`${url}/${parentPath}${item.path}`}>{item.name}</Link>
-				</Menu.Item>
-			)
-		})
-	}
+    return data.map(item => {
+      if (item.children) {
+        console.warn(item)
+        console.warn(item.children)
+        const len = item.children.length
+        let checked = false
 
-	render() {
-		const { menuConfig } = this.props
+        for (let i = 0; i < len; i++) {
+          if (item.children[i].children) {
+            checked = true
+            break
+          }
+        }
 
-		return (
-			<div id={`${hthtPrefix}-slider`}>
-				<Menu
-					onClick={this.handleClick}
-					defaultSelectedKeys={['preface']}
-					defaultOpenKeys={['component', 'structure']}
-					mode="inline"
-				>
-					{this.renderMenuItems(menuConfig)}
-				</Menu>
-			</div>
-		)
-	}
+        return checked ? (
+          <SubMenu
+            key={item.path}
+            title={
+              <span>
+                <span>{item.name}</span>
+              </span>
+            }
+          >
+            {this.renderMenuItems(item.children, `${item.path}`)}
+          </SubMenu>
+        ) : (
+          <Menu.ItemGroup key={item.path} title={item.name}>
+            {this.renderMenuItems(item.children, `${parentPath}/${item.path}`)}
+          </Menu.ItemGroup>
+        )
+      }
+
+      return (
+        <Menu.Item key={item.path}>
+          <Link to={`${url}/${parentPath}/${item.path}`}>{item.name}</Link>
+        </Menu.Item>
+      )
+    })
+  }
+
+  render() {
+    const { menuConfig } = this.props
+
+    console.warn(this.renderMenuItems(menuConfig))
+    return (
+      <div id={`${hthtPrefix}-slider`}>
+        <Menu
+          onClick={this.handleClick}
+          defaultSelectedKeys={['preface']}
+          defaultOpenKeys={['component', 'structure']}
+          mode="inline"
+        >
+          {this.renderMenuItems(menuConfig)}
+        </Menu>
+      </div>
+    )
+  }
 }
 
 export default Slider

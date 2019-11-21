@@ -1,10 +1,14 @@
 /* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-restricted-syntax */
+/**
+ * 将多维数组转换成一维数组
+ * @param {*} arr
+ */
 export function flattenArr(arr) {
-	return arr.reduce((prev, next) => {
-		return prev.concat(Array.isArray(next) ? flattenArr(next) : next)
-	}, [])
+  return arr.reduce((prev, next) => {
+    return prev.concat(Array.isArray(next) ? flattenArr(next) : next)
+  }, [])
 }
 
 /**
@@ -12,7 +16,7 @@ export function flattenArr(arr) {
  * @param {*} obj
  */
 function isObject(obj) {
-	return Object.prototype.toString.call(obj) === '[object Object]'
+  return Object.prototype.toString.call(obj) === '[object Object]'
 }
 
 /**
@@ -21,19 +25,19 @@ function isObject(obj) {
  */
 
 export function deepCloneObject(obj) {
-	if (!isObject(obj)) {
-		throw new Error('obj 不是一个对象！')
-	}
+  if (!isObject(obj)) {
+    throw new Error('obj 不是一个对象！')
+  }
 
-	const isArray = Array.isArray(obj)
-	const cloneObj = isArray ? [] : {}
-	for (const key in obj) {
-		if (Object.prototype.hasOwnProperty.call(obj, key)) {
-			cloneObj[key] = isObject(obj[key]) ? deepCloneObject(obj[key]) : obj[key]
-		}
-	}
+  const isArray = Array.isArray(obj)
+  const cloneObj = isArray ? [] : {}
+  for (const key in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, key)) {
+      cloneObj[key] = isObject(obj[key]) ? deepCloneObject(obj[key]) : obj[key]
+    }
+  }
 
-	return cloneObj
+  return cloneObj
 }
 
 /**
@@ -43,18 +47,18 @@ export function deepCloneObject(obj) {
  * @return {*}
  */
 export function getParents(el, parentSelector) {
-	if (parentSelector === undefined) {
-		parentSelector = ''
-	}
+  if (parentSelector === undefined) {
+    parentSelector = ''
+  }
 
-	let p = el.parentNode
+  let p = el.parentNode
 
-	while (Array.from(p.classList).indexOf(parentSelector) === -1) {
-		p = p.parentNode
-		if (p.tagName === 'HTML') return
-	}
-	// eslint-disable-next-line consistent-return
-	return p
+  while (Array.from(p.classList).indexOf(parentSelector) === -1) {
+    p = p.parentNode
+    if (p.tagName === 'HTML') return
+  }
+  // eslint-disable-next-line consistent-return
+  return p
 }
 
 /**
@@ -65,17 +69,17 @@ export function getParents(el, parentSelector) {
  * @return {*}
  */
 export function handleArrs(arr1, arr2, arr3) {
-	const len = arr1.length
-	const arr = []
-	for (let i = 0; i < len; i++) {
-		const data = {
-			component: arr1[i],
-			code: arr2[i],
-			desc: arr3[i]
-		}
+  const len = arr1.length
+  const arr = []
+  for (let i = 0; i < len; i++) {
+    const data = {
+      component: arr1[i],
+      code: arr2[i],
+      desc: arr3[i]
+    }
 
-		arr.push(data)
-	}
+    arr.push(data)
+  }
 
-	return arr
+  return arr
 }

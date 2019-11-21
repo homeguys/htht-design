@@ -19,6 +19,9 @@ const TimeChoice = lazy(() =>
 const SpaceChoice = lazy(() =>
   import(/* webpackChunkName: 'SpaceChoice' */ '../../components/space_choice')
 )
+const LinkageSelect = lazy(() =>
+  import(/* webpackChunkName: 'LinkageSelect' */ '../../components/linkage_select')
+)
 
 export default [
   {
@@ -31,40 +34,106 @@ export default [
     name: '更新日志',
     component: <Changelog />
   },
-  {
-    path: 'structure',
-    name: '结构',
-    children: [
-      {
-        path: 'searchbox',
-        name: 'searchbox 搜索框',
-        component: <SearchBox />
-      }
-    ]
-  },
+  // {
+  //   path: 'structure',
+  //   name: '结构',
+  //   children: [
+  //     {
+  //       path: 'searchbox',
+  //       name: 'searchbox 搜索框',
+  //       component: <SearchBox />
+  //     }
+  //   ]
+  // },
   {
     path: 'component',
     name: '组件',
     children: [
       {
-        path: 'nav',
-        name: '导航',
-        component: <Menu />
+        path: 'search',
+        name: '搜索',
+        children: [
+          {
+            path: 'time-choice',
+            name: 'TimeChoice 时间选择',
+            component: <TimeChoice />
+          },
+          {
+            path: 'space-choice',
+            name: 'SpaceChoice 空间选择',
+            component: <SpaceChoice />
+          },
+          {
+            path: 'linkage-select',
+            name: 'linkage-select 三级联动',
+            component: <LinkageSelect />
+          },
+          {
+            path: 'searchbox',
+            name: 'searchbox 搜索框',
+            component: <SearchBox />
+          }
+        ]
       },
       {
         path: 'list',
         name: '列表',
-        component: <List />
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
       },
       {
-        path: 'time-choice',
-        name: 'TimeChoice 时间选择',
-        component: <TimeChoice />
+        path: 'exhibition',
+        name: '展示',
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
       },
       {
-        path: 'space-choice',
-        name: 'SpaceChoice 空间选择',
-        component: <SpaceChoice />
+        path: 'shopcar',
+        name: '购物车',
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
+      },
+      {
+        path: 'paly',
+        name: '播放',
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
+      },
+      {
+        path: 'statistics',
+        name: '统计（大屏）',
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
+      },
+      {
+        path: 'gis',
+        name: 'GIS',
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
       }
     ]
   }

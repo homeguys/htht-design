@@ -91,15 +91,66 @@ $form-title-width: 0.7rem;
 
 /***********************************************************************************/
 
+// 三级联动
+@mixin linkageSelect() {
+  .#{$htht-prefix}-linkage-select {
+    display: flex;
+
+    .item {
+      display: flex;
+      align-items: center;
+      margin-right: 0.1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@include linkageSelect();
+
+/***********************************************************************************/
+
+// 横向选择框
+@mixin searchBoxHorizontal() {
+  .#{$htht-prefix}-search-box.htht-search-box-horizontal {
+    padding: 0.1rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 0.1rem;
+
+    form {
+      display: flex;
+
+      .item {
+        margin-bottom: 0;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+
+/***********************************************************************************/
+
 // 纵向选择框
 @mixin searchBoxVertical() {
-  .#{$htht-prefix}-search-box.htht-search-box-horizontal {
+  .#{$htht-prefix}-search-box.htht-search-box-vertical {
+    width: 4rem;
+    padding: 0.1rem;
+    border: 1px solid #d9d9d9;
+    border-radius: 0.1rem;
+
     @include formCommon();
+
+    .ant-form-item {
+      flex: 1 1;
+    }
   }
 }
 
 // 纵向选择框
 @mixin searchBox() {
+  @include searchBoxHorizontal();
   @include searchBoxVertical();
 }
 

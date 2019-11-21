@@ -8,11 +8,7 @@ const Preface = lazy(() => import(/* webpackChunkName: 'Preface' */ '../../compo
 const Changelog = lazy(() =>
   import(/* webpackChunkName: 'Changelog' */ '../../components/changelog')
 )
-const Menu = lazy(() => import(/* webpackChunkName: 'Menu' */ '../../components/menu'))
-const SearchBox = lazy(() =>
-  import(/* webpackChunkName: 'SearchBox' */ '../../components/search-box')
-)
-const List = lazy(() => import(/* webpackChunkName: 'List' */ '../../components/list'))
+
 const TimeChoice = lazy(() =>
   import(/* webpackChunkName: 'TimeChoice' */ '../../components/time_choice')
 )
@@ -21,6 +17,12 @@ const SpaceChoice = lazy(() =>
 )
 const LinkageSelect = lazy(() =>
   import(/* webpackChunkName: 'LinkageSelect' */ '../../components/linkage_select')
+)
+const TimeSwitch = lazy(() =>
+  import(/* webpackChunkName: 'TimeSwitch' */ '../../components/time_switch')
+)
+const SearchBox = lazy(() =>
+  import(/* webpackChunkName: 'SearchBox' */ '../../components/search-box')
 )
 
 export default [
@@ -34,17 +36,6 @@ export default [
     name: '更新日志',
     component: <Changelog />
   },
-  // {
-  //   path: 'structure',
-  //   name: '结构',
-  //   children: [
-  //     {
-  //       path: 'searchbox',
-  //       name: 'searchbox 搜索框',
-  //       component: <SearchBox />
-  //     }
-  //   ]
-  // },
   {
     path: 'component',
     name: '组件',
@@ -65,12 +56,17 @@ export default [
           },
           {
             path: 'linkage-select',
-            name: 'linkage-select 三级联动',
+            name: 'LinkageSelect 三级联动',
             component: <LinkageSelect />
           },
           {
+            path: 'time-switch',
+            name: 'TimeSwitch 时间切换',
+            component: <TimeSwitch />
+          },
+          {
             path: 'searchbox',
-            name: 'searchbox 搜索框',
+            name: 'Searchbox 搜索框',
             component: <SearchBox />
           }
         ]
@@ -118,6 +114,16 @@ export default [
       {
         path: 'statistics',
         name: '统计（大屏）',
+        children: [
+          {
+            path: 'something',
+            name: 'something'
+          }
+        ]
+      },
+      {
+        path: 'legend',
+        name: '图例',
         children: [
           {
             path: 'something',

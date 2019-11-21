@@ -2,7 +2,8 @@ import React, { Suspense, Fragment } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { Spin } from 'antd'
 import Slider from '../../site/template/slider'
-import routerConfig from './routerConfig'
+import routerConfig from './router_config'
+
 import { flattenArr, deepCloneObject } from '../../utils/utils'
 
 function getRoute(data) {

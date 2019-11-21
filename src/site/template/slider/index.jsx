@@ -18,8 +18,6 @@ class Slider extends React.Component {
 
     return data.map(item => {
       if (item.children) {
-        console.warn(item)
-        console.warn(item.children)
         const len = item.children.length
         let checked = false
 
@@ -59,13 +57,12 @@ class Slider extends React.Component {
   render() {
     const { menuConfig } = this.props
 
-    console.warn(this.renderMenuItems(menuConfig))
     return (
       <div id={`${hthtPrefix}-slider`}>
         <Menu
           onClick={this.handleClick}
           defaultSelectedKeys={['preface']}
-          defaultOpenKeys={['component', 'structure']}
+          defaultOpenKeys={['component']}
           mode="inline"
         >
           {this.renderMenuItems(menuConfig)}

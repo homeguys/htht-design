@@ -5,25 +5,26 @@
 import React, { lazy } from 'react'
 
 const Preface = lazy(() => import(/* webpackChunkName: 'Preface' */ '../../components/preface'))
-const Changelog = lazy(() =>
-  import(/* webpackChunkName: 'Changelog' */ '../../components/changelog')
-)
+const Changelog = lazy(() => import(/* webpackChunkName: 'Changelog' */ '../../components/change_log'))
 
-const TimeChoice = lazy(() =>
-  import(/* webpackChunkName: 'TimeChoice' */ '../../components/time_choice')
-)
-const SpaceChoice = lazy(() =>
-  import(/* webpackChunkName: 'SpaceChoice' */ '../../components/space_choice')
-)
-const LinkageSelect = lazy(() =>
-  import(/* webpackChunkName: 'LinkageSelect' */ '../../components/linkage_select')
-)
-const TimeSwitch = lazy(() =>
-  import(/* webpackChunkName: 'TimeSwitch' */ '../../components/time_switch')
-)
-const SearchBox = lazy(() =>
-  import(/* webpackChunkName: 'SearchBox' */ '../../components/search-box')
-)
+/* search */
+const TimeChoice = lazy(() => import(/* webpackChunkName: 'TimeChoice' */ '../../components/time_choice'))
+const SpaceChoice = lazy(() => import(/* webpackChunkName: 'SpaceChoice' */ '../../components/space_choice'))
+const LinkageSelect = lazy(() => import(/* webpackChunkName: 'LinkageSelect' */ '../../components/linkage_select'))
+const TimeSwitch = lazy(() => import(/* webpackChunkName: 'TimeSwitch' */ '../../components/time_switch'))
+const SearchBox = lazy(() => import(/* webpackChunkName: 'SearchBox' */ '../../components/search_box'))
+
+/* list */
+const List = lazy(() => import(/* webpackChunkName: 'List' */ '../../components/list'))
+
+/* statistics */
+const ChartPie = lazy(() => import(/* webpackChunkName: 'Pie' */ '../../components/chart_pie'))
+const ChartBar = lazy(() => import(/* webpackChunkName: 'Bar' */ '../../components/chart_bar'))
+const ChartLine = lazy(() => import(/* webpackChunkName: 'Line' */ '../../components/chart_line'))
+const ChartGauge = lazy(() => import(/* webpackChunkName: 'Gauge' */ '../../components/chart_gauge'))
+const Videoplay = lazy(() => import(/* webpackChunkName: 'Videoplay' */ '../../components/video_play'))
+const Carousels = lazy(() => import(/* webpackChunkName: 'Carousel' */ '../../components/carousels'))
+
 
 export default [
   {
@@ -42,7 +43,7 @@ export default [
     children: [
       {
         path: 'search',
-        name: '搜索',
+        name: '查询',
         children: [
           {
             path: 'time-choice',
@@ -72,12 +73,49 @@ export default [
         ]
       },
       {
-        path: 'list',
-        name: '列表',
+        path: 'search-result',
+        name: '查询结果',
         children: [
           {
-            path: 'something',
-            name: 'something'
+            path: 'list',
+            name: 'List 列表',
+            component: <List />
+          }
+        ]
+      },
+      {
+        path: 'statistics',
+        name: '统计（大屏）',
+        children: [
+          {
+            path: 'pie',
+            name: 'Pie 饼状图',
+            component: <ChartPie />
+          },
+          {
+            path: 'bar',
+            name: 'Bar 柱状图',
+            component: <ChartBar />
+          },
+          {
+            path: 'line',
+            name: 'Line 折线图',
+            component: <ChartLine />
+          },
+          {
+            path: 'gauge',
+            name: 'Gauge 仪表盘',
+            component: <ChartGauge />
+          },
+          {
+            path: 'videoplay',
+            name: 'Videoplay 视频播放',
+            component: <Videoplay />
+          },
+          {
+            path: 'carousels',
+            name: 'Carousels 轮播图',
+            component: <Carousels />
           }
         ]
       },
@@ -111,16 +149,7 @@ export default [
           }
         ]
       },
-      {
-        path: 'statistics',
-        name: '统计（大屏）',
-        children: [
-          {
-            path: 'something',
-            name: 'something'
-          }
-        ]
-      },
+
       {
         path: 'legend',
         name: '图例',

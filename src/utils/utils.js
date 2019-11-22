@@ -83,3 +83,64 @@ export function handleArrs(arr1, arr2, arr3) {
 
   return arr
 }
+
+/**
+ * 日期格式化
+ * @param {*} data new Date()对象
+ * @param {*} fmt yyyy-MM-dd hh:mm:ss
+ */
+export function dateFormat(date, fmt) {
+  const o = {
+    'M+': date.getMonth() + 1, // 月份
+    'd+': date.getDate(), // 日
+    'h+': date.getHours(), // 小时
+    'm+': date.getMinutes(), // 分
+    's+': date.getSeconds(), // 秒
+    'q+': Math.floor((date.getMonth() + 3) / 3), // 季度
+    S: date.getMilliseconds() // 毫秒
+  }
+  if (/(y+)/.test(fmt)) {
+    fmt = fmt.replace(RegExp.$1, `${date.getFullYear()}`.substr(4 - RegExp.$1.length))
+  }
+  for (const k in o) {
+    if (new RegExp(`(${k})`).test(fmt)) {
+      fmt = fmt.replace(
+        RegExp.$1,
+        RegExp.$1.length === 1 ? o[k] : `00${o[k]}`.substr(`${o[k]}`.length)
+      )
+    }
+  }
+  return fmt
+}
+
+/**
+ * 提示弹出，封装antd
+ * @param {*} message antd的message组件
+ * @param {*} str 提示文字
+ * @param {*} type 提示类型
+ */
+export function toast(message, str, type) {
+  if (str !== '') {
+    message.destroy()
+    message.config({
+      top: document.documentElement.clientHeight - 200,
+      duration: 1
+    })
+    switch (type) {
+      case 'success':
+        message.success(str)
+        break
+      case 'warning':
+        message.warning(str)
+        break
+      case 'error':
+        message.error(str)
+        break
+      case 'info':
+        message.info(str)
+        break
+      default:
+        message.warning(str)
+    }
+  }
+}

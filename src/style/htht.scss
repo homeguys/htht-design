@@ -62,7 +62,7 @@ $form-title-width: 0.7rem;
 
 // 两行空间选择
 @mixin spaceChoiceTwoLine() {
-  .#{$htht-prefix}-space-choice.htht-space-choice-two-line {
+  .#{$htht-prefix}-space-choice.#{$htht-prefix}-space-choice-two-line {
     @include formCommon();
   }
 }
@@ -78,7 +78,7 @@ $form-title-width: 0.7rem;
 
 // 单选横向排列
 @mixin radioChoicehorizontal() {
-  .#{$htht-prefix}-radio-choice.htht-radio-choice-horizontal {
+  .#{$htht-prefix}-radio-choice.#{$htht-prefix}-radio-choice-horizontal {
     @include formCommon();
   }
 }
@@ -157,7 +157,7 @@ $form-title-width: 0.7rem;
 
 // 横向选择框
 @mixin searchBoxHorizontal() {
-  .#{$htht-prefix}-search-box.htht-search-box-horizontal {
+  .#{$htht-prefix}-search-box.#{$htht-prefix}-search-box-horizontal {
     padding: 0.1rem;
     border: 1px solid $border-color;
     border-radius: 0.1rem;
@@ -177,7 +177,7 @@ $form-title-width: 0.7rem;
 
 // 纵向选择框
 @mixin searchBoxVertical() {
-  .#{$htht-prefix}-search-box.htht-search-box-vertical {
+  .#{$htht-prefix}-search-box.#{$htht-prefix}-search-box-vertical {
     width: 4rem;
     padding: 0.1rem;
     border: 1px solid $border-color;
@@ -198,6 +198,66 @@ $form-title-width: 0.7rem;
 }
 
 @include searchBox();
+
+/***********************************************************************************/
+
+// 表格列表
+@mixin tableList() {
+  .#{$htht-prefix}-list.#{$htht-prefix}-table-list {
+    width: 5rem;
+    border: 1px solid $border-color;
+    border-radius: 0.1rem;
+    overflow: hidden;
+
+    .opetates {
+      span {
+        cursor: pointer;
+        margin-right: 0.05rem;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+// 树结构列表
+@mixin treeList() {
+  .#{$htht-prefix}-list.#{$htht-prefix}-tree-list {
+    width: 3rem;
+    border: 1px solid $border-color;
+    border-radius: 0.1rem;
+    padding: 0.1rem;
+  }
+}
+
+// 滚动列表
+@mixin scrollList() {
+  .#{$htht-prefix}-list.#{$htht-prefix}-scroll-list {
+    width: 3rem;
+    border: 1px solid $border-color;
+    border-radius: 0.1rem;
+    padding: 0.1rem;
+
+    ul {
+      li {
+        line-height: 0.35rem;
+        border-bottom: 1px solid $border-color;
+        padding-left: 0.12rem;
+      }
+    }
+  }
+}
+
+// 列表
+@mixin list() {
+  @include tableList();
+  @include treeList();
+  @include scrollList();
+}
+
+@include list();
 
 /***********************************************************************************/
 

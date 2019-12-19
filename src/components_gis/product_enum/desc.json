@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "product_enum",
+    "detail": "产品类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "productEnum",
+        "Type": "Object",
+        "Summary": "产品类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "productEnum",
+        "detail": "产品类型枚举"
+      }
+    ]
+  }
+}

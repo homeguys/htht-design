@@ -1,52 +1,56 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { Icon } from 'antd'
 import Highlight from '../highlight'
-import { varibles } from '../../../config'
-import CodeMeta from '../code_meta'
 import './style.scss'
+import DocContent from '../doc_content'
 
-const { hthtPrefix } = varibles
 
-function MainContent(props) {
-  const { mainDesc, data } = props
+function StaticContent(props) {
+  const { codes, desc} = props
 
   return (
-    <div id={`${hthtPrefix}-main-content`}>
-      <div className="content-wrapper">
-        <article>
-          <section className="markdown">
-            <h1>
-              {mainDesc.value}
-              <span>{mainDesc.name}</span>
-            </h1>
-            <p className="main-desc">{mainDesc.detail}</p>
-            <h2>
-              代码演示
-              <Icon type="appstore" />
-            </h2>
-          </section>
-          <div className="code-box-wrapper">
-            {data.map((item, index) => {
-              return (
-                <section className="code-box" key={index}>
-                  <section className="code-box-demo">{<item.component />}</section>
-                  <CodeMeta item={item} />
-                  <section className="highlight-wrapper">
-                    <div className="highlight">
-                      <Highlight className="javascript,js,jsx">{item.code}</Highlight>
-                    </div>
-                  </section>
-                </section>
-              )
-            })}
-          </div>
-        </article>
+    <DocContent>
+      <div id='gis-static-content'>
+        <div className='gis-static-block'>
+          <h1>{desc.title.value}</h1>
+          <Highlight className="javascript,js,jsx">{codes[0]}</Highlight>
+          <p>{desc.title.detail}</p>
+        </div>
+        <div className='gis-static-block'>
+          <h2>{desc.Overview.value}</h2>
+          <table>
+            <thead>
+            <tr>
+              <th>Name</th>
+              <th>Type</th>
+              <th>Summary</th>
+            </tr>
+            </thead>
+            <tbody>
+            {desc.Overview.table.map((value, index) => {
+              return (<tr key={index}>
+                <td>{value.Name}</td>
+                <td>{value.Type}</td>
+                <td>{value.Summary}</td>
+              </tr>)
+            })
+            }
+            </tbody>
+          </table>
+        </div>
+        <div className='gis-static-block'>
+          <h2>{desc.Details.value}</h2>
+          {desc.Details.content.map((value, index) => {
+            return (<div key={index}>
+              <h3>{value.title}</h3>
+              <p>{value.detail}</p>
+              <Highlight className="javascript,js,jsx">{codes[index+1]}</Highlight>
+            </div>)
+          })}
+        </div>
       </div>
-    </div>
+    </DocContent>
   )
 }
 
-export default MainContent
+export default StaticContent

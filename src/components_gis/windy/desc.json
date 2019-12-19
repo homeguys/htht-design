@@ -1,0 +1,74 @@
+{
+  "title": {
+    "value": "windy",
+    "detail": "绘制流场"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "cesiumPrimitives",
+        "Type": "Primitives",
+        "Summary": "viewer的Primitives"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "cesiumPrimitives",
+        "detail": "viewer的Primitives"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "changeShow",
+        "ReturnType": "null",
+        "Summary": "改变显隐"
+      },
+      {
+        "Name": "loadData",
+        "ReturnType": "null",
+        "Summary": "加载数据"
+      },
+      {
+        "Name": "startWindy",
+        "ReturnType": "null",
+        "Summary": "开始动画"
+      },
+      {
+        "Name": "stopWindy",
+        "ReturnType": "null",
+        "Summary": "暂停动画"
+      }
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content": [
+      {
+        "title": "changeShow",
+        "detail": "改变显隐"
+      },
+      {
+        "title": "loadData",
+        "detail": "加载数据"
+      },
+      {
+        "title": "startWindy",
+        "detail": "开始动画"
+      },
+      {
+        "title": "stopWindy",
+        "detail": "暂停动画"
+      }
+    ]
+  }
+}

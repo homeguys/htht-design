@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "wind_type_enum",
+    "detail": "风场显示类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "windTypeEnum",
+        "Type": "Object",
+        "Summary": "风场显示类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "windTypeEnum",
+        "detail": "风场显示类型枚举"
+      }
+    ]
+  }
+}

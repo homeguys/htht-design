@@ -1,11 +1,13 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
+import DocContent from '../doc_content'
 import './style.scss'
 import Highlight from '../highlight'
 
 function ClassContent (props) {
   const { codes, desc } = props
   return (
+    <DocContent>
     <div id='gis-class-content'>
       <div className='gis-class-block'>
         <h1>{desc.title.value}</h1>
@@ -64,7 +66,7 @@ function ClassContent (props) {
           {desc.MethodOverview.table.map((value, index) => {
             return (<tr key={index}>
               <td>{value.Name}</td>
-              <td>{value.Type}</td>
+              <td>{value.ReturnType}</td>
               <td>{value.Summary}</td>
             </tr>)
           })
@@ -74,10 +76,17 @@ function ClassContent (props) {
       </div>
       <div className='gis-class-block'>
         <h2>{desc.MethodDetails.value}</h2>
-        <Highlight className="javascript,js,jsx">{codes[1]}</Highlight>
-        <p>{desc.MethodDetails.detail}</p>
+        {desc.MethodDetails.content.map((value, index) => {
+          return (<div key={index}>
+            <h3>{value.title}</h3>
+            <p>{value.detail}</p>
+            <p>Example:</p>
+            <Highlight className="javascript,js,jsx">{codes[index + 2+desc.PropertyDetails.content.length]}</Highlight>
+          </div>)
+        })}
       </div>
     </div>
+    </DocContent>
   )
 }
 

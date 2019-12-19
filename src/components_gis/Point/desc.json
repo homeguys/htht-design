@@ -1,0 +1,56 @@
+{
+  "title": {
+    "value": "BasePlottingInfo",
+    "detail": "填图数据的实体"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "x",
+        "Type": "num",
+        "Summary": "x"
+      },
+      {
+        "Name": "y",
+        "Type": "num",
+        "Summary": "y"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "x",
+        "detail": "x"
+      },
+      {
+        "title": "y",
+        "detail": "y"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "null",
+        "ReturnType": "null",
+        "Summary": "null"}
+
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content":[
+      {
+        "title": "null",
+        "detail": "null"
+      }
+    ]
+  }
+}

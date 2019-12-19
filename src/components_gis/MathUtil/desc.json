@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "MathUtil",
+    "detail": "一些数学方法"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "MathUtil",
+        "Type": "Object",
+        "Summary": "一些数学方法"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "MathUtil",
+        "detail": "一些数学方法"
+      }
+    ]
+  }
+}

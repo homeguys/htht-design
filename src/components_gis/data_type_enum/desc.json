@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "data_type_enum",
+    "detail": "添加的数据类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "dataTypeEnum",
+        "Type": "Object",
+        "Summary": "添加的数据类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "dataTypeEnum",
+        "detail": "添加的数据类型枚举"
+      }
+    ]
+  }
+}

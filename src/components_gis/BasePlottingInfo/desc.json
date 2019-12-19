@@ -1,0 +1,74 @@
+{
+  "title": {
+    "value": "BasePlottingInfo",
+    "detail": "填图数据的实体"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "id",
+        "Type": "string",
+        "Summary": "数据的id"
+      },
+      {
+        "Name": "name",
+        "Type": "string",
+        "Summary": "数据的name"
+      },
+      {
+        "Name": "position",
+        "Type": "array",
+        "Summary": "数据的经纬度"
+      },
+      {
+        "Name": "dataInfo",
+        "Type": "Object",
+        "Summary": "数据详情数值"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "id",
+        "detail": "数据的id"
+      },
+      {
+        "title": "name",
+        "detail": "数据的name"
+      },
+      {
+        "title": "position",
+        "detail": "数据的经纬度"
+      },
+      {
+        "title": "dataInfo",
+        "detail": "数据详情数值"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "null",
+        "ReturnType": "null",
+        "Summary": "null"}
+
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content":[
+      {
+        "title": "null",
+        "detail": "null"
+      }
+    ]
+  }
+}

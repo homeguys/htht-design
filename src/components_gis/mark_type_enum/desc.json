@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "mark_type_enum",
+    "detail": "mark点显示类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "markTypeEnum",
+        "Type": "Object",
+        "Summary": "mark点显示类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "markTypeEnum",
+        "detail": "mark点显示类型枚举"
+      }
+    ]
+  }
+}

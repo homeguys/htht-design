@@ -1,0 +1,43 @@
+{
+  "title": {
+    "value": "productConfig",
+    "detail": "产品的一些配置文件，经常需要改动"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "ELECONFIG",
+        "Type": "Object",
+        "Summary": "产品服务的url、layer名配置"
+      },
+      {
+        "Name": "rgb216",
+        "Type": "function",
+        "Summary": "rgb转16进制，外部不需要使用"
+      },
+      {
+        "Name": "returnEleStyle",
+        "Type": "Object",
+        "Summary": "返回产品的服务样式"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "ELECONFIGs",
+        "detail": "产品服务的url、layer名配置"
+      },
+      {
+        "title": "rgb216",
+        "detail": "rgb转16进制，外部不需要使用"
+      },
+      {
+        "title": "returnEleStyle",
+        "detail": "返回产品的服务样式"
+      }
+    ]
+  }
+}

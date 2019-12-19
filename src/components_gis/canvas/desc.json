@@ -1,0 +1,83 @@
+{
+  "title": {
+    "value": "canvas",
+    "detail": "构造的canvas类"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "Cartesian3ToPx",
+        "Type": "function",
+        "Summary": "经纬度转屏幕坐标的方法"
+      },
+      {
+        "Name": "viewer",
+        "Type": "Object",
+        "Summary": "地图viewer对象"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "Cartesian3ToPx",
+        "detail": "经纬度转屏幕坐标的方法"
+      },
+      {
+        "title": "viewer",
+        "detail": "地图viewer对象"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "loadData",
+        "ReturnType": "null",
+        "Summary": "加载数据"
+      },
+      {
+        "Name": "draw",
+        "ReturnType": "null",
+        "Summary": "绘制"
+      },
+      {
+        "Name": "lonLatToCanvasXY",
+        "ReturnType": "array",
+        "Summary": "经纬度转canvas坐标"
+      },
+      {
+        "Name": "lonLatToXY",
+        "ReturnType": "array",
+        "Summary": "经纬度转屏幕坐标"
+      }
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content": [
+      {
+        "title": "loadData",
+        "detail": "加载数据"
+      },
+      {
+        "title": "draw",
+        "detail": "绘制"
+      },
+      {
+        "title": "lonLatToCanvasXY",
+        "detail": "经纬度转canvas坐标"
+      },
+      {
+        "title": "lonLatToXY",
+        "detail": "经纬度转屏幕坐标"
+      }
+    ]
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "title": {
+    "value": "BaseStaInfo",
+    "detail": "站点数据的实体"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "id",
+        "Type": "string",
+        "Summary": "数据的id"
+      },
+      {
+        "Name": "name",
+        "Type": "string",
+        "Summary": "数据的name"
+      },
+      {
+        "Name": "picUrl",
+        "Type": "img",
+        "Summary": "图片标识"
+      },
+      {
+        "Name": "lon",
+        "Type": "num",
+        "Summary": "经度"
+      },
+      {
+        "Name": "lat",
+        "Type": "num",
+        "Summary": "纬度"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "id",
+        "detail": "数据的id"
+      },
+      {
+        "title": "name",
+        "detail": "数据的name"
+      },
+      {
+        "title": "picUrl",
+        "detail": "图片标识"
+      },
+      {
+        "title": "lon",
+        "detail": "经度"
+      },
+      {
+        "title": "lat",
+        "detail": "纬度"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "null",
+        "ReturnType": "null",
+        "Summary": "null"}
+
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content":[
+      {
+        "title": "null",
+        "detail": "null"
+      }
+    ]
+  }
+}

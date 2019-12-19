@@ -1,15 +1,16 @@
 import React from 'react'
+import DocContent from '../../site/template/doc_content'
 
 class Preface extends React.Component {
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
-		return (
-			<div className="preface">
-				<span>preface</span>
-			</div>
-		)
-	}
+  render() {
+    return (
+      <DocContent>
+        <div style={{ height: '3000px' }}>test</div>
+      </DocContent>
+    )
+  }
 }
 
 export default Preface

@@ -1,0 +1,60 @@
+$main-color: #1890ff;
+$border-color: #d9d9d9;
+$form-title-width: 0.7rem;
+
+@mixin init() {
+  background: green;
+  width: 100%;
+}
+
+@mixin title() {
+  font-size: 0.28rem;
+}
+
+/***********************************************************************************/
+.gis-preface {
+  @include init();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    @include title();
+  }
+
+}
+
+/***********************************************************************************/
+.gis-change-log {
+  @include init();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    @include title();
+  }
+}
+
+/***********************************************************************************/
+
+.gis-install {
+  @include init();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  p {
+    @include title();
+  }
+}
+/***********************************************************************************/
+
+.gis-myCesium{
+  p {
+    @include title();
+  }
+}

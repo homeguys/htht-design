@@ -15,6 +15,7 @@ class Slider extends React.Component {
   renderMenuItems = (data, parentPath = '') => {
     const { match } = this.props
     const { url } = match
+    const path = parentPath ? '/' : ''
 
     return data.map(item => {
       if (item.children) {
@@ -48,7 +49,7 @@ class Slider extends React.Component {
 
       return (
         <Menu.Item key={item.path}>
-          <Link to={`${url}/${parentPath}/${item.path}`}>{item.name}</Link>
+          <Link to={`${url}${path}${parentPath}/${item.path}`}>{item.name}</Link>
         </Menu.Item>
       )
     })

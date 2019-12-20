@@ -10,13 +10,16 @@ const Install = lazy(() => import(/* webpackChunkName: 'Install' */ '../../compo
 
 /* webMap */
 const NjHTHTMAP = lazy(() => import(/* webpackChunkName: 'NjHTHTMAP' */ '../../components_gis/NjHTHTMAP'))
+
 /* config */
 const MapConfig = lazy(() => import(/* webpackChunkName: 'MapConfig' */ '../../components_gis/mapConfig'))
 const ProductConfig = lazy(() => import(/* webpackChunkName: 'ProductConfig' */ '../../components_gis/productConfig'))
+
 /* entity */
 const BasePlottingInfo = lazy(() => import(/* webpackChunkName: 'BasePlottingInfo' */ '../../components_gis/BasePlottingInfo'))
 const BaseStaInfo = lazy(() => import(/* webpackChunkName: 'BaseStaInfo' */ '../../components_gis/BaseStaInfo'))
 const Point = lazy(() => import(/* webpackChunkName: 'Point' */ '../../components_gis/Point'))
+
 /* enum */
 const DataTypeEnum = lazy(() => import(/* webpackChunkName: 'DataTypeEnum' */ '../../components_gis/data_type_enum'))
 const ErrorEnum = lazy(() => import(/* webpackChunkName: 'ErrorEnum' */ '../../components_gis/error_enum'))
@@ -26,6 +29,7 @@ const MarkTypeEnum = lazy(() => import(/* webpackChunkName: 'MarkTypeEnum' */ '.
 const PlottingTypeEnum = lazy(() => import(/* webpackChunkName: 'PlottingTypeEnum' */ '../../components_gis/plotting_type_enum'))
 const ProductEnum = lazy(() => import(/* webpackChunkName: 'ProductEnum' */ '../../components_gis/product_enum'))
 const WindTypeEnum = lazy(() => import(/* webpackChunkName: 'WindTypeEnum' */ '../../components_gis/wind_type_enum'))
+
 /* model */
 const Canvas = lazy(() => import(/* webpackChunkName: 'Canvas' */ '../../components_gis/canvas'))
 const CanvasContour = lazy(() => import(/* webpackChunkName: 'CanvasContour' */ '../../components_gis/canvas_contour'))
@@ -61,7 +65,6 @@ export default [
         path: 'NjHTHTMAP',
         name: 'NjHTHTMAP',
         component: <NjHTHTMAP/>
-
       },
       {
         path: 'config',

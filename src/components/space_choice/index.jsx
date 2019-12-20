@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import MainContent from '../../site/template/content'
+import MainContent from '../../site/template/demo_content'
 import desc from './desc.json'
 import demoCodes from './demo/codes.md'
 import demos from './demo/demos'

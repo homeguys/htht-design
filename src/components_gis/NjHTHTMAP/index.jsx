@@ -5,14 +5,14 @@ import desc from './desc.json'
 import ClassContent from '../../site/template/class_gis'
 
 class NjHTHTMAP extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       codes: ''
     }
   }
 
-  componentDidMount () {
+  componentDidMount() {
     axios.get(demoCodes).then(res => {
       const { data } = res
       let codes = data.split('---').filter(Boolean)
@@ -28,9 +28,9 @@ class NjHTHTMAP extends React.Component {
     })
   }
 
-  render () {
+  render() {
     const { codes } = this.state
-    return <ClassContent codes={codes} desc={desc}/>
+    return <ClassContent codes={codes} desc={desc} />
   }
 }
 

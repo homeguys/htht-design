@@ -6,77 +6,77 @@ import NjHTHTMAP from '../webMap/NjHTHTMAP'
 
 ```jsx
 new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: this.state.cutLayer,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: this.state.cutLayer,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
 ```
 
 ---
 
 ```jsx
-<div id="mapContainer"/>
+;<div id="mapContainer" />
 
 new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: this.state.cutLayer,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
-```
-
----
-
-```jsx
-new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: this.state.cutLayer,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: this.state.cutLayer,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
 ```
 
 ---
 
 ```jsx
 new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: this.state.cutLayer,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: this.state.cutLayer,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
 ```
 
 ---
 
 ```jsx
 new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: this.state.cutLayer,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: this.state.cutLayer,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
+```
+
+---
+
+```jsx
+new NjHTHTMAP({
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: this.state.cutLayer,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
 ```
 
 ---
@@ -85,30 +85,30 @@ new NjHTHTMAP({
 import { mapTypeEnum } from '../webMap/enum/map_type_enum'
 
 new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: map_type_enum.tdt_img_w,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: map_type_enum.tdt_img_w,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
 ```
 
 ---
 
 ```jsx
 new NjHTHTMAP({
-      domId: 'mapContainer',
-      initPostion: [118, 20, 10000000],
-      is3D: false,
-      isFly: false,
-      mapType: this.state.cutLayer,
-      callback: myMap => {
-        console.log(myMap);
-      }
-    })
+  domId: 'mapContainer',
+  initPostion: [118, 20, 10000000],
+  is3D: false,
+  isFly: false,
+  mapType: this.state.cutLayer,
+  callback: myMap => {
+    console.log(myMap)
+  }
+})
 ```
 
 ---

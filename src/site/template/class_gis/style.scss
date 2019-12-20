@@ -1,3 +1,8 @@
-.gis-class-block {
-  margin: 0.5rem;
+@import '../../../style/default.scss';
+@import '../../../style/theme.scss';
+
+##{$htht-prefix}-main-content {
+  .content-wrapper {
+    @include gisBlock();
+  }
 }

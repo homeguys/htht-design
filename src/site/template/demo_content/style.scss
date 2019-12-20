@@ -3,38 +3,6 @@
 
 ##{$htht-prefix}-main-content {
   .content-wrapper {
-    // 组件名称和解释说明
-    .markdown {
-      h1 {
-        font-size: 0.28rem;
-        font-weight: 500;
-        margin: 0.1rem 0 0.2rem 0;
-        color: #0d1a26;
-
-        span {
-          margin-left: 0.12rem;
-        }
-      }
-
-      p.main-desc {
-        text-indent: 2em;
-      }
-
-      h2 {
-        color: #0d1a26;
-        font-size: 0.23rem;
-        font-weight: 500;
-        margin: 0.35rem 0 0.15rem 0;
-
-        i {
-          font-weight: normal;
-          font-size: 0.18rem;
-          color: #3b4357;
-          margin-left: 0.06rem;
-        }
-      }
-    }
-
     // 组件代码演示区域
     .code-box-wrapper {
       section.code-box {
@@ -141,24 +109,7 @@
         }
 
         section.highlight-wrapper {
-          // height: 600px;
           display: none;
-
-          pre {
-            code {
-              display: block;
-              padding: 16px 32px;
-              color: #314659;
-              font-size: 14px;
-              font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono',
-                monospace;
-              line-height: 2;
-              white-space: pre;
-              background: white;
-              border: 1px solid #e9e9e9;
-              border-radius: 2px;
-            }
-          }
         }
       }
     }

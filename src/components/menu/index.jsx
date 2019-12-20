@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import MainContent from '../../site/template/content'
+import MainContent from '../../site/template/demo_content'
 import description from './description.json'
 import manifest from './demo/manifest.md'
 import { handleArrs } from '../../utils/utils'

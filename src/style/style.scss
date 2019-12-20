@@ -31,14 +31,17 @@ body,
         overflow: auto;
 
         .content-wrapper {
-          padding: 0 1.5rem 1rem 0.6rem;
+          position: relative;
+          padding: 0 1.5rem 1rem 0.5rem;
+          min-height: 100%;
+
+          // 组件名称和解释说明
+          @include titleStyle();
+
+          // 代码模块样式
+          @include codeStyle();
         }
       }
     }
   }
-}
-
-code {
-  background: #040d2de6 !important;
-  color: #fff !important;
 }

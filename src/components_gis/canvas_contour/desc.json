@@ -1,0 +1,65 @@
+{
+  "title": {
+    "value": "canvas_contour",
+    "detail": "绘制等值线的类"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "Cartesian3ToPx",
+        "Type": "string",
+        "Summary": "经纬度转屏幕坐标的方法"
+      },
+      {
+        "Name": "viewer",
+        "Type": "string",
+        "Summary": "地图viewer对象"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "Cartesian3ToPx",
+        "detail": "经纬度转屏幕坐标的方法"
+      },
+      {
+        "title": "viewer",
+        "detail": "地图viewer对象"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "loadData",
+        "ReturnType": "null",
+        "Summary": "加载数据"
+      },
+      {
+        "Name": "draw",
+        "ReturnType": "Object",
+        "Summary": "绘制"
+      }
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content": [
+      {
+        "title": "loadData",
+        "detail": "加载数据"
+      },
+      {
+        "title": "draw",
+        "detail": "绘制"
+      }
+    ]
+  }
+}

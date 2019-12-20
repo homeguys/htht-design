@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "error_enum",
+    "detail": "错误类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "errorEnum",
+        "Type": "Object",
+        "Summary": "错误类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "errorEnum",
+        "detail": "错误类型枚举"
+      }
+    ]
+  }
+}

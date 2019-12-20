@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "plotting_type_enum",
+    "detail": "填图的数据类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "plottingTypeEnum",
+        "Type": "Object",
+        "Summary": "填图的数据类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "plottingTypeEnum",
+        "detail": "填图的数据类型枚举"
+      }
+    ]
+  }
+}

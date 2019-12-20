@@ -1,0 +1,353 @@
+{
+  "title": {
+    "value": "NjHTHTMAP",
+    "detail": "最主要的文件"
+  },
+  "Constructors": {
+    "value": "Constructors"
+  },
+  "PropertyOverview": {
+    "value": "Property Overview",
+    "table": [
+      {
+        "Name": "domId",
+        "Type": "string",
+        "Summary": "存放地球div的id"
+      },
+      {
+        "Name": "initPostion",
+        "Type": "array",
+        "Summary": "初始视野中心及高度"
+      },
+      {
+        "Name": "is3D",
+        "Type": "boolean",
+        "Summary": "初始地球是否为3D"
+      },
+      {
+        "Name": "isFly",
+        "Type": "boolean",
+        "Summary": "初始地球是否飞行定位"
+      },
+      {
+        "Name": "mapType",
+        "Type": "mark_type_enum",
+        "Summary": "初始底图类型"
+      },
+      {
+        "Name": "callback",
+        "Type": "function",
+        "Summary": "初始化map后的回调函数"
+      }
+    ]
+  },
+  "PropertyDetails": {
+    "value": "Property Details",
+    "content": [
+      {
+        "title": "domId",
+        "detail": "存放地球div的id"
+      },
+      {
+        "title": "initPostion",
+        "detail": "初始视野中心及高度,[经度，纬度，高度]"
+      },
+      {
+        "title": "is3D",
+        "detail": "初始地球是否为3D，true对应三维，false对应二维"
+      },
+      {
+        "title": "isFly",
+        "detail": "初始地球是否飞行定位，true对应飞行，false对应直接定位"
+      },
+      {
+        "title": "mapType",
+        "detail": "初始底图类型，从map_type_enum中获取标识，map_type_enum.tdt_img_w"
+      },
+      {
+        "title": "callback",
+        "detail": "初始化map后的回调函数，返回构造的map对象,常用语绑定事件，避免异步问题"
+      }
+    ]
+  },
+  "MethodOverview": {
+    "value": "Method Overview",
+    "table": [
+      {
+        "Name": "addEvent",
+        "ReturnType": "null",
+        "Summary": "增加事件"
+      },
+      {
+        "Name": "addMark",
+        "ReturnType": "null",
+        "Summary": "加载mark点"
+      },
+      {
+        "Name": "addPic",
+        "ReturnType": "null",
+        "Summary": "贴图"
+      },
+      {
+        "Name": "Cartesian2ToCartesian3",
+        "ReturnType": "Cartesian3",
+        "Summary": "Cartesian2转Cartesian3"
+      },
+      {
+        "Name": "Cartesian3ToPx",
+        "ReturnType": "{x,y}",
+        "Summary": "Cartesian3转屏幕坐标"
+      },
+      {
+        "Name": "cartographicRadiansToCartographicDegrees",
+        "ReturnType": "cartographicDegrees",
+        "Summary": "地表弧度坐标转地表经纬度"
+      },
+      {
+        "Name": "cahangeDataIsShow",
+        "ReturnType": "null",
+        "Summary": "改变显隐"
+      },
+      {
+        "Name": "changeEvent",
+        "ReturnType": "null",
+        "Summary": "改变事件是否可用"
+      },
+      {
+        "Name": "clickEvent",
+        "ReturnType": "null",
+        "Summary": "点击事件"
+      },
+      {
+        "Name": "contourLine",
+        "ReturnType": "null",
+        "Summary": "等值线"
+      },
+      {
+        "Name": "drawLine",
+        "ReturnType": "null",
+        "Summary": "画线"
+      },
+      {
+        "Name": "drawPlotting",
+        "ReturnType": "null",
+        "Summary": "填图"
+      },
+      {
+        "Name": "drawPlottingLocation",
+        "ReturnType": "null",
+        "Summary": "填图定位"
+      },
+      {
+        "Name": "画点",
+        "ReturnType": "null",
+        "Summary": "drawPoint"
+      },
+      {
+        "Name": "画面",
+        "ReturnType": "null",
+        "Summary": "drawPolygon"
+      },
+      {
+        "Name": "flow",
+        "ReturnType": "null",
+        "Summary": "流场"
+      },
+      {
+        "Name": "getViewCentre",
+        "ReturnType": "{x,y}",
+        "Summary": "获取当前视野中心"
+      },
+      {
+        "Name": "in",
+        "ReturnType": "null",
+        "Summary": "放大"
+      },
+      {
+        "Name": "init",
+        "ReturnType": "null",
+        "Summary": "恢复"
+      },
+      {
+        "Name": "initBaseLayer",
+        "ReturnType": "null",
+        "Summary": "初始化地图,一般不调用"
+      },
+      {
+        "Name": "loadServer",
+        "ReturnType": "null",
+        "Summary": "加载服务"
+      },
+      {
+        "Name": "markLocation",
+        "ReturnType": "null",
+        "Summary": "mark定位"
+      },
+      {
+        "Name": "out",
+        "ReturnType": "null",
+        "Summary": "缩小"
+      },
+      {
+        "Name": "removeData",
+        "ReturnType": "null",
+        "Summary": "移除data"
+      },
+      {
+        "Name": "removeEvent",
+        "ReturnType": "null",
+        "Summary": "移除监听事件"
+      },
+      {
+        "Name": "setView",
+        "ReturnType": "null",
+        "Summary": "视角定位"
+      },
+      {
+        "Name": "switchBaseMap",
+        "ReturnType": "null",
+        "Summary": "地图切换"
+      },
+      {
+        "Name": "text",
+        "ReturnType": "null",
+        "Summary": "文字"
+      },
+      {
+        "Name": "wheelEvent",
+        "ReturnType": "null",
+        "Summary": "点击滚轮事件"
+      },
+      {
+        "Name": "wind",
+        "ReturnType": "null",
+        "Summary": "风场"
+      }
+    ]
+  },
+  "MethodDetails": {
+    "value": "Method Details",
+    "content": [
+      {
+        "title": "addEvent",
+        "detail": "用于增加事件"
+      },
+      {
+        "title": "addMark",
+        "detail": "加载mark点"
+      },
+      {
+        "title": "addPic",
+        "detail": "贴图"
+      },
+      {
+        "title": "Cartesian2ToCartesian3",
+        "detail": "Cartesian2转Cartesian3，工具方法，一般不调用"
+      },
+      {
+        "title": "Cartesian3ToPx",
+        "detail": "Cartesian3转屏幕坐标，工具方法，一般不调用"
+      },
+      {
+        "title": "cartographicRadiansToCartographicDegrees",
+        "detail": "地表弧度坐标转地表经纬度，工具方法，一般不调用"
+      },
+      {
+        "title": "cahangeDataIsShow",
+        "detail": "改变显隐"
+      },
+      {
+        "title": "changeEvent",
+        "detail": "改变事件是否可用"
+      },
+      {
+        "title": "clickEvent",
+        "detail": "点击事件，一般不调用"
+      },
+      {
+        "title": "contourLine",
+        "detail": "等值线"
+      },
+      {
+        "title": "drawLine",
+        "detail": "画线"
+      },
+      {
+        "title": "drawPlotting",
+        "detail": "填图"
+      },
+      {
+        "title": "drawPlottingLocation",
+        "detail": "填图定位"
+      },
+      {
+        "title": "画点",
+        "detail": "drawPoint"
+      },
+      {
+        "title": "画面",
+        "detail": "drawPolygon"
+      },
+      {
+        "title": "flow",
+        "detail": "流场"
+      },
+      {
+        "title": "getViewCentre",
+        "detail": "获取当前视野中心"
+      },
+      {
+        "title": "in",
+        "detail": "放大"
+      },
+      {
+        "title": "init",
+        "detail": "恢复"
+      },
+      {
+        "title": "initBaseLayer",
+        "detail": "初始化地图,一般不调用"
+      },
+      {
+        "title": "loadServer",
+        "detail": "加载服务"
+      },
+      {
+        "title": "markLocation",
+        "detail": "mark定位"
+      },
+      {
+        "title": "out",
+        "detail": "缩小"
+      },
+      {
+        "title": "removeData",
+        "detail": "移除data"
+      },
+      {
+        "title": "removeEvent",
+        "detail": "移除监听事件"
+      },
+      {
+        "title": "setView",
+        "detail": "视角定位"
+      },
+      {
+        "title": "switchBaseMap",
+        "detail": "地图切换"
+      },
+      {
+        "title": "text",
+        "detail": "文字"
+      },
+      {
+        "title": "wheelEvent",
+        "detail": "点击滚轮事件"
+      },
+      {
+        "title": "wind",
+        "detail": "风场"
+      }
+    ]
+  }
+}

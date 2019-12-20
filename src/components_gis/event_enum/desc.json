@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "event_enum",
+    "detail": "事件类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "eventEnum",
+        "Type": "Object",
+        "Summary": "事件类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "eventEnum",
+        "detail": "事件类型枚举"
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "title": {
+    "value": "map_type_enum",
+    "detail": "地图类型枚举"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "mapTypeEnum",
+        "Type": "Object",
+        "Summary": "地图类型枚举"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "mapTypeEnum",
+        "detail": "地图类型枚举"
+      }
+    ]
+  }
+}

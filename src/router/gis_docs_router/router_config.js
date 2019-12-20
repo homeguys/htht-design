@@ -8,8 +8,8 @@ const Preface = lazy(() => import(/* webpackChunkName: 'Preface' */ '../../compo
 const Changelog = lazy(() => import(/* webpackChunkName: 'Changelog' */ '../../components_gis/change_log'))
 const Install = lazy(() => import(/* webpackChunkName: 'Install' */ '../../components_gis/install'))
 
-/* webCesium */
-const MyCesium = lazy(() => import(/* webpackChunkName: 'MyCesium' */ '../../components_gis/myCesium'))
+/* webMap */
+const NjHTHTMAP = lazy(() => import(/* webpackChunkName: 'NjHTHTMAP' */ '../../components_gis/NjHTHTMAP'))
 /* config */
 const MapConfig = lazy(() => import(/* webpackChunkName: 'MapConfig' */ '../../components_gis/mapConfig'))
 const ProductConfig = lazy(() => import(/* webpackChunkName: 'ProductConfig' */ '../../components_gis/productConfig'))
@@ -53,14 +53,14 @@ export default [
     component: <Install/>
   },
   {
-    path: 'webCesium',
-    name: 'webCesium',
+    path: 'webMap',
+    name: 'webMap',
     children: [
       {
 
-        path: 'myCesium',
-        name: 'myCesium',
-        component: <MyCesium/>
+        path: 'NjHTHTMAP',
+        name: 'NjHTHTMAP',
+        component: <NjHTHTMAP/>
 
       },
       {

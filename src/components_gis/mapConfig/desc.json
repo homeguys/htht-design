@@ -1,0 +1,70 @@
+{
+  "title": {
+    "value": "mapConfig",
+    "detail": "map的一些配置文件,一般不会用"
+  },
+  "Overview": {
+    "value": "Overview",
+    "table": [
+      {
+        "Name": "mapParams",
+        "Type": "Object",
+        "Summary": "map的一些环境配置"
+      },
+      {
+        "Name": "onLineTdtLayers_w",
+        "Type": "Object",
+        "Summary": "在线天地图URL配置"
+      },
+      {
+        "Name": "onLineTdtLayers_c",
+        "Type": "Object",
+        "Summary": "在线天地图URL配置"
+      },
+      {
+        "Name": "onLineGoogleLayers",
+        "Type": "Object",
+        "Summary": "在线google地图URL配置"
+      },
+      {
+        "Name": "onLineGaodeLayers",
+        "Type": "Object",
+        "Summary": "在线高德地图URL配置"
+      },
+      {
+        "Name": "offLineTdtLayers",
+        "Type": "Object",
+        "Summary": "离线天地图URL配置(经纬度)"
+      }
+    ]
+  },
+  "Details": {
+    "value": "Details",
+    "content":  [
+      {
+        "title": "mapParams",
+        "detail": "map的一些环境配置"
+      },
+      {
+        "title": "onLineTdtLayers_w",
+        "detail": "在线天地图URL配置"
+      },
+      {
+        "title": "onLineTdtLayers_c",
+        "detail": "在线天地图URL配置"
+      },
+      {
+        "title": "onLineGoogleLayers",
+        "detail": "在线google地图URL配置"
+      },
+      {
+        "title": "onLineGaodeLayers",
+        "detail": "在线高德地图URL配置"
+      },
+      {
+        "title": "offLineTdtLayers",
+        "detail": "离线天地图URL配置(经纬度)"
+      }
+    ]
+  }
+}

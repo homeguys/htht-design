@@ -27,6 +27,7 @@ const Carousels = lazy(() => import(/* webpackChunkName: 'Carousel' */ '../../co
 
 /* gis */
 const Toolbar = lazy(() => import(/* webpackChunkName: 'Toolbar' */ '../../components/toolbar'))
+const InitMap = lazy(() => import(/* webpackChunkName: 'InitMap' */ '../../components/initMap'))
 
 
 export default [
@@ -171,6 +172,11 @@ export default [
             path: 'toolbar',
             name: '工具栏',
             component: <Toolbar />
+          },
+          {
+            path: 'initMap',
+            name: '初始化地图',
+            component: <InitMap />
           }
         ]
       }

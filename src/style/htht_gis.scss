@@ -1,6 +1,7 @@
 $main-color: #1890ff;
 $border-color: #d9d9d9;
 $form-title-width: 0.7rem;
+$slideWidth: 40%;
 
 @mixin init() {
   background: #1d2542;
@@ -36,12 +37,42 @@ $form-title-width: 0.7rem;
   @include init();
   display: flex;
   align-items: center;
-  justify-content: center;
-  flex-direction: column;
+  justify-content: space-around;
 
-  p {
-    @include title();
+  .gis-change-time {
+    width: #{$slideWidth};
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .ant-timeline-item-content {
+      color: #{$border-color};
+      cursor: pointer;
+    }
+
+    .ant-timeline-item-content:hover {
+      color: #{$main-color};
+    }
   }
+
+  .gis-change-content {
+    width: calc(100% - #{$slideWidth});
+
+
+    h1 {
+      color: #{$border-color};
+      font-size: 0.26rem;
+    }
+
+    li {
+      color: #{$border-color};
+      margin: 0.2rem 0;
+    }
+
+  }
+
+
 }
 
 /***********************************************************************************/
@@ -64,6 +95,7 @@ $form-title-width: 0.7rem;
     }
   }
 }
+
 /***********************************************************************************/
 
 .gis-NjHTHTMAP {

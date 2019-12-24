@@ -11,7 +11,7 @@ class Install extends React.Component {
           <h1>以下基于react环境下</h1>
           <ol>
             <li>npm run eject</li>
-            <li>yarn add cesium</li>
+            <li>yarn add cesium（必须是1.62版本）</li>
             <li>
               复制node_modules\cesium\Build\Cesium到public 重命名为cesium
               删除文件夹里面的Cesium.js文件

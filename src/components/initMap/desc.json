@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "InitMap",
+    "name": "初始化地图",
+    "detail": "初始化地图"
+  },
+  "demo": [
+    {
+      "title": "初始化地图",
+      "detail": "初始化地图"
+    }
+  ]
+}

@@ -155,6 +155,58 @@ export function toast(message, str, type) {
   }
 }
 
+export function createHash(hashLength) {
+  if (!hashLength || typeof Number(hashLength) !== 'number') {
+    return
+  }
+  const ar = [
+    '1',
+    '2',
+    '3',
+    '4',
+    '5',
+    '6',
+    '7',
+    '8',
+    '9',
+    '0',
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'
+  ]
+  const hs = []
+  const hl = Number(hashLength)
+  const al = ar.length
+  for (let i = 0; i < hl; i++) {
+    hs.push(ar[Math.floor(Math.random() * al)])
+  }
+
+  return hs.join('')
+}
+
 // antd和iconfont组合一起
 export const IconFont = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1575007_am2j2qus0nt.js'

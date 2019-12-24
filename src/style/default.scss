@@ -8,7 +8,7 @@ $header-height: 0.65rem;
       font-size: 0.28rem;
       font-weight: 500;
       margin: 0.1rem 0 0.2rem 0;
-      color: #0d1a26;
+      color: $title-color;
 
       span {
         margin-left: 0.12rem;
@@ -21,7 +21,7 @@ $header-height: 0.65rem;
     }
 
     h2 {
-      color: #0d1a26;
+      color: $title-color;
       font-size: 0.23rem;
       font-weight: 500;
       margin: 0.3rem 0 0.15rem 0;
@@ -29,7 +29,7 @@ $header-height: 0.65rem;
       i {
         font-weight: normal;
         font-size: 0.18rem;
-        color: #3b4357;
+        color: $title-color;
         margin-left: 0.06rem;
       }
     }
@@ -48,13 +48,13 @@ $header-height: 0.65rem;
       white-space: pre;
       border: 1px solid #e9e9e9;
       border-radius: 0.03rem;
-      background: #040d2de6;
+      background: $code-block-color;
       color: #fff;
     }
   }
 }
 
-// api table展示模块
+// 地图api table展示模块
 @mixin apiTable() {
   .api-table {
     width: 100%;
@@ -90,7 +90,7 @@ $header-height: 0.65rem;
     }
 
     .gis-block-title {
-      background: #98b974;
+      background: $main-color;
       color: #fff;
       padding: 0.12rem 0.05rem;
       margin-bottom: 0.2rem;
@@ -99,7 +99,7 @@ $header-height: 0.65rem;
     .gis-block-subtitle {
       font-size: 0.2rem;
       margin-bottom: 0.08rem;
-      color: #4e8018;
+      color: $main-color;
     }
 
     .gis-block-detail {

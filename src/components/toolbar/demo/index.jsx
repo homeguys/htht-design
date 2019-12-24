@@ -1,27 +1,30 @@
 import React from 'react'
 import { Dropdown, Icon, Menu, Cascader } from 'antd'
-import { getParents } from '../../../utils/utils'
+import { getParents, createHash } from '../../../utils/utils'
 
 class Toolbar extends React.Component {
+  constructor(props) {
+    super(props)
+    this.hash = createHash(6)
+  }
+
   componentDidMount() {
-    const toolbarList = document.getElementsByClassName('toolbar-list')[0]
+    const toolbarList = document.getElementsByClassName(`toolbar-list-${this.hash}`)[0]
     /**
      * 工具栏一级目录所有click事件
      */
-    // const { baseMap } = this.props
-    console.warn(toolbarList)
     toolbarList.addEventListener('click', this.toolbarMethod, false)
   }
 
   componentWillUnmount() {
-    const toolbarList = document.getElementsByClassName('toolbar-list')[0]
+    const toolbarList = document.getElementsByClassName(`toolbar-list-${this.hash}`)[0]
     toolbarList.removeEventListener('click', this.toolbarMethod)
   }
 
   // 组装下拉元素
   getMenu(data) {
     return (
-      <Menu onClick={this.dropdownClick} className="basemapChange">
+      <Menu onClick={this.dropdownClick}>
         {data.map(item => (
           <Menu.Item key={item.value}>{item.name}</Menu.Item>
         ))}
@@ -31,6 +34,7 @@ class Toolbar extends React.Component {
 
   // 工具栏方法集
   toolbarMethod = e => {
+    // const { baseMap } = this.props
     const target = getParents(e.target, 'LI')
     if (target && target.tagName === 'LI') {
       const { className } = target
@@ -85,7 +89,6 @@ class Toolbar extends React.Component {
 
   render() {
     const { dataSource, options, hasRegion, position } = this.props
-
     let list = []
     const data = dataSource
       ? dataSource.map(item => {
@@ -128,7 +131,7 @@ class Toolbar extends React.Component {
     }
     return (
       <div className="htht-toolbar" style={style}>
-        <ul className="toolbar-list">{list}</ul>
+        <ul className={`toolbar-list toolbar-list-${this.hash}`}>{list}</ul>
       </div>
     )
   }

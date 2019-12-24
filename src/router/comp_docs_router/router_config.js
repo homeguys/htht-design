@@ -25,6 +25,9 @@ const ChartGauge = lazy(() => import(/* webpackChunkName: 'Gauge' */ '../../comp
 const Videoplay = lazy(() => import(/* webpackChunkName: 'Videoplay' */ '../../components/video_play'))
 const Carousels = lazy(() => import(/* webpackChunkName: 'Carousel' */ '../../components/carousels'))
 
+/* palybar */
+const Playbar = lazy(() => import(/* webpackChunkName: 'Playbar' */ '../../components/playbar'))
+
 /* gis */
 const Toolbar = lazy(() => import(/* webpackChunkName: 'Toolbar' */ '../../components/toolbar'))
 const InitMap = lazy(() => import(/* webpackChunkName: 'InitMap' */ '../../components/initMap'))
@@ -148,8 +151,9 @@ export default [
         name: '播放',
         children: [
           {
-            path: 'something',
-            name: 'something'
+            path: 'playbar',
+            name: '播放条',
+            component: <Playbar />
           }
         ]
       },

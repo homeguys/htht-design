@@ -1,96 +1,71 @@
+/* eslint-disable react/no-array-index-key */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { Table, Divider, Tag } from 'antd'
-
-const columns = [
-  {
-    title: '参数',
-    dataIndex: 'param',
-    key: 'param',
-    render: text => <a>{text}</a>
-  },
-  {
-    title: '说明',
-    dataIndex: 'explain',
-    key: 'explain'
-  },
-  {
-    title: 'Address',
-    dataIndex: 'address',
-    key: 'address'
-  },
-  {
-    title: '类型',
-    key: 'type',
-    dataIndex: 'type',
-    render: tags => (
-      <span>
-        {tags.map(tag => {
-          let color = tag.length > 5 ? 'geekblue' : 'green'
-          if (tag === 'loser') {
-            color = 'volcano'
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          )
-        })}
-      </span>
-    )
-  },
-  {
-    title: '默认值',
-    key: 'default',
-    render: (text, record) => (
-      <span>
-        <a>Invite {record.name}</a>
-        <Divider type="vertical" />
-        <a>Delete</a>
-      </span>
-    )
-  },
-  {
-    title: '版本',
-    dataIndex: 'edition',
-    key: 'edition'
-  }
-]
-
-const data = [
-  {
-    key: '1',
-    param: 'John Brown',
-    explain: 'New York No. 1 Lake Park',
-    type: ['nice', 'developer'],
-    default: 32,
-    edition: '0.0.5'
-  },
-  {
-    key: '2',
-    param: 'Jim Green',
-    explain: 'London No. 1 Lake Park',
-    type: ['loser'],
-    default: 42,
-    edition: '0.0.5'
-  },
-  {
-    key: '3',
-    param: 'Joe Black',
-    explain: 'Sidney No. 1 Lake Park',
-    type: ['cool', 'teacher'],
-    default: 32,
-    edition: '0.0.5'
-  }
-]
+import { Table, Tag } from 'antd'
 
 class ApiTable extends React.Component {
-  componentDidMount() {}
+  constructor(props) {
+    super(props)
+    this.columns = [
+      {
+        title: '参数',
+        dataIndex: 'param',
+        key: 'param'
+      },
+      {
+        title: '说明',
+        dataIndex: 'explain',
+        key: 'explain'
+      },
+      {
+        title: '类型',
+        key: 'type',
+        dataIndex: 'type',
+        render: tags => (
+          <span>
+            {tags.map((tag, index) => {
+              let color
+              switch (index) {
+                case 0:
+                  color = '#2db7f5'
+                  break
+                case 1:
+                  color = '#f50'
+                  break
+                case 2:
+                  color = '#87d068'
+                  break
+                default:
+                  color = '#2db7f5'
+                  break
+              }
+              return (
+                <Tag color={color} key={index}>
+                  {tag}
+                </Tag>
+              )
+            })}
+          </span>
+        )
+      },
+      {
+        title: '默认值',
+        dataIndex: 'default',
+        key: 'default'
+      },
+      {
+        title: '版本',
+        dataIndex: 'edition',
+        key: 'edition'
+      }
+    ]
+  }
 
   render() {
+    const { dataSource } = this.props
     return (
-      <div className="api-table">
-        <Table columns={columns} dataSource={data} pagination={false} />
+      <div className="api-container">
+        <Table columns={this.columns} dataSource={dataSource} pagination={false} />
       </div>
     )
   }

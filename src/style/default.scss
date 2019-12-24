@@ -1,3 +1,5 @@
+@import './theme.scss';
+
 $htht-prefix: 'htht';
 $header-height: 0.65rem;
 
@@ -109,3 +111,20 @@ $header-height: 0.65rem;
     @include apiTable();
   }
 }
+
+// 基本组件API容器
+@mixin apiContainer() {
+  .api-container {
+    table {
+      font-size: 0.13rem;
+      td {
+        &:first-child {
+          width: 20%;
+          color: $main-color;
+        }
+      }
+    }
+  }
+}
+
+@include apiContainer();

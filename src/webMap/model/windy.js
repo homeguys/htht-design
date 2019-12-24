@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Cesium from 'cesium/Source/Cesium'
 
  let FRAME_TIME = 50

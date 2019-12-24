@@ -1,10 +1,10 @@
 import React from 'react'
-import NjHTHTMAP from "../../../webMap/NjHTHTMAP"
+import NjHTMap from "../../../webMap/NjHTMap"
 
 class InitMap extends React.Component {
   componentDidMount() {
     const {dataSource} = this.props
-    new NjHTHTMAP(dataSource)
+    new NjHTMap(dataSource)
   }
 
 

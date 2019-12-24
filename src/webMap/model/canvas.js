@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Cesium from 'cesium/Source/Cesium'
 
 export default class Canvas {

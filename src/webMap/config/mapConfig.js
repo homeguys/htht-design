@@ -1,4 +1,3 @@
-/* eslint-disable */
 export const mapParams = {
   isNet: true, // 是否在线 true: 在线，false: 离线
   // mapType: 'google_img',

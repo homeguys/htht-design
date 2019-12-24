@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Cesium from 'cesium/Source/Cesium'
 import { MathUtil } from '../utils/MathUtil'
 import Point from '../entity/Point'

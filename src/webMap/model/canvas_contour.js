@@ -1,4 +1,3 @@
-/* eslint-disable */
 import Canvas from './canvas'
 
 const LINE_WIDTH = 2

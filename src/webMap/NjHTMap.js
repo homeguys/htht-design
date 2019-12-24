@@ -1,156 +1,101 @@
-```jsx
-import NjHTHTMAP from '../webMap/NjHTHTMAP'
-```
+import Viewer from 'cesium/Source/Widgets/Viewer/Viewer'
+import Cesium from 'cesium/Source/Cesium'
+import {
+  mapParams,
+  offLineTdtLayers,
+  onLineGaodeLayers,
+  onLineGoogleLayers,
+  onLineTdtLayers_c,
+  onLineTdtLayers_w
+} from './config/mapConfig'
+import { eventEnum } from './enum/event_enum'
+import { errorEnum } from './enum/error_enum'
+import { markTypeEnum } from './enum/mark_type_enum'
+import { plottingTypeEnum } from './enum/plotting_type_enum'
+import { mapTypeEnum } from './enum/map_type_enum'
+import { dataTypeEnum } from './enum/data_type_enum'
+import CanvasContour from './model/canvas_contour'
+import BaseStaInfo from './entity/BaseStaInfo'
+import Windy from './model/windy'
+import GroundDraw from './model/GroundDraw'
+import CanvasWind from './model/canvas_wind'
 
----
+Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NWI5MGUzNi1mYWI3LTQzY2QtOGI0Ni0xZWYyNTAxNGM4N2MiLCJpZCI6MTI1OTgsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1NjE0NDkyNTV9.hBH0PGSnKErc_yNhIePASUkr3QPDoo0KDX9uLpNBUns'
 
-```jsx
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: this.state.cutLayer,
-  callback: myMap => {
-    console.log(myMap)
+/*
+* domId:容器id
+* initPostion：初始化位置 [118, 33, 1000000]
+* is3D：是否是3D
+* isFly:是否飞行
+* mapType:地图类型
+* callback:用于绑定事件
+* */
+export default class NjHTMap extends Viewer {
+  constructor ({ domId = 'mapContainer', initPostion = [118, 33, 1000000], is3D = true, isFly = false, mapType = mapTypeEnum[0].key, callback }) {
+    super(domId, {
+      sceneMode: is3D ? Cesium.SceneMode.SCENE3D : Cesium.SceneMode.SCENE2D,
+      geocoder: false,
+      homeButton: false,
+      sceneModePicker: false,
+      baseLayerPicker: false,
+      navigationHelpButton: false,
+      animation: false,
+      timeline: false,
+      fullscreenButton: false,
+      vrButton: false,
+    })
+
+    this.initPostion = initPostion
+    this.is3D = is3D//当前地图是否是3D
+    this.init(isFly)
+
+    // 初始底图对象
+    this.initBaseLayer(mapType)
+
+    this.selectPlotting = {
+      needSelect: false,//是否需要选中
+      id: false//选中的填图对象id
+    }
+
+    this.selectMark = {
+      needSelect: false,//是否需要选中
+      id: false//选中的markid
+    }
+
+    this.dataSourceMap = new Map()//存放dataSource的Map
+    this.layerMap = new Map()//存放layer的Map
+    this.entityMap = new Map()//存放entity的Map
+    this.primitiveMap = new Map()//存放primitive的Map
+
+    this.eventObj = {
+      [eventEnum.LEFT_CLICK]: new Map(),
+      [eventEnum.WHEEL]: new Map(),
+    }
+    this.clickEvent()
+    this.wheelEvent()
+
+    if (callback) {
+      callback(this)
+    }
   }
-})
-```
 
----
-
-```jsx
-;<div id="mapContainer" />
-
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: this.state.cutLayer,
-  callback: myMap => {
-    console.log(myMap)
-  }
-})
-```
-
----
-
-```jsx
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: this.state.cutLayer,
-  callback: myMap => {
-    console.log(myMap)
-  }
-})
-```
-
----
-
-```jsx
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: this.state.cutLayer,
-  callback: myMap => {
-    console.log(myMap)
-  }
-})
-```
-
----
-
-```jsx
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: this.state.cutLayer,
-  callback: myMap => {
-    console.log(myMap)
-  }
-})
-```
-
----
-
-```jsx
-import { mapTypeEnum } from '../webMap/enum/map_type_enum'
-
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: map_type_enum.tdt_img_w,
-  callback: myMap => {
-    console.log(myMap)
-  }
-})
-```
-
----
-
-```jsx
-new NjHTHTMAP({
-  domId: 'mapContainer',
-  initPostion: [118, 20, 10000000],
-  is3D: false,
-  isFly: false,
-  mapType: this.state.cutLayer,
-  callback: myMap => {
-    console.log(myMap)
-  }
-})
-```
-
----
-
-```jsx
-myMap.addEvent('com', eventEnum.LEFT_CLICK, res => {
-          console.log(res)
-        })
-
-addEvent (name, type, callback) {
+  /*
+* 增加事件
+* */
+  addEvent (name, type, callback) {
     this.eventObj[type].set(name, {
       enable: true,
       fn: callback
     })
   }
-```
 
----
-
-```jsx
-addMark = () => {
-    let data = []
-    for (let i = 0; i < 180; i += 10) {
-
-      for (let j = 0; j < 90; j += 10) {
-        let info = {
-          cityName: i + ',' + j,
-          cityid: i + ',' + j,
-          lat: j,
-          lon: i,
-
-        }
-        let staInfo = new BaseStaInfo(info.cityid, info.cityName, require('../images/weatherIcons/c00.gif'), info.lon, info.lat)
-        data.push(staInfo)
-        this.citeMap.set(info.cityid, staInfo)
-      }
-
-    }
-    this.myMap.addMark('city', data, markTypeEnum.PICANDTEXT)
-  }
-
-addMark (dataName, data, type, fontSize = 20) {
+  /*
+* 加载mark点
+*  dataName:数据名
+* data：数据
+* type：
+* */
+  addMark (dataName, data, type, fontSize = 20) {
     if (this.dataSourceMap.has(dataName)) {
       console.warn(errorEnum.EXISTED)
       return
@@ -232,16 +177,14 @@ addMark (dataName, data, type, fontSize = 20) {
     dataSource.clustering.pixelRange = 0
     dataSource.clustering.pixelRange = pixelRange
   }
-```
 
----
-
-```jsx
-addPic = () => {
-    this.myMap.addPic('myPic', './data/320000000000.png', [118, 32, 133, 45])
-  }
-
-addPic (dataName, url, range) {
+  /*
+* 贴图
+* dataName:数据名‘’
+* url:图片路径'./'
+* range:图片范围[118, 32, 119, 33]
+* */
+  addPic (dataName, url, range) {
     if (this.entityMap.has(dataName)) {
       this.entities.remove(this.entityMap.get(dataName))
       this.entityMap.delete(dataName)
@@ -257,12 +200,11 @@ addPic (dataName, url, range) {
     this.entities.add(myData)
     this.entityMap.set(dataName, myData)
   }
-```
 
----
-
-```jsx
-Cartesian2ToCartesian3 (Cartesian2, is3D) {
+  /*
+  * Cartesian2转Cartesian3
+  * */
+  Cartesian2ToCartesian3 (Cartesian2, is3D) {
     let myCartesian3
     if (is3D) {
       let ray = this.camera.getPickRay(Cartesian2)
@@ -272,21 +214,19 @@ Cartesian2ToCartesian3 (Cartesian2, is3D) {
     }
     return myCartesian3
   }
-```
 
----
-
-```jsx
-Cartesian3ToPx (scene, Cartesian3) {
+  /*
+* Cartesian3转屏幕坐标
+* */
+  Cartesian3ToPx (scene, Cartesian3) {
     let myPx = Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, Cartesian3)
     return myPx
   }
-```
 
----
-
-```jsx
-cartographicRadiansToCartographicDegrees (cartographicRadians) {
+  /*
+* 地表弧度坐标转地表经纬度
+* */
+  cartographicRadiansToCartographicDegrees (cartographicRadians) {
 
     let cartographicDegrees = {
       longitude: Cesium.Math.toDegrees(cartographicRadians.longitude),
@@ -297,17 +237,14 @@ cartographicRadiansToCartographicDegrees (cartographicRadians) {
     return cartographicDegrees
 
   }
-```
 
----
-
-```jsx
-changeDataIsShow = () => {
-    this.myMap.changeDataIsShow('wind', dataTypeEnum.ENTITY, !this.isShow)
-    this.isShow = !this.isShow
-  }
-
-changeDataIsShow (dataName, type, isShow) {
+  /*
+* 改变显隐
+* dataName:
+* type:类型dataSource(填图、mark点)  entity（贴图、风羽、等值线） layer（服务） primitive（粒子）
+* isShow:是否显示
+* */
+  changeDataIsShow (dataName, type, isShow) {
     switch (type) {
       case dataTypeEnum.constructor:
         let data = this.dataSourceMap.get(dataName)
@@ -350,20 +287,18 @@ changeDataIsShow (dataName, type, isShow) {
         break
     }
   }
-```
 
----
-
-```jsx
-changeEvent (name, type, enable) {
+  /*
+* 改变事件是否可用
+* */
+  changeEvent (name, type, enable) {
     this.eventObj[type].get(name).enable = enable
   }
-```
 
----
-
-```jsx
-clickEvent () {
+  /*
+  * 点击事件
+  * */
+  clickEvent () {
 
     let handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas)
     handler.setInputAction((evt) => {
@@ -385,47 +320,48 @@ clickEvent () {
 
     }, Cesium.ScreenSpaceEventType[eventEnum.LEFT_CLICK])
   }
-```
 
----
-
-```jsx
-contourLine = () => {
-    axios.get('./data/line.json').then(res => {
-      this.myMap.contourLine('line', res.data)
-    })
-  }
-
-contourLine (dataName, data, coe = 1, fixed = 0) {
+  /*
+  * 等值线
+  * dataName：数据名
+  * data：完整数据
+  * coe:数据系数
+  * fixed:保留小数位数
+  * */
+  contourLine (dataName, data, coe = 1, fixed = 0) {
     if (this.entityMap.has(dataName)) {
       console.warn(errorEnum.EXISTED)
       return
     }
 
-    let myCanvasContour = new CanvasContour(this.Cartesian3ToPx, this)
+    let myCanvasContour = new CanvasContour({ Cartesian3ToPx: this.Cartesian3ToPx, viewer: this })
     myCanvasContour.loadData(data)
     let picInfo = myCanvasContour.draw()
     let labelData = []
     let labels = picInfo.labels
 
     for (let i = 0; i < labels.length; i++) {
-      labelData.push(new BaseStaInfo(labels[i].id, (Number(labels[i].name) / coe).toFixed(fixed), '', labels[i].position[1], labels[i].position[0]))
+      labelData.push(new BaseStaInfo({
+        id: labels[i].id,
+        name: (Number(labels[i].name) / coe).toFixed(fixed),
+        picUrl: '',
+        lon: labels[i].position[1],
+        lat: labels[i].position[0]
+      }))
 
     }
     this.addPic(dataName, picInfo.pic, picInfo.range)//entity
     this.addMark(dataName, labelData, markTypeEnum.TEXT, 15)//dataSource
   }
-```
 
----
-
-```jsx
-drawLine = () => {
-    let data = [[118, 32], [119, 32], [119, 33]]
-    this.myMap.drawLine(data, [0, 0, 255, 1], 10, false)
-  }
-
- drawLine (data, color = [255, 255, 255, 1], width = 5, isDash = false) {
+  /*
+* 画线
+* data：数据[[118,32],[119,32]]
+* color:颜色 [255,255,255,1]
+* width:宽度
+* isDash：是否是虚线
+* */
+  drawLine (data, color = [255, 255, 255, 1], width = 5, isDash = false) {
 
     let myData = []
 
@@ -449,55 +385,14 @@ drawLine = () => {
 
   }
 
-```
-
----
-
-```jsx
-drawPlotting = () => {
-    let data = []
-    for (let i = 0; i < 100; i++) {
-      let info = {
-        'dataInfo': {
-          AT: 208,
-          CH: 99999,
-          CL: 0,
-          CM: 99999,
-          DP24: 99999,
-          DT24: 99999,
-          H: 700,
-          INVALID_VALUE: 99999,
-          N: 20,
-          NH: 20,
-          OP: 99999,
-          P3: 99999,
-          R6: 99999,
-          TD: -23,
-          VV: 80,
-          WD: 225,
-          WG1: 99999,
-          WG2: 99999,
-          WS: 40,
-          WW: 0,
-        },
-        'id': i,
-        'name': i,
-        'position': {
-          'altitude': 0,
-          'latitude': Math.random() * 90,
-          'longitude': Math.random() * 180
-        }
-      }
-
-      let plottingInfo = new BasePlottingInfo(info.id, info.name, [info.position.longitude, info.position.latitude], info.dataInfo)
-
-      data.push(plottingInfo)
-      this.statMap.set(info.id, plottingInfo)
-    }
-    this.myMap.drawPlotting('plottingData', data, plottingTypeEnum.GROUND, 10)
-  }
-
-drawPlotting (dataName, data, type = plottingTypeEnum.GROUND, coe = 10) {
+  /*
+  * 填图
+  * dataName:数据名
+  * data：数据
+  * type:填图类型
+  * coe:数据缩放系数
+  * */
+  drawPlotting (dataName, data, type = plottingTypeEnum.GROUND, coe = 10) {
     if (this.dataSourceMap.has(dataName)) {
       console.warn(errorEnum.EXISTED)
       return
@@ -596,24 +491,13 @@ drawPlotting (dataName, data, type = plottingTypeEnum.GROUND, coe = 10) {
     dataSource.clustering.pixelRange = 0
     dataSource.clustering.pixelRange = pixelRange
   }
-```
 
----
-
-```jsx
-drawPlottingLocation = () => {
-    let id = Math.floor(Math.random() * 100)
-    if (this.statMap.has(id)) {
-      let position = this.statMap.get(id).position
-
-      this.myMap.drawPlottingLocation(id, [position.longitude, position.latitude])
-    } else {
-      console.warn(errorEnum.NOPLOTTING)
-    }
-
-  }
-
-drawPlottingLocation (id, postion) {
+  /*
+ * 填图定位
+ * id:站点id
+ * postion:站点的经纬度[lon,lat]
+ * */
+  drawPlottingLocation (id, postion) {
     this.selectPlotting = {
       needSelect: true,//是否选中
       id: id//选中的填图对象id
@@ -621,55 +505,41 @@ drawPlottingLocation (id, postion) {
 
     this.setView([...postion, 1000000])
   }
-```
 
----
-
-```jsx
-drawPoint = () => {
-    let pointData = [[118, 32], [119, 32]]
-    this.myMap.drawPoint(pointData)
-  }
-
-drawPoint (data) {
+  /*
+  * 画点
+  * data：数据[[118,32,0],[119,32,0]]
+  * */
+  drawPoint (data) {
     let pointCzml = returnCzmlPoint(data)
 
     let dataSourcePromise = Cesium.CzmlDataSource.load(pointCzml)
     this.dataSources.add(dataSourcePromise)
   }
-```
 
----
-
-```jsx
-drawPolygon = () => {
-    let data = [[118, 32, 0], [119, 32, 0], [119, 33, 0], [118, 32, 0]]
-    this.myMap.drawPolygon(data)
-  }
-
-drawPolygon (data) {
+  /*
+* 画面
+* data：数据[[118,32,0],[119,32,0],[119,33,0],[118,32,0]]
+* */
+  drawPolygon (data) {
     let polygonCzml = returnCzmlPolygon(data)
     let dataSourcePromise = Cesium.CzmlDataSource.load(polygonCzml)
     this.dataSources.add(dataSourcePromise)
   }
-```
 
----
-
-```jsx
-flow = () => {
-    axios.get('/MeteOceanFiles/ImgProdcut/EuropeHandler/wind/20190922/ec_20190922200000_wind_1_0_10_fill.json').then(res => {
-      this.myMap.flow('myFlow', res.data, 0.005)
-    })
-  }
-
-flow (dataName, data, coe = 1) {
+  /*
+* 流场
+* dataName:自定义名
+*data:数据
+* coe:速度系数
+* */
+  flow (dataName, data, coe = 1) {
     if (this.primitiveMap.has(dataName)) {
       console.warn(errorEnum.EXISTED)
       return
     }
 
-    let windy = new Windy(this.scene.primitives)
+    let windy = new Windy({cesiumPrimitives:this.scene.primitives})
 
     this.primitiveMap.set(dataName, {
       windyObj: windy,
@@ -680,47 +550,35 @@ flow (dataName, data, coe = 1) {
     windy.initParticles(coe)
     windy.startWindy()
   }
-```
 
----
-
-```jsx
-getViewCentre () {
+  /*
+* 获取当前视野中心
+* */
+  getViewCentre () {
     let myCartographic = this.camera._positionCartographic
     let mapPosition = this.cartographicRadiansToCartographicDegrees(myCartographic)
     return mapPosition
 
   }
-```
 
----
-
-```jsx
-in = () => {
-    this.myMap.in()
-  }
-
-in () {
+  //放大
+  in () {
     this.camera.zoomIn()
   }
-```
 
----
-
-```jsx
-init = () => {
-    this.myMap.init()
-  }
-
-init (isFly = false) {
+  /*
+  * 恢复
+  * isFly:是否飞行
+  * */
+  init (isFly = false) {
     this.setView(this.initPostion, isFly)
   }
-```
 
----
-
-```jsx
-initBaseLayer (mapType) {
+  /**
+   * 初始化地图
+   * mapType:地图类型
+   */
+  initBaseLayer (mapType) {
     /* 在线天地图墨卡托投影 START */
     // 影像图
     const tdt_img_w = new Cesium.WebMapTileServiceImageryProvider({
@@ -990,21 +848,15 @@ initBaseLayer (mapType) {
       }
     }
   }
-```
 
----
-
-```jsx
-loadServer = () => {
-    let style = returnEleStyle(productEnum.NDVI)
-    let searchInfo = '2019-09-21T12:00:00.003Z'//NDVI
-    // let searchInfo = '2019-09-21T12:00:00.006Z'//TVDI
-    // let searchInfo = '2019-09-21T12:00:00.009Z'//WA
-
-    this.myMap.loadServer('NDVI', ELECONFIG.NDVI.url, ELECONFIG.NDVI.layerName, searchInfo, style)
-  }
-
-loadServer (layerName, url, layers, time, sld) {
+  /*
+* 加载服务
+* layerName:自定义图层名
+* url：服务url
+* layers：发布服务的名
+* sld：渲染样式
+* */
+  loadServer (layerName, url, layers, time, sld) {
 
     if (this.layerMap.has(layerName)) {
       console.warn(errorEnum.EXISTED)
@@ -1026,22 +878,13 @@ loadServer (layerName, url, layers, time, sld) {
     this.imageryLayers.add(wmsLayer)
     this.layerMap.set(layerName, wmsLayer)
   }
-```
 
----
-
-```jsx
-markLocation = () => {
-    let id = '120,40'
-    if (this.citeMap.has(id)) {
-      this.myMap.markLocation(id, [this.citeMap.get(id).lon, this.citeMap.get(id).lat])
-    } else {
-      console.warn(errorEnum.NOMARK)
-    }
-
-  }
-
-markLocation (id, postion) {
+  /*
+* mark定位
+* id:站点id
+* postion:站点的经纬度[lon,lat]
+* */
+  markLocation (id, postion) {
     this.selectMark = {
       needSelect: true,//是否选中
       id: id//选中的填图对象id
@@ -1049,28 +892,18 @@ markLocation (id, postion) {
 
     this.setView([...postion, 1000000])
   }
-```
 
----
-
-```jsx
-out = () => {
-    this.myMap.out()
-  }
-
-out () {
+  //缩小
+  out () {
     this.camera.zoomOut()
   }
-```
 
----
-
-```jsx
-removeData = () => {
-    this.myMap.removeData('wind', dataTypeEnum.ENTITY)
-  }
-
-removeData (dataName, type) {
+  /*
+* 移除data
+* dataName:移除data的名字
+* type:类型dataSource(填图、mark点)   entity（贴图、风羽、等值线）  layer（服务） primitive（粒子）
+* */
+  removeData (dataName, type) {
     switch (type) {
       case dataTypeEnum.DATASOURCE:
         let data = this.dataSourceMap.get(dataName)
@@ -1125,23 +958,20 @@ removeData (dataName, type) {
     }
 
   }
-```
 
----
-
-```jsx
-removeEvent (name, type) {
+  /*
+  * 移除监听事件
+  * */
+  removeEvent (name, type) {
     this.eventObj[type].delete(name)
   }
-```
 
----
-
-```jsx
-setView = () => {
-    this.myMap.setView([118, 33], true)
-  }
-setView (postion, isFly = false) {
+  /*
+   * 视角定位
+   *postion：位置 [118, 33, 1000000]||[118, 33]
+   * isFly:是否飞行
+   * */
+  setView (postion, isFly = false) {
     if (isFly) {
       this.camera.flyTo({
         destination: Cesium.Cartesian3.fromDegrees(postion[0], postion[1], postion[2] ? postion[2] : this.camera.positionCartographic.height), // 设置位置
@@ -1153,23 +983,12 @@ setView (postion, isFly = false) {
     }
 
   }
-```
 
----
-
-```jsx
-switchMap = (value) => {
-    if (this.state.cutLayer === value) {
-      return
-    }
-    this.setState({
-      cutLayer: value
-    })
-
-    this.myMap.switchBaseMap(value)
-  }
-
-switchBaseMap (mapType) {
+  /**
+   * 地图切换
+   * @param mapType 地图类型
+   */
+  switchBaseMap (mapType) {
     const imageryLayers = this.imageryLayers._layers
     for (let i = 0; i < this.baseMap.length; i++) {
       if (imageryLayers[i]._imageryProvider._credit._html.indexOf(mapType) !== -1) {
@@ -1179,19 +998,12 @@ switchBaseMap (mapType) {
       }
     }
   }
-```
 
----
-
-```jsx
-text = () => {
-    for (let i = 0; i < 100; i++) {
-      this.myMap.text('data' + i, 0.5, [118, 32 + 0.1 * i], [255, 0, 0, 1])
-    }
-
-  }
-
-text (data, size = 1, postion = [0, 0], color = [0, 0, 0, 1]) {
+  /*
+* 文字
+* data：数据
+* */
+  text (data, size = 1, postion = [0, 0], color = [0, 0, 0, 1]) {
     this.entities.add({
       position: Cesium.Cartesian3.fromDegrees(postion[0], postion[1]),
       label: {
@@ -1201,12 +1013,11 @@ text (data, size = 1, postion = [0, 0], color = [0, 0, 0, 1]) {
       }
     })
   }
-```
 
----
-
-```jsx
-wheelEvent () {
+  /*
+ * 点击滚轮事件
+ * */
+  wheelEvent () {
 
     let handler = new Cesium.ScreenSpaceEventHandler(this.scene.canvas)
     handler.setInputAction((evt) => {
@@ -1217,26 +1028,21 @@ wheelEvent () {
       })
     }, Cesium.ScreenSpaceEventType[eventEnum.WHEEL])
   }
-```
 
----
-
-```jsx
-wind = () => {
-    axios.get('./data/wind.json').then(res => {
-      this.myMap.wind('wind', windTypeEnum.FEATHER, res.data)
-    })
-
-  }
-
-wind (dataName, type, data) {
+  /*
+ * 风场
+ * dataName:自定义数据名
+ * type：类型1：风羽，2：箭头
+ * data：数据
+ * */
+  wind (dataName, type, data) {
     if (this.entityMap.has(dataName)) {
       console.warn(errorEnum.EXISTED)
       return
     }
 
     let _this = this
-    let myCanvasWind = new CanvasWind(this.Cartesian3ToPx, this)
+    let myCanvasWind = new CanvasWind({Cartesian3ToPx:this.Cartesian3ToPx, viewer:this})
     myCanvasWind.loadData(data)
     drawWind()
 
@@ -1263,4 +1069,76 @@ wind (dataName, type, data) {
       return resultl
     }
   }
-```
+}
+
+function returnCzmlPoint (data) {
+
+  let czml = [{
+    'id': 'document',
+    'name': 'CZML Position Definitions',
+    'version': '1.0'
+  }]
+
+  for (let i = 0; i < data.length; i++) {
+    czml.push({
+      'id': 'point' + i,
+      'name': 'point in cartographic degrees',
+      'position': {
+        'cartographicDegrees': [data[i][0], data[i][1], data[i][2] ? data[i][2] : 1]
+      },
+      'point': {
+        'color': {
+          'rgba': [100, 0, 200, 255]
+        },
+        'outlineColor': {
+          'rgba': [200, 0, 200, 255]
+        },
+        'pixelSize': {
+          'number': 10
+        }
+      }
+    })
+  }
+
+  return czml
+}
+
+/*
+* 颜色格式转化
+* [255,255,255,1]=>[1,1,1,1]
+* */
+function colorTransform (color) {
+  return new Cesium.Color(color[0] / 255, color[1] / 255, color[2] / 255, color[3])
+}
+
+function returnCzmlPolygon (data) {
+
+  let myData = []
+
+  for (let i = 0; i < data.length; i++) {
+    myData.push(data[i][0], data[i][1], data[i][2] ? data[i][2] : 1)
+  }
+
+  let czml = [{
+    'id': 'document',
+    'name': 'CZML Geometries: Polygon',
+    'version': '1.0'
+  }, {
+    'id': 'redPolygon',
+    'name': 'Red polygon on surface',
+    'polygon': {
+      'positions': {
+        'cartographicDegrees': myData
+      },
+      'material': {
+        'solidColor': {
+          'color': {
+            'rgba': [255, 0, 0, 255]
+          }
+        }
+      }
+    }
+  }]
+
+  return czml
+}

@@ -9,7 +9,8 @@ const Changelog = lazy(() => import(/* webpackChunkName: 'Changelog' */ '../../c
 const Install = lazy(() => import(/* webpackChunkName: 'Install' */ '../../components_gis/install'))
 
 /* webMap */
-const NjHTHTMAP = lazy(() => import(/* webpackChunkName: 'NjHTHTMAP' */ '../../components_gis/NjHTHTMAP'))
+
+const NjHTMap = lazy(() => import(/* webpackChunkName: 'NjHTMap' */ '../../components_gis/NjHTMap'))
 
 /* config */
 const MapConfig = lazy(() => import(/* webpackChunkName: 'MapConfig' */ '../../components_gis/mapConfig'))
@@ -62,9 +63,9 @@ export default [
     children: [
       {
 
-        path: 'NjHTHTMAP',
-        name: 'NjHTHTMAP',
-        component: <NjHTHTMAP/>
+        path: 'NjHTMap',
+        name: 'NjHTMap',
+        component: <NjHTMap/>
       },
       {
         path: 'config',

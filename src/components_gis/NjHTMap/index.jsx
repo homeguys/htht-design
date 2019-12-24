@@ -4,7 +4,7 @@ import demoCodes from './codes.md'
 import desc from './desc.json'
 import ClassContent from '../../site/template/class_gis'
 
-class NjHTHTMAP extends React.Component {
+class NjHTMap extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -34,4 +34,4 @@ class NjHTHTMAP extends React.Component {
   }
 }
 
-export default NjHTHTMAP
+export default NjHTMap

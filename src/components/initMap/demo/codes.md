@@ -2,7 +2,7 @@
 import React from 'react'
 import {eventEnum} from "../../../../webMap/enum/event_enum";
 import {mapTypeEnum} from "../../../../webMap/enum/map_type_enum";
-import NjHTHTMAP from "../../../webMap/NjHTHTMAP"
+import NjHTMap from "../../../webMap/NjHTMap"
 
 class InitMap extends React.Component {
   constructor (props) {
@@ -11,7 +11,7 @@ class InitMap extends React.Component {
   }
 
 componentDidMount () {
-    this.myMap = new NjHTHTMAP({
+    this.myMap = new NjHTMap({
       domId: 'mapContainer',
       initPostion: [118, 20, 10000000],
       is3D: false,

@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { Icon } from 'antd'
+import { Icon, BackTop } from 'antd'
 import Highlight from '../highlight'
 import DocContent from '../doc_content'
 import './style.scss'
@@ -56,6 +56,7 @@ function StaticContent(props) {
           })}
         </div>
       </article>
+      <BackTop target={() => document.getElementById('htht-main-content')} />
     </DocContent>
   )
 }

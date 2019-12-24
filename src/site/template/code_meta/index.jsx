@@ -23,7 +23,8 @@ function CodeMeta(props) {
 
   // 收缩展示代码
   const toggleCode = e => {
-    const codeBox = getParents(e.target, 'code-box')
+    const codeBox = getParents(e.target, '.code-box')
+    console.warn(codeBox)
     codeBox.classList.toggle('expend')
     // eslint-disable-next-line no-unused-expressions
     window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
@@ -46,7 +47,7 @@ function CodeMeta(props) {
   return (
     <section className="code-box-meta">
       <div className="code-box-title">
-        <a href="#a">{title}</a>
+        <b>{title}</b>
       </div>
       <div className="code-box-description">
         <div>

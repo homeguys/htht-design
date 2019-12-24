@@ -1,11 +1,10 @@
-/* eslint-disable jsx-a11y/no-static-element-interactions */
-/* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/no-array-index-key */
 import React from 'react'
-import { Icon } from 'antd'
+import { Icon, BackTop } from 'antd'
 import Highlight from '../highlight'
 import DocContent from '../doc_content'
 import CodeMeta from '../code_meta'
+import ApiTable from '../api_table'
 import './style.scss'
 
 function MainContent(props) {
@@ -40,7 +39,9 @@ function MainContent(props) {
             )
           })}
         </div>
+        <ApiTable />
       </article>
+      <BackTop target={() => document.getElementById('htht-main-content')} />
     </DocContent>
   )
 }

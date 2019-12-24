@@ -25,6 +25,9 @@ const ChartGauge = lazy(() => import(/* webpackChunkName: 'Gauge' */ '../../comp
 const Videoplay = lazy(() => import(/* webpackChunkName: 'Videoplay' */ '../../components/video_play'))
 const Carousels = lazy(() => import(/* webpackChunkName: 'Carousel' */ '../../components/carousels'))
 
+/* gis */
+const Toolbar = lazy(() => import(/* webpackChunkName: 'Toolbar' */ '../../components/toolbar'))
+
 
 export default [
   {
@@ -165,8 +168,9 @@ export default [
         name: 'GIS',
         children: [
           {
-            path: 'something',
-            name: 'something'
+            path: 'toolbar',
+            name: '工具栏',
+            component: <Toolbar />
           }
         ]
       }

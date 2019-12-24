@@ -1,6 +1,8 @@
+import { Icon } from 'antd'
 /* eslint-disable no-plusplus */
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-restricted-syntax */
+/* eslint-disable consistent-return */
 /**
  * 将多维数组转换成一维数组
  * @param {*} arr
@@ -46,18 +48,26 @@ export function deepCloneObject(obj) {
  * @param parentSelector // 父级对象
  * @return {*}
  */
-export function getParents(el, parentSelector) {
-  if (parentSelector === undefined) {
-    parentSelector = ''
-  }
-
+export function getParents(el, parent = '') {
+  const parentSelector = parent.replace('.', '')
   let p = el.parentNode
 
-  while (Array.from(p.classList).indexOf(parentSelector) === -1) {
+  if (el.tagName === parentSelector || Array.from(el.classList).indexOf(parentSelector) !== -1) {
+    return el
+  }
+
+  let condition = parent.includes('.')
+    ? Array.from(p.classList).indexOf(parentSelector) === -1
+    : p.tagName !== parentSelector
+
+  while (condition) {
     p = p.parentNode
+    condition = parent.includes('.')
+      ? Array.from(p.classList).indexOf(parentSelector) === -1
+      : p.tagName !== parentSelector
     if (p.tagName === 'HTML') return
   }
-  // eslint-disable-next-line consistent-return
+
   return p
 }
 
@@ -144,3 +154,8 @@ export function toast(message, str, type) {
     }
   }
 }
+
+// antd和iconfont组合一起
+export const IconFont = Icon.createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_1575007_am2j2qus0nt.js'
+})

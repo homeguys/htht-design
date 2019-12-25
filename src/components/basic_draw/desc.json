@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "BasicDraw",
+    "name": "基础绘制",
+    "detail": "基础绘制"
+  },
+  "demo": [
+    {
+      "title": "基础绘制",
+      "detail": "基础绘制"
+    }
+  ]
+}

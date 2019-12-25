@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "TextAndPic",
+    "name": "文字与贴图",
+    "detail": "文字与贴图"
+  },
+  "demo": [
+    {
+      "title": "文字与贴图",
+      "detail": "文字与贴图"
+    }
+  ]
+}

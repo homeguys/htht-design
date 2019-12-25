@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "Wind",
+    "name": "风场",
+    "detail": "风场"
+  },
+  "demo": [
+    {
+      "title": "风场",
+      "detail": "风场"
+    }
+  ]
+}

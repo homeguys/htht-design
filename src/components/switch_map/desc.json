@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "SwitchMap",
+    "name": "底图切换",
+    "detail": "底图切换"
+  },
+  "demo": [
+    {
+      "title": "底图切换",
+      "detail": "底图切换"
+    }
+  ]
+}

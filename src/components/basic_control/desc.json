@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "BasicControl",
+    "name": "基础控制",
+    "detail": "基础控制"
+  },
+  "demo": [
+    {
+      "title": "基础控制",
+      "detail": "基础控制"
+    }
+  ]
+}

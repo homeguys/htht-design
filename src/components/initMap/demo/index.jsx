@@ -15,8 +15,8 @@ class InitMap extends React.Component {
       position: "relative"
     };
     return (
-      <div className="htht-initMap" style={style}>
-        <div id="mapContainer"/>
+      <div className="htht-initMap">
+        <div id="mapContainer" style={style}/>
       </div>
     )
   }

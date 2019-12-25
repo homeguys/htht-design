@@ -7,6 +7,7 @@ import React, { lazy } from 'react'
 const Preface = lazy(() => import(/* webpackChunkName: 'Preface' */ '../../components_gis/preface'))
 const Changelog = lazy(() => import(/* webpackChunkName: 'Changelog' */ '../../components_gis/change_log'))
 const Install = lazy(() => import(/* webpackChunkName: 'Install' */ '../../components_gis/install'))
+const Download = lazy(() => import(/* webpackChunkName: 'Download' */ '../../components_gis/download'))
 
 /* webMap */
 
@@ -56,6 +57,11 @@ export default [
     path: 'install',
     name: '安装教程',
     component: <Install/>
+  },
+  {
+    path: 'Download',
+    name: '资源下载',
+    component: <Download/>
   },
   {
     path: 'webMap',

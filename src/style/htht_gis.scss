@@ -98,6 +98,30 @@ $slideWidth: 40%;
 
 /***********************************************************************************/
 
+.gis-download {
+  @include init();
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  h1 {
+    color: #fff;
+  }
+
+  table {
+    margin: 1rem;
+    height: 25%;
+    width: 50%;
+
+    th {
+      font-size: 0.2rem;
+    }
+  }
+}
+
+/***********************************************************************************/
+
 .gis-NjHTMap {
   p {
     @include title();

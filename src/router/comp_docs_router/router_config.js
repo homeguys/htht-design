@@ -31,6 +31,16 @@ const Playbar = lazy(() => import(/* webpackChunkName: 'Playbar' */ '../../compo
 /* gis */
 const Toolbar = lazy(() => import(/* webpackChunkName: 'Toolbar' */ '../../components/toolbar'))
 const InitMap = lazy(() => import(/* webpackChunkName: 'InitMap' */ '../../components/initMap'))
+const BasicControl = lazy(() => import(/* webpackChunkName: 'BasicControl' */ '../../components/basic_control'))
+const BasicDraw = lazy(() => import(/* webpackChunkName: 'BasicDraw' */ '../../components/basic_draw'))
+const TextAndPic = lazy(() => import(/* webpackChunkName: 'TextAndPic' */ '../../components/text_pic'))
+const SwitchMap = lazy(() => import(/* webpackChunkName: 'SwitchMap' */ '../../components/switch_map'))
+const ContourLine = lazy(() => import(/* webpackChunkName: 'ContourLine' */ '../../components/contour_line'))
+const Flow = lazy(() => import(/* webpackChunkName: 'Flow' */ '../../components/flow'))
+const Plotting = lazy(() => import(/* webpackChunkName: 'Plotting' */ '../../components/plotting'))
+const Mark = lazy(() => import(/* webpackChunkName: 'Mark' */ '../../components/mark'))
+const GeoserveService = lazy(() => import(/* GeoserveService: 'BasicDraw' */ '../../components/geoserve_service'))
+const Wind = lazy(() => import(/* webpackChunkName: 'Wind' */ '../../components/wind'))
 
 
 export default [
@@ -181,6 +191,56 @@ export default [
             path: 'initMap',
             name: '初始化地图',
             component: <InitMap />
+          },
+          {
+            path: 'basicControl',
+            name: '基础控制',
+            component: <BasicControl />
+          },
+          {
+            path: 'BasicDraw',
+            name: '基础绘制',
+            component: <BasicDraw />
+          },
+          {
+            path: 'TextAndPic',
+            name: '文字与贴图',
+            component: <TextAndPic />
+          },
+          {
+            path: 'SwitchMap',
+            name: '底图切换',
+            component: <SwitchMap />
+          },
+          {
+            path: 'ContourLine',
+            name: '等值线',
+            component: <ContourLine />
+          },
+          {
+            path: 'Flow',
+            name: '流场',
+            component: <Flow />
+          },
+          {
+            path: 'Plotting',
+            name: '填图',
+            component: <Plotting />
+          },
+          {
+            path: 'Mark',
+            name: 'mark点',
+            component: <Mark />
+          },
+          {
+            path: 'GeoserveService',
+            name: 'geoserve服务',
+            component: <GeoserveService />
+          },
+          {
+            path: 'Wind',
+            name: '风场',
+            component: <Wind />
           }
         ]
       }

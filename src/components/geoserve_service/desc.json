@@ -1,0 +1,13 @@
+{
+  "main": {
+    "value": "GeoserveService",
+    "name": "geoserve服务",
+    "detail": "geoserve服务"
+  },
+  "demo": [
+    {
+      "title": "geoserve服务",
+      "detail": "geoserve服务"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "main": {
+    "value": "Legend",
+    "name": "图例",
+    "detail": "图例"
+  },
+  "demo": [
+    {
+      "title": "横向",
+      "detail": "横向"
+    },
+    {
+      "title": "纵向",
+      "detail": "纵向"
+    }
+  ],
+  "tableData": [
+    {
+      "key": "1",
+      "param": "isHorizontal",
+      "explain": "是否横向",
+      "type": ["boolean"],
+      "default": "false",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "2",
+      "param": "isLableOnLine",
+      "explain": "标注是否在两个颜色中间",
+      "type":  ["boolean"],
+      "default": "false",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "3",
+      "param": "title",
+      "explain": "图例要素名",
+      "type": ["any[ ]"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "4",
+      "param": "value",
+      "explain": "数值数组",
+      "type": ["any[ ]"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "5",
+      "param": "value",
+      "explain": "数值的最大长度",
+      "type": ["number"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "6",
+      "param": "color",
+      "explain": "颜色数组",
+      "type": ["any[ ]"],
+      "default": "-",
+      "edition": "0.0.5"
+    }
+  ]
+}

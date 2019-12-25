@@ -28,6 +28,11 @@ const Carousels = lazy(() => import(/* webpackChunkName: 'Carousel' */ '../../co
 /* palybar */
 const Playbar = lazy(() => import(/* webpackChunkName: 'Playbar' */ '../../components/playbar'))
 
+
+/* legend */
+const Legend = lazy(() => import(/* webpackChunkName: 'Legend' */ '../../components/legend'))
+
+
 /* gis */
 const Toolbar = lazy(() => import(/* webpackChunkName: 'Toolbar' */ '../../components/toolbar'))
 const InitMap = lazy(() => import(/* webpackChunkName: 'InitMap' */ '../../components/initMap'))
@@ -173,8 +178,9 @@ export default [
         name: '图例',
         children: [
           {
-            path: 'something',
-            name: 'something'
+            path: 'legend',
+            name: '图例',
+            component: <Legend />
           }
         ]
       },

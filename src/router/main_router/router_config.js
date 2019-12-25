@@ -20,7 +20,7 @@ export default [
 		component: <CompDocs />
 	},
 	{
-		name: 'gis文档',
+		name: 'GIS接口',
 		path: '/gis-docs',
 		component: <GisDocs />
 	}

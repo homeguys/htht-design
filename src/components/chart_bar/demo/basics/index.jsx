@@ -1,4 +1,3 @@
-```jsx
 import React from 'react'
 import ChartBar from '../index'
 
@@ -22,5 +21,3 @@ function Basics() {
 }
 
 export default Basics
-
-```

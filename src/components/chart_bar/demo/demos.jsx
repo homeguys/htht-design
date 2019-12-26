@@ -1,3 +1,3 @@
-import VerticalTimeSwitch from './vertical'
+import Basics from './basics'
 
-export default [VerticalTimeSwitch]
+export default [Basics]

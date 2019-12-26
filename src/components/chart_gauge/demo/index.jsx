@@ -1,49 +1,32 @@
 import React from 'react'
-import { Form, DatePicker } from 'antd'
-import { hthtPrefix } from '../../../config/varibles'
+import echarts from 'echarts'
 
-const FormItem = Form.Item
 
-class TimeChoice extends React.Component {
-	componentDidMount() {}
+class ChartGauge extends React.Component {
+  componentDidMount() {
+    const {dataSource} = this.props
+    const myChart = echarts.init(document.getElementById('chart-gauge'));
+// 绘制图表
+    myChart.setOption(dataSource)
 
-	render() {
-		const { style, mode } = this.props
-		const dateStyle = style || { width: '1.4rem' }
+    // eslint-disable-next-line func-names
+    setInterval(function () {
+      dataSource.series[0].data[0].value = (Math.random() * 100).toFixed(2) - 0;
+      myChart.setOption(dataSource, true);
+    },2000)
+  }
 
-		return (
-			<div className="htht-time-choice">
-				<span className="title">时间选择：</span>
-				<FormItem>
-					{getFieldDecorator('startTime', {
-						rules: [{ required: true, message: '请输入开始时间！' }]
-					})(
-						<DatePicker
-							showToday={false}
-							format="YYYY-MM-DD"
-							allowClear={false}
-							onChange={e => this.handleChange(e, 'startTime')}
-							style={dateStyle}
-						/>
-					)}
-				</FormItem>
-				<span className="gap">-</span>
-				<FormItem>
-					{getFieldDecorator('endTime', {
-						rules: [{ required: true, message: '请输入结束时间！' }]
-					})(
-						<DatePicker
-							showToday={false}
-							format="YYYY-MM-DD"
-							allowClear={false}
-							onChange={e => this.handleChange(e, 'endTime')}
-							style={dateStyle}
-						/>
-					)}
-				</FormItem>
-			</div>
-		)
-	}
+  render() {
+    const style = {
+      width: '100%',
+      height: '300%'
+    }
+    return (
+      <div className="htht-chart-gauge">
+        <div id="chart-gauge" style={style}/>
+      </div>
+    )
+  }
 }
 
-export default TimeChoice
+export default ChartGauge

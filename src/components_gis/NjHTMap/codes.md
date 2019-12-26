@@ -307,57 +307,60 @@ changeDataIsShow = () => {
     this.isShow = !this.isShow
   }
 
-changeDataIsShow (dataName, type, isShow) {
-    switch (type) {
-      case dataTypeEnum.constructor:
-        let data = this.dataSourceMap.get(dataName)
-        if (data) {
-          data.show = isShow
-        } else {
-          console.warn(errorEnum.ABSENCE)
+changeDataIsShow(dataName, type, isShow) {
+        switch (type) {
+            case dataTypeEnum.DATASOURCE:
+                let data = this.dataSourceMap.get(dataName)
+                if (data) {
+                    data.show = isShow
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            case dataTypeEnum.ENTITY:
+                let myEntity = this.entityMap.get(dataName)
+                if (myEntity) {
+                    myEntity.show = isShow
+                    this.changeDataIsShow(dataName, dataTypeEnum.DATASOURCE, isShow)
+                    if (isShow && this.eventObj[eventEnum.WHEEL].get(dataName)) {
+                        this.eventObj[eventEnum.WHEEL].get(dataName).fn()
+                    }
+                    this.changeEvent(dataName, eventEnum.WHEEL, isShow)
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            case dataTypeEnum.LAYER:
+                let layer = this.layerMap.get(dataName)
+                if (layer) {
+                    layer.show = isShow
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            case dataTypeEnum.PRIMITIVE:
+                let primitive = this.primitiveMap.get(dataName)
+                if (primitive) {
+                    primitive.windyObj.changeShow(isShow)
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            default:
+                break
         }
-        break
-      case dataTypeEnum.ENTITY:
-        let myEntity = this.entityMap.get(dataName)
-        if (myEntity) {
-          myEntity.show = isShow
-          this.cahangeDataIsShow(dataName, 1, isShow)
-          if (isShow) {
-            this.eventObj['WHEEL'].get(dataName).fn()
-          }
-          this.changeEvent(dataName, 'WHEEL', isShow)
-        } else {
-          console.warn(errorEnum.ABSENCE)
-        }
-        break
-      case dataTypeEnum.LAYER:
-        let layer = this.layerMap.get(dataName)
-        if (layer) {
-          layer.show = isShow
-        } else {
-          console.warn(errorEnum.ABSENCE)
-        }
-        break
-      case dataTypeEnum.PRIMITIVE:
-        let primitive = this.primitiveMap.get(dataName)
-        if (primitive) {
-          primitive.windyObj.changeShow(isShow)
-        } else {
-          console.warn(errorEnum.ABSENCE)
-        }
-        break
-      default:
-        break
     }
-  }
 ```
 
 ---
 
 ```jsx
-changeEvent (name, type, enable) {
-    this.eventObj[type].get(name).enable = enable
-  }
+ changeEvent(name, type, enable) {
+        if (this.eventObj[type].get(name)) {
+            this.eventObj[type].get(name).enable = enable
+        }
+
+    }
 ```
 
 ---
@@ -1070,61 +1073,61 @@ removeData = () => {
     this.myMap.removeData('wind', dataTypeEnum.ENTITY)
   }
 
-removeData (dataName, type) {
-    switch (type) {
-      case dataTypeEnum.DATASOURCE:
-        let data = this.dataSourceMap.get(dataName)
-        if (data) {
-          this.dataSources.remove(data, true)
-          this.dataSourceMap.delete(dataName)
-        } else {
-          console.warn(errorEnum.ABSENCE)
-        }
-        break
-      case dataTypeEnum.ENTITY:
-        let myEntity = this.entityMap.get(dataName)
-        if (myEntity) {
-          this.entities.remove(myEntity)
-          this.entityMap.delete(dataName)
-          this.removeData(dataName, 1)
-          this.removeEvent(dataName, 'WHEEL')
-        } else {
-          console.warn(errorEnum.ABSENCE)
-        }
-        break
-      case dataTypeEnum.LAYER:
-        let layer = this.layerMap.get(dataName)
-        if (layer) {
-          this.imageryLayers.remove(layer, true)
-          this.layerMap.delete(dataName)
-        } else {
-          console.warn(errorEnum.ABSENCE)
-        }
-        break
-      case dataTypeEnum.PRIMITIVE:
-        let primitive = this.primitiveMap.get(dataName)
-        if (primitive) {
-          primitive.windyObj.stopWindy()
-          let needRemove = []
-          for (let i = 0; i < primitive.primitivesObj.length; i++) {
-            let p = primitive.primitivesObj.get(i)
-            if (!p._primitives) {
-              needRemove.push(p)
-            }
-          }
+ removeData(dataName, type) {
+        switch (type) {
+            case dataTypeEnum.DATASOURCE:
+                let data = this.dataSourceMap.get(dataName)
+                if (data) {
+                    this.dataSources.remove(data, true)
+                    this.dataSourceMap.delete(dataName)
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            case dataTypeEnum.ENTITY:
+                let myEntity = this.entityMap.get(dataName)
+                if (myEntity) {
+                    this.entities.remove(myEntity)
+                    this.entityMap.delete(dataName)
+                    this.removeData(dataName, dataTypeEnum.DATASOURCE)
+                    this.removeEvent(dataName, eventEnum.WHEEL)
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            case dataTypeEnum.LAYER:
+                let layer = this.layerMap.get(dataName)
+                if (layer) {
+                    this.imageryLayers.remove(layer, true)
+                    this.layerMap.delete(dataName)
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            case dataTypeEnum.PRIMITIVE:
+                let primitive = this.primitiveMap.get(dataName)
+                if (primitive) {
+                    primitive.windyObj.stopWindy()
+                    let needRemove = []
+                    for (let i = 0; i < primitive.primitivesObj.length; i++) {
+                        let p = primitive.primitivesObj.get(i)
+                        if (!p._primitives) {
+                            needRemove.push(p)
+                        }
+                    }
 
-          for (let i = 0; i < needRemove.length; i++) {
-            primitive.primitivesObj.remove(needRemove[i])
-          }
-        } else {
-          console.warn(errorEnum.ABSENCE)
+                    for (let i = 0; i < needRemove.length; i++) {
+                        primitive.primitivesObj.remove(needRemove[i])
+                    }
+                } else {
+                    console.warn(errorEnum.ABSENCE)
+                }
+                break
+            default:
+                break
         }
-        break
-      default:
-        break
+
     }
-
-  }
 ```
 
 ---

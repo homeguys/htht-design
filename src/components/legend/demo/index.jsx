@@ -16,7 +16,7 @@ class Legend extends React.Component {
     const ctx = c.getContext("2d");
 
     const {dataSource} = this.props
-    const {isHorizontal, isLableOnLine, isForward, title, value, valueMaxLength, color} = dataSource
+    const {isHorizontal, isLableOnLine, title, value, valueMaxLength, color} = dataSource
 
 
 

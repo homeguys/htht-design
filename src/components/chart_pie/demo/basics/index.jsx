@@ -1,4 +1,3 @@
-```jsx
 import React from 'react'
 import ChartPie from '../index'
 
@@ -39,6 +38,7 @@ const dataSource ={
         {value: 274, name: '联盟广告'},
         {value: 235, name: '视频广告'},
         {value: 400, name: '搜索引擎'}
+        // eslint-disable-next-line func-names
       ].sort(function (a, b) {
         return a.value - b.value;
       }),
@@ -70,7 +70,7 @@ const dataSource ={
 
       animationType: 'scale',
       animationEasing: 'elasticOut',
-      animationDelay (idx) {
+      animationDelay () {
         return Math.random() * 200;
       }
     }
@@ -82,4 +82,3 @@ function Basics() {
 }
 
 export default Basics
-```

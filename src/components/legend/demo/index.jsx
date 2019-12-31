@@ -16,12 +16,12 @@ class Legend extends React.Component {
     const ctx = c.getContext("2d");
 
     const {dataSource} = this.props
-    const {isHorizontal, isLableOnLine, title, value, valueMaxLength, color} = dataSource
+    const {isHorizontal, isLableOnLine,isGradient, title, value, valueMaxLength, color} = dataSource
 
 
 
     const titleLength = title.length// 标题字符数
-    const colorLength = color.length// 颜色数量
+    const colorLength = isGradient?color.length-1:color.length// 颜色数量
 
 
     if (isHorizontal) {
@@ -51,7 +51,14 @@ class Legend extends React.Component {
 
 
         for (let i = 0; i < colorLength; i++) {
-          ctx.fillStyle = color[i];
+          if (isGradient) {
+            const grd=ctx.createLinearGradient(xS,yS,xS + xStep,yS);
+            grd.addColorStop(0,color[i]);
+            grd.addColorStop(1,color[i+1]);
+            ctx.fillStyle=grd;
+          }else {
+            ctx.fillStyle = color[i];
+          }
           ctx.fillRect(xS, yS, xStep, yStep * 1.5);
           xS += xStep
 
@@ -59,7 +66,6 @@ class Legend extends React.Component {
 
         ctx.font = `${valueFontSize}px Arial`;
         if (isLableOnLine) {
-          console.warn(1)
           xS = xStep * 1.25
           yS = yStep * 5
           for (let i = 0; i < value.length; i++) {
@@ -67,7 +73,7 @@ class Legend extends React.Component {
             xS += xStep
           }
         } else {
-          xS = xStep * 0.5
+          xS = xStep * 0.75
           yS = yStep * 5
           for (let i = 0; i < value.length; i++) {
             ctx.fillText(value[i], xS, yS);
@@ -100,7 +106,14 @@ class Legend extends React.Component {
 
 
         for (let i = 0; i < colorLength; i++) {
-          ctx.fillStyle = color[i];
+          if (isGradient) {
+            const grd=ctx.createLinearGradient(xS,yS,xS ,yS+ yStep);
+            grd.addColorStop(0,color[i]);
+            grd.addColorStop(1,color[i+1]);
+            ctx.fillStyle=grd;
+          }else {
+            ctx.fillStyle = color[i];
+          }
           ctx.fillRect(xS, yS, xStep * 1.5, yStep);
           yS += yStep
 

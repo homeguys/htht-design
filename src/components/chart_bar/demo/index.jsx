@@ -11,10 +11,10 @@ class ChartBar extends React.Component {
     this.option = {
       backgroundColor: '#2c343c',
       tooltip: {
-        trigger: 'item',
-        formatter: params => {
-          return '要素名称 : ' + params.name + '<br />' + '到报率 : ' + params.value + '%'
-        }
+        trigger: 'item'
+        // formatter: params => {
+        //   return '要素名称 : ' + params.name + '<br />' + '到报率 : ' + params.value + '%'
+        // }
       },
       grid: {
         left: '7%',
@@ -81,17 +81,17 @@ class ChartBar extends React.Component {
               ])
             }
           }
-        },
-        {
-          // For shadow
-          type: 'bar',
-          itemStyle: {
-            normal: { color: '#595A62' }
-          },
-          barGap: '-100%',
-          barCategoryGap: '50%',
-          data: dataShadow
         }
+        // {
+        //   // For shadow
+        //   type: 'bar',
+        //   itemStyle: {
+        //     normal: { color: '#595A62' }
+        //   },
+        //   barGap: '-100%',
+        //   barCategoryGap: '50%',
+        //   data: dataShadow
+        // }
       ]
     }
   }

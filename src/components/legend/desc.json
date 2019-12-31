@@ -26,7 +26,7 @@
     {
       "key": "2",
       "param": "isLableOnLine",
-      "explain": "标注是否在两个颜色中间",
+      "explain": "标注是否在两个颜色中间，如果为true，数值需少给一个",
       "type":  ["boolean"],
       "default": "false",
       "edition": "0.0.5"
@@ -60,6 +60,14 @@
       "param": "color",
       "explain": "颜色数组",
       "type": ["any[ ]"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "7",
+      "param": "isGradient",
+      "explain": "是否是渐变色，如果为true，颜色需多给一个",
+      "type": ["boolean"],
       "default": "-",
       "edition": "0.0.5"
     }

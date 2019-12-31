@@ -40,13 +40,23 @@ body,
 
           // 代码模块样式
           @include codeStyle();
+
+          .code-box-wrapper {
+            .code-box-demo {
+              // 基础饼状图
+              .basic-pie-demo {
+                min-height: 2.6rem;
+                height: 4rem;
+                width: 6.5rem;
+              }
+            }
+          }
         }
       }
     }
   }
 }
 
-
-.cesium-viewer-bottom{
+.cesium-viewer-bottom {
   display: none;
 }

@@ -155,6 +155,10 @@ export function toast(message, str, type) {
   }
 }
 
+/**
+ * 创建一个随机hash值
+ * @param {*} hashLength hash值的长度
+ */
 export function createHash(hashLength) {
   if (!hashLength || typeof Number(hashLength) !== 'number') {
     return
@@ -205,6 +209,22 @@ export function createHash(hashLength) {
   }
 
   return hs.join('')
+}
+
+/**
+ * 深度合并两个对象
+ * @param {*} FirstOBJ 对象1
+ * @param {*} SecondOBJ 对象2
+ */
+export function deepObjectMerge(FirstOBJ, SecondOBJ) {
+  // eslint-disable-next-line guard-for-in
+  for (const key in SecondOBJ) {
+    FirstOBJ[key] =
+      FirstOBJ[key] && FirstOBJ[key].toString() === '[object Object]'
+        ? deepObjectMerge(FirstOBJ[key], SecondOBJ[key])
+        : (FirstOBJ[key] = SecondOBJ[key])
+  }
+  return FirstOBJ
 }
 
 // antd和iconfont组合一起

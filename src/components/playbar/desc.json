@@ -21,34 +21,26 @@
   "tableData": [
     {
       "key": "1",
-      "param": "dataSource",
-      "explain": "工具栏的源数据",
-      "type": ["any[ ]"],
+      "param": "marks",
+      "explain": "播放条下标",
+      "type": ["object"],
       "default": "-",
       "edition": "0.0.5"
     },
     {
       "key": "2",
-      "param": "options",
-      "explain": "行政区划数据",
-      "type": ["Option[ ]"],
-      "default": "-",
+      "param": "autoplaySpeed",
+      "explain": "播放条间隔",
+      "type": ["number"],
+      "default": "1000",
       "edition": "0.0.5"
     },
     {
       "key": "3",
-      "param": "hasRegion",
-      "explain": "是否有行政区划",
-      "type": ["boolean"],
-      "default": "false",
-      "edition": "0.0.5"
-    },
-    {
-      "key": "4",
-      "param": "position",
-      "explain": "工具条的位置",
-      "type": ["left", "right"],
-      "default": "right",
+      "param": "onChange",
+      "explain": "播放条切换时间",
+      "type": ["Function(value)"],
+      "default": "-",
       "edition": "0.0.5"
     }
   ]

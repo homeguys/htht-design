@@ -1,24 +1,56 @@
 import React from 'react'
-import { IconFont } from '../../../../utils/utils'
-import Toolbar from '../index'
+import Playbar from '../index'
 
-const dataSource = [
-  { name: '放大', value: 'zoomOut', icon: <IconFont type="icon-zoomIn" /> },
-  { name: '缩小', value: 'zoomIn', icon: <IconFont type="icon-zoomOut" /> },
-  { name: '恢复', value: 'recover', icon: <IconFont type="icon-recover" /> },
-  {
-    name: '图层',
-    icon: <IconFont type="icon-layer" />,
-    children: [
-      { name: '影像图', value: 'st' },
-      { name: '交通图', value: 'road' },
-      { name: '地形图', value: 'terrain' }
-    ]
+class PlaybarBasic extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      marks: {
+        0: '00:00',
+        2: '02:00',
+        3: '03:00',
+        4: '04:00',
+        5: '05:00',
+        6: '06:00',
+        7: '07:00',
+        8: '08:00',
+        9: '09:00',
+        10: '10:00',
+        11: '11:00',
+        12: '12:00'
+      }
+    }
+    this.count = 0
   }
-]
 
-function ToolbarBasic() {
-  return <Toolbar dataSource={dataSource} />
+  changeMarks = () => {
+    this.setState({
+      marks: {
+        0: '00:00',
+        1: '01:00',
+        2: '02:00',
+        3: '03:00',
+        4: '04:00',
+        5: '05:00',
+        6: '06:00'
+      }
+    })
+  }
+
+  onChange = value => {
+    console.warn(value)
+  }
+
+  render() {
+    const { marks } = this.state
+
+    return (
+      <div>
+        <Playbar marks={marks} onChange={this.onChange} />
+        <input type="button" value="按钮" onClick={this.changeMarks} />
+      </div>
+    )
+  }
 }
 
-export default ToolbarBasic
+export default PlaybarBasic

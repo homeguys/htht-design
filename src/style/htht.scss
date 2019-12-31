@@ -388,7 +388,7 @@ $form-title-width: 0.7rem;
     .play-btn {
       margin-right: 0.12rem;
 
-      i {
+      span {
         margin-right: 0.12rem;
         cursor: pointer;
 
@@ -396,11 +396,51 @@ $form-title-width: 0.7rem;
           width: 0.3rem;
           height: 0.3rem;
           padding-left: 0.02rem;
+          position: relative;
           display: inline-flex;
           justify-content: center;
           align-items: center;
           border: 2px solid rgba(9, 64, 83, 1);
           margin-right: 0.15rem;
+          border: 1px solid rgba(9, 64, 83, 1);
+
+          i {
+            width: 0.05rem;
+            height: 0.05rem;
+            display: inline-block;
+            position: absolute;
+            box-sizing: content-box;
+
+            &.top-left {
+              border-top: 2px solid #18efec;
+              border-left: 2px solid #18efec;
+              top: 0;
+              left: 0;
+              border-color: #18efec;
+              border-width: 2px;
+            }
+
+            &.top-right {
+              border-top: 2px solid #18efec;
+              border-right: 2px solid #18efec;
+              top: 0;
+              right: 0;
+            }
+
+            &.bottom-left {
+              border-bottom: 2px solid #18efec;
+              border-left: 2px solid #18efec;
+              bottom: 0;
+              left: 0;
+            }
+
+            &.bottom-right {
+              border-bottom: 2px solid #18efec;
+              border-right: 2px solid #18efec;
+              bottom: 0;
+              right: 0;
+            }
+          }
         }
       }
     }
@@ -434,6 +474,18 @@ $form-title-width: 0.7rem;
         color: #fff;
         font-size: 0.12rem;
       }
+
+      .ant-slider-track {
+        background-color: #00afff;
+      }
+
+      .ant-slider-step {
+        .ant-slider-dot {
+          width: 0;
+          height: 0;
+          border: none;
+        }
+      }
     }
 
     .download {
@@ -444,8 +496,32 @@ $form-title-width: 0.7rem;
 }
 
 @include playbar();
+
 /***********************************************************************************/
 
+// 饼状图样式
+@mixin hthtChartPie() {
+  .htht-chart-pie {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include hthtChartPie();
+
+/***********************************************************************************/
+
+// 柱状图样式
+@mixin hthtChartBar() {
+  .htht-chart-bar {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include hthtChartBar();
+
+/***********************************************************************************/
 // 修改antd默认样式
 #root {
   .ant-form-item {

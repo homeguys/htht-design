@@ -2,12 +2,3 @@ $main-color: #1890ff; // 页面主要颜色
 $font-gray-color: #314659; // 灰色字体颜色
 $code-block-color: #040d2de6; // 代码块展示颜色
 $title-color: #0d1a26; // 组件标题颜色
-
-@mixin changeAntdCss() {
-  .ant-spin-spinning {
-    position: relative;
-    left: 50%;
-    top: 40%;
-    transform: translateX(-50%);
-  }
-}

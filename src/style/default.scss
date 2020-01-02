@@ -128,3 +128,12 @@ $header-height: 0.65rem;
 }
 
 @include apiContainer();
+
+@mixin changeAntdCss() {
+  .ant-spin-spinning {
+    position: relative;
+    left: 50%;
+    top: 40%;
+    transform: translateX(-50%);
+  }
+}

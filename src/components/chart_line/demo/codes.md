@@ -3,23 +3,17 @@ import React from 'react'
 import ChartLine from '../index'
 
 const dataSource = {
-  xAxis: {
-    type: 'category',
-    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [{
-    data: [820, 932, 901, 934, 1290, 1330, 1320],
-    type: 'line'
-  }]
+  xAxisData: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+  seriesData: [820, 932, 901, 934, 1290, 1330, 1320]
 }
 
 function Basics() {
-  return <ChartLine dataSource={dataSource}/>
+  return (
+    <div className="basic-pie-demo">
+      <ChartLine dataSource={dataSource} />
+    </div>
+  )
 }
 
 export default Basics
-
 ```

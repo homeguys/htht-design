@@ -7,6 +7,7 @@ class PlaybarBasic extends React.Component {
     this.state = {
       marks: {
         0: '00:00',
+        1: '01:00',
         2: '02:00',
         3: '03:00',
         4: '04:00',

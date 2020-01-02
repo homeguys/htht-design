@@ -1,15 +1,15 @@
 import React from 'react'
 
 class Changelog extends React.Component {
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
-		return (
-			<div className="change-log">
-				<span>changelog</span>
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div className="change-log">
+        <span>changelog</span>
+      </div>
+    )
+  }
 }
 
 export default Changelog

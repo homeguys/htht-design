@@ -24,7 +24,6 @@ class ChartBar extends React.Component {
         containLabel: true
       },
       xAxis: {
-        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
         axisLabel: {
           textStyle: {
             color: '#FFF'
@@ -101,9 +100,9 @@ class ChartBar extends React.Component {
     const myChart = echarts.init(document.getElementById(`htht-chart-bar-${this.hash}`))
     const newOption = deepObjectMerge(this.option, option)
 
-    newOption.series[0].data = dataSource
+    newOption.xAxis.data = dataSource.xAxisData
+    newOption.series[0].data = dataSource.seriesData
 
-    console.warn(newOption)
     // 绘制图表
     myChart.setOption(newOption)
     this.screenChange()

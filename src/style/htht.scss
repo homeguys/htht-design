@@ -522,6 +522,18 @@ $form-title-width: 0.7rem;
 @include hthtChartBar();
 
 /***********************************************************************************/
+
+// 折线图样式
+@mixin hthtChartLine() {
+  .htht-chart-line {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+@include hthtChartLine();
+
+/***********************************************************************************/
 // 修改antd默认样式
 #root {
   .ant-form-item {

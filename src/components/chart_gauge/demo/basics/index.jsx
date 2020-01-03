@@ -1,28 +1,15 @@
 import React from 'react'
 import ChartGauge from '../index'
 
-const dataSource = {
-  tooltip : {
-    formatter: "{a} <br/>{b} : {c}%"
-  },
-  toolbox: {
-    feature: {
-      restore: {},
-      saveAsImage: {}
-    }
-  },
-  series: [
-    {
-      name: '业务指标',
-      type: 'gauge',
-      detail: {formatter:'{value}%'},
-      data: [{value: 50, name: '完成率'}]
-    }
-  ]
-};
+const color = '#f7872f'
+const value = 30
 
 function Basics() {
-  return <ChartGauge dataSource={dataSource} />
+  return (
+    <div className="basic-pie-demo">
+      <ChartGauge value={value} color={color} />
+    </div>
+  )
 }
 
 export default Basics

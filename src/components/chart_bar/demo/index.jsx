@@ -1,6 +1,8 @@
-/* eslint-disable prefer-template */
 import React from 'react'
-import echarts from 'echarts'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/bar'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/title'
 import { deepObjectMerge, createHash } from '../../../utils/utils'
 
 class ChartBar extends React.Component {
@@ -14,9 +16,6 @@ class ChartBar extends React.Component {
       backgroundColor: '#2c343c',
       tooltip: {
         trigger: 'item'
-        // formatter: params => {
-        //   return '要素名称 : ' + params.name + '<br />' + '到报率 : ' + params.value + '%'
-        // }
       },
       grid: {
         left: '7%',

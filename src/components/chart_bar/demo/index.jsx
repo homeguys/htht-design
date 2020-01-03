@@ -5,6 +5,8 @@ import { deepObjectMerge, createHash } from '../../../utils/utils'
 
 class ChartBar extends React.Component {
   constructor(props) {
+    // console.log('aa')
+    debugger
     super(props)
     this.state = {}
     this.hash = createHash(6)

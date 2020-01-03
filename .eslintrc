@@ -12,7 +12,7 @@
   },
   "rules": {
     "no-new": ["off"],
-    "no-unused-vars": ["warn"],
+    "no-unused-vars": ["error"],
     "no-console": [
       "error",
       {
@@ -20,7 +20,7 @@
       }
     ],
     "no-undef": ["off"],
-    "no-tabs": ["off"],
+    "no-tabs": ["warn"],
     "no-debugger": ["off"],
     "react/jsx-uses-react": "error",
     "react/jsx-uses-vars": "error",

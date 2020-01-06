@@ -197,7 +197,9 @@ class Playbar extends React.Component {
             </svg>
           </span>
         </div>
-        <Slider min={0} max={max} marks={marks} value={value} onChange={this.dragSlider} />
+        <div className="slider-contanier">
+          <Slider min={0} max={max} marks={marks} value={value} onChange={this.dragSlider} />
+        </div>
         <div className="download">
           <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" width="32" height="32">
             <path

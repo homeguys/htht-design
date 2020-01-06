@@ -445,45 +445,47 @@ $form-title-width: 0.7rem;
       }
     }
 
-    .ant-slider {
+    .slider-contanier {
       flex: 1 1;
 
-      &.ant-slider-with-marks {
-        margin-bottom: 18px;
-      }
-
-      .ant-slider-handle {
-        margin-top: -20px;
-        border-radius: unset;
-        border: none;
-        width: 0.14rem;
-        height: 0.18rem;
-        background: linear-gradient(135deg, #00afff 0px, #00afff 0) top left,
-          linear-gradient(-135deg, #00afff 0px, #00afff 0) top right,
-          linear-gradient(-45deg, transparent 50%, #00afff 0) bottom right,
-          linear-gradient(45deg, transparent 50%, #00afff 0) bottom left;
-        background-size: 50% 50%;
-        background-repeat: no-repeat;
-
-        &:focus {
-          box-shadow: none;
+      .ant-slider {
+        &.ant-slider-with-marks {
+          margin-bottom: 18px;
         }
-      }
 
-      .ant-slider-mark-text {
-        color: #fff;
-        font-size: 0.12rem;
-      }
-
-      .ant-slider-track {
-        background-color: #00afff;
-      }
-
-      .ant-slider-step {
-        .ant-slider-dot {
-          width: 0;
-          height: 0;
+        .ant-slider-handle {
+          margin-top: -20px;
+          border-radius: unset;
           border: none;
+          width: 0.14rem;
+          height: 0.18rem;
+          background: linear-gradient(135deg, #00afff 0px, #00afff 0) top left,
+            linear-gradient(-135deg, #00afff 0px, #00afff 0) top right,
+            linear-gradient(-45deg, transparent 50%, #00afff 0) bottom right,
+            linear-gradient(45deg, transparent 50%, #00afff 0) bottom left;
+          background-size: 50% 50%;
+          background-repeat: no-repeat;
+
+          &:focus {
+            box-shadow: none;
+          }
+        }
+
+        .ant-slider-mark-text {
+          color: #fff;
+          font-size: 0.12rem;
+        }
+
+        .ant-slider-track {
+          background-color: #00afff;
+        }
+
+        .ant-slider-step {
+          .ant-slider-dot {
+            width: 0;
+            height: 0;
+            border: none;
+          }
         }
       }
     }

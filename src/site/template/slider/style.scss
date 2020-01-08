@@ -2,16 +2,16 @@
 @import '../../../style/theme.scss';
 
 ##{$htht-prefix}-slider {
-	width: 3rem;
-	height: 100%;
-	overflow: hidden;
+  width: 3rem;
+  height: 100%;
+  overflow: hidden;
 
-	&:hover {
-		overflow: auto;
-	}
+  &:hover {
+    overflow: auto;
+  }
 
-	.ant-menu {
-		width: 100% !important;
-		height: 100%;
-	}
+  .ant-menu {
+    width: 100% !important;
+    height: 100%;
+  }
 }

@@ -1,0 +1,24 @@
+@import '../../style/default.scss';
+@import '../../style/theme.scss';
+
+//横向时间选择
+@mixin timeChoiceHorizontal() {
+  .#{$htht-prefix}-time-choice.#{$htht-prefix}-time-choice-horizontal {
+    @include formCommon();
+  }
+}
+
+//纵向时间选择
+@mixin timeChoiceVertical() {
+  .#{$htht-prefix}-time-choice.#{$htht-prefix}-time-choice-vertical {
+    @include formCommon();
+  }
+}
+
+// 时间选择
+@mixin timeChoice() {
+  @include timeChoiceHorizontal();
+  @include timeChoiceVertical();
+}
+
+@include timeChoice();

@@ -18,7 +18,7 @@
       "detail": "显示全部工具，并且增加地区选择联动框。"
     }
   ],
-  "tableData": [
+  "apiData": [
     {
       "key": "1",
       "param": "dataSource",

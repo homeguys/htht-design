@@ -32,8 +32,8 @@ export default class extends React.Component {
     const { codes } = this.state
     const mainDesc = desc.main
     const demoDesc = desc.demo
-    const { tableData } = desc
+    const { apiData } = desc
     const data = handleArrs(demos, codes, demoDesc)
-    return <MainContent data={data} mainDesc={mainDesc} tableData={tableData} />
+    return <MainContent data={data} mainDesc={mainDesc} apiData={apiData} />
   }
 }

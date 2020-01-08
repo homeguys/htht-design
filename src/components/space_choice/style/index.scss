@@ -1,0 +1,13 @@
+// 两行空间选择
+@mixin spaceChoiceTwoLine() {
+  .#{$htht-prefix}-space-choice.#{$htht-prefix}-space-choice-two-line {
+    @include formCommon();
+  }
+}
+
+// 空间选择
+@mixin spaceChoice() {
+  @include spaceChoiceTwoLine();
+}
+
+@include spaceChoice();

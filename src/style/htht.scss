@@ -1,78 +1,9 @@
+@import '../components/time_choice/style/index.scss';
+@import '../components/space_choice/style/index.scss';
+
 $htht-prefix: 'htht';
-$main-color: #1890ff;
-$border-color: #d9d9d9;
-$form-title-width: 0.7rem;
-
-// 表单公用样式
-@mixin formCommon() {
-  .item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 0.1rem;
-
-    .title {
-      margin-right: 0.1rem;
-      width: $form-title-width;
-    }
-
-    .gap {
-      margin: 0 0.05rem;
-    }
-
-    .sub-title {
-      font-size: 0.13rem;
-      margin-right: 0.1rem;
-      width: $form-title-width;
-      text-align: center;
-
-      i {
-        font-style: normal;
-        background-color: $main-color;
-        border-radius: 0.06rem;
-        color: #fff;
-        padding: 0 0.1rem;
-      }
-    }
-  }
-}
-
-//横向时间选择
-@mixin timeChoiceHorizontal() {
-  .#{$htht-prefix}-time-choice.#{$htht-prefix}-time-choice-horizontal {
-    @include formCommon();
-  }
-}
-
-//纵向时间选择
-@mixin timeChoiceVertical() {
-  .#{$htht-prefix}-time-choice.#{$htht-prefix}-time-choice-vertical {
-    @include formCommon();
-  }
-}
-
-// 时间选择
-@mixin timeChoice() {
-  @include timeChoiceHorizontal();
-  @include timeChoiceVertical();
-}
-
-@include timeChoice();
 
 /***********************************************************************************/
-
-// 两行空间选择
-@mixin spaceChoiceTwoLine() {
-  .#{$htht-prefix}-space-choice.#{$htht-prefix}-space-choice-two-line {
-    @include formCommon();
-  }
-}
-
-// 空间选择
-@mixin spaceChoice() {
-  @include spaceChoiceTwoLine();
-}
-
-@include spaceChoice();
 
 /***********************************************************************************/
 
@@ -120,7 +51,7 @@ $form-title-width: 0.7rem;
     flex-direction: column;
     width: 4rem;
     padding: 0.1rem;
-    border: 1px solid $border-color;
+    border: 1px solid $form-border-color;
     justify-content: center;
 
     .date-box {
@@ -159,7 +90,7 @@ $form-title-width: 0.7rem;
 @mixin searchBoxHorizontal() {
   .#{$htht-prefix}-search-box.#{$htht-prefix}-search-box-horizontal {
     padding: 0.1rem;
-    border: 1px solid $border-color;
+    border: 1px solid $form-border-color;
     border-radius: 0.1rem;
 
     form {
@@ -180,7 +111,7 @@ $form-title-width: 0.7rem;
   .#{$htht-prefix}-search-box.#{$htht-prefix}-search-box-vertical {
     width: 4rem;
     padding: 0.1rem;
-    border: 1px solid $border-color;
+    border: 1px solid $form-border-color;
     border-radius: 0.1rem;
 
     @include formCommon();
@@ -205,7 +136,7 @@ $form-title-width: 0.7rem;
 @mixin tableList() {
   .#{$htht-prefix}-list.#{$htht-prefix}-table-list {
     width: 5rem;
-    border: 1px solid $border-color;
+    border: 1px solid $form-border-color;
     border-radius: 0.1rem;
     overflow: hidden;
 
@@ -226,7 +157,7 @@ $form-title-width: 0.7rem;
 @mixin treeList() {
   .#{$htht-prefix}-list.#{$htht-prefix}-tree-list {
     width: 3rem;
-    border: 1px solid $border-color;
+    border: 1px solid $form-border-color;
     border-radius: 0.1rem;
     padding: 0.1rem;
   }
@@ -236,14 +167,14 @@ $form-title-width: 0.7rem;
 @mixin scrollList() {
   .#{$htht-prefix}-list.#{$htht-prefix}-scroll-list {
     width: 3rem;
-    border: 1px solid $border-color;
+    border: 1px solid $form-border-color;
     border-radius: 0.1rem;
     padding: 0.1rem;
 
     ul {
       li {
         line-height: 0.35rem;
-        border-bottom: 1px solid $border-color;
+        border-bottom: 1px solid $form-border-color;
         padding-left: 0.12rem;
       }
     }

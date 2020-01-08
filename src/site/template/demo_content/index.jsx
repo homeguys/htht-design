@@ -8,7 +8,7 @@ import ApiTable from '../api_table'
 import './style.scss'
 
 function MainContent(props) {
-  const { mainDesc, data, tableData } = props
+  const { mainDesc, data, apiData } = props
 
   return (
     <DocContent>
@@ -39,7 +39,7 @@ function MainContent(props) {
             )
           })}
         </div>
-        <ApiTable dataSource={tableData} />
+        <ApiTable dataSource={apiData} />
       </article>
       <BackTop target={() => document.getElementById('htht-main-content')} />
     </DocContent>

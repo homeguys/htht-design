@@ -1,49 +1,57 @@
 import React from 'react'
-import { Form, DatePicker } from 'antd'
-import { hthtPrefix } from '../../../config/varibles'
+import { Form, InputNumber } from 'antd'
+import NoGetFieldDecorator from '../../form_valid/no_getFieldDecorator'
 
-const FormItem = Form.Item
+function SpaceChoice(props) {
+  const { form } = props
+  const { getFieldDecorator } = form
 
-class TimeChoice extends React.Component {
-	componentDidMount() {}
+  // 没传getFieldDecorator的话警告，getFieldDecorator必传
+  if (!getFieldDecorator) {
+    return <NoGetFieldDecorator />
+  }
+  return (
+    <div className="htht-space-choice htht-space-choice-two-line">
+      <span className="title">空间选择：</span>
+      <div className="item">
+        <span className="sub-title">
+          <i>经度</i>
+        </span>
+        <Form.Item>
+          {getFieldDecorator('minLong', {
+            rules: [{ required: true, message: '请输入最小经度！' }]
+          })(
+            <InputNumber placeholder="最小经度" min={-180} max={180} style={{ width: '1.4rem' }} />
+          )}
+        </Form.Item>
+        <span className="gap">-</span>
+        <Form.Item>
+          {getFieldDecorator('maxLong', {
+            rules: [{ required: true, message: '请输入最大经度！' }]
+          })(
+            <InputNumber placeholder="最大经度" min={-180} max={180} style={{ width: '1.4rem' }} />
+          )}
+        </Form.Item>
+      </div>
 
-	render() {
-		const { style, mode } = this.props
-		const dateStyle = style || { width: '1.4rem' }
-
-		return (
-			<div className="htht-time-choice">
-				<span className="title">时间选择：</span>
-				<FormItem>
-					{getFieldDecorator('startTime', {
-						rules: [{ required: true, message: '请输入开始时间！' }]
-					})(
-						<DatePicker
-							showToday={false}
-							format="YYYY-MM-DD"
-							allowClear={false}
-							onChange={e => this.handleChange(e, 'startTime')}
-							style={dateStyle}
-						/>
-					)}
-				</FormItem>
-				<span className="gap">-</span>
-				<FormItem>
-					{getFieldDecorator('endTime', {
-						rules: [{ required: true, message: '请输入结束时间！' }]
-					})(
-						<DatePicker
-							showToday={false}
-							format="YYYY-MM-DD"
-							allowClear={false}
-							onChange={e => this.handleChange(e, 'endTime')}
-							style={dateStyle}
-						/>
-					)}
-				</FormItem>
-			</div>
-		)
-	}
+      <div className="item">
+        <span className="sub-title">
+          <i>纬度</i>
+        </span>
+        <Form.Item>
+          {getFieldDecorator('minLat', {
+            rules: [{ required: true, message: '请输入最小纬度！' }]
+          })(<InputNumber placeholder="最小纬度" min={-90} max={90} style={{ width: '1.4rem' }} />)}
+        </Form.Item>
+        <span className="gap">-</span>
+        <Form.Item>
+          {getFieldDecorator('maxLat', {
+            rules: [{ required: true, message: '请输入最大纬度！' }]
+          })(<InputNumber placeholder="最大纬度" min={-90} max={90} style={{ width: '1.4rem' }} />)}
+        </Form.Item>
+      </div>
+    </div>
+  )
 }
 
-export default TimeChoice
+export default SpaceChoice

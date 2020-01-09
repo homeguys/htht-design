@@ -1,21 +1,20 @@
 import React, { Fragment } from 'react'
 import { Form, DatePicker } from 'antd'
-import NoGetFieldDecorator from '../../form_valid/no_getFieldDecorator'
+import WarnBox from '../../utils/warn_box'
 
 function TimeChoice(props) {
   const { form, mode } = props
-  const { getFieldDecorator } = form
-
   // 没传mode或者传horizontal和vertical之外的值，默认是horizontal
   const checked = mode && mode === 'vertical'
 
-  // 没传getFieldDecorator的话警告，getFieldDecorator必传
-  if (!getFieldDecorator) {
-    return <NoGetFieldDecorator />
+  // 没传form的话警告，form必传
+  if (!form) {
+    return <WarnBox title="请传入form" />
   }
 
   // 判断横向还是纵向来赋值class名
   const className = checked ? 'htht-time-choice-vertical' : 'htht-time-choice-horizontal'
+  const { getFieldDecorator } = form
 
   return (
     <div className={`htht-time-choice ${className}`}>

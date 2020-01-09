@@ -12,20 +12,43 @@
   ],
   "apiData": [
     {
-      "key": "1",
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "form",
       "param": "form",
-      "explain": "antd form组件原生的方法",
+      "explain": "antd form组件原生的对象",
       "type": ["object"],
       "default": "-",
       "edition": "0.0.5"
     },
     {
-      "key": "2",
+      "key": "dataSource",
       "param": "dataSource",
       "explain": "三级联动源数据",
       "type": ["array"],
       "default": "-",
       "edition": "0.0.5"
+    },
+    {
+      "key": "FormKey",
+      "param": "FormKey"
+    },
+    {
+      "key": "province",
+      "param": "province",
+      "explain": "省级"
+    },
+    {
+      "key": "city",
+      "param": "city",
+      "explain": "市级"
+    },
+    {
+      "key": "county",
+      "param": "county",
+      "explain": "县级"
     }
   ]
 }

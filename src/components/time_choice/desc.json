@@ -16,20 +16,37 @@
   ],
   "apiData": [
     {
-      "key": "1",
-      "param": "getFieldDecorator",
-      "explain": "用于和表单进行双向绑定，antd form组件原生的方法",
-      "type": ["function"],
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "form",
+      "param": "form",
+      "explain": "antd form组件原生的对象",
+      "type": ["object"],
       "default": "-",
       "edition": "0.0.5"
     },
     {
-      "key": "2",
+      "key": "mode",
       "param": "mode",
       "explain": "垂直或者水平类型",
-      "type": ["string: vertical horizontal"],
-      "default": "horizontal",
-      "edition": "0.0.5"
+      "type": ["string: vertical | horizontal"],
+      "default": "horizontal"
+    },
+    {
+      "key": "FormKey",
+      "param": "FormKey"
+    },
+    {
+      "key": "startTime",
+      "param": "startTime",
+      "explain": "开始时间"
+    },
+    {
+      "key": "endTime",
+      "param": "endTime",
+      "explain": "结束时间"
     }
   ]
 }

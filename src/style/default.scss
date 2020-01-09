@@ -119,8 +119,10 @@ $header-height: 0.65rem;
       font-size: 0.13rem;
       td {
         &:first-child {
-          width: 20%;
-          color: $main-color;
+          span.title {
+            width: 20%;
+            color: $main-color;
+          }
         }
       }
     }
@@ -135,5 +137,10 @@ $header-height: 0.65rem;
     left: 50%;
     top: 40%;
     transform: translateX(-50%);
+  }
+
+  .ant-tag {
+    font-size: 0.14rem;
+    line-height: 0.24rem;
   }
 }

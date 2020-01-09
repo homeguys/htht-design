@@ -4,7 +4,7 @@ import { Form } from 'antd'
 import LinkageSelect from '../index'
 
 // 三级联动数据格式
-const data = [
+const dataSource = [
   {
     value: 'Zhejiang',
     name: '浙江省',
@@ -23,10 +23,48 @@ const data = [
           }
         ]
       },
-      ...
+      {
+        value: 'Ningbo',
+        name: '宁波市',
+        children: [
+          {
+            value: 'Ninghai',
+            name: '宁海县'
+          },
+          {
+            value: 'Xiangshan',
+            name: '象山县'
+          }
+        ]
+      }
     ]
   },
-  ...
+  {
+    value: 'Anhui',
+    name: '安徽省',
+    children: [
+      {
+        value: 'Wuhu',
+        name: '芜湖市',
+        children: [
+          {
+            value: 'Wuwei',
+            name: '无为县'
+          }
+        ]
+      },
+      {
+        value: 'Maanshan',
+        name: '马鞍山市',
+        children: [
+          {
+            value: 'Hexian',
+            name: '和县'
+          }
+        ]
+      }
+    ]
+  }
 ]
 
 function LinkageSelectDemo(props) {

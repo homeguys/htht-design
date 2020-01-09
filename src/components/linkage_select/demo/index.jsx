@@ -1,5 +1,7 @@
+/* eslint-disable react/no-unused-state */
 import React from 'react'
 import { Form, Select } from 'antd'
+import WarnBox from '../../utils/warn_box'
 
 const { Option } = Select
 const FormItem = Form.Item
@@ -8,13 +10,35 @@ class LinkageSelect extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      levelOne: props.dataSource[0].value,
-      levelTwo: props.dataSource[0].children[0].value,
-      levelThree: props.dataSource[0].children[0].children[0].value,
-      levelOneArr: props.dataSource,
-      levelTwoArr: props.dataSource[0].children,
-      levelThreeArr: props.dataSource[0].children[0].children
+      levelOne: '',
+      levelTwo: '',
+      levelThree: '',
+      levelOneArr: [],
+      levelTwoArr: [],
+      levelThreeArr: [],
+      dataSource: []
     }
+  }
+
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const { dataSource } = nextProps
+    if ('dataSource' in nextProps && nextProps.dataSource !== prevState.dataSource) {
+      if (!Array.isArray(dataSource)) {
+        return {
+          dataSource
+        }
+      }
+      return {
+        dataSource,
+        levelOne: dataSource[0].value,
+        levelTwo: dataSource[0].children[0].value,
+        levelThree: dataSource[0].children[0].children[0].value,
+        levelOneArr: dataSource,
+        levelTwoArr: dataSource[0].children,
+        levelThreeArr: dataSource[0].children[0].children
+      }
+    }
+    return prevState
   }
 
   // 三级联动切换
@@ -22,13 +46,13 @@ class LinkageSelect extends React.Component {
     const { form, dataSource } = this.props
     const { setFieldsValue } = form
 
-    if (type === 'levelOne') {
+    if (type === 'province') {
       dataSource.forEach(item => {
         if (item.value === value) {
           setFieldsValue({
-            levelOne: item.value,
-            levelTwo: item.children[0].value,
-            levelThree: item.children[0].children[0].value
+            province: item.value,
+            city: item.children[0].value,
+            county: item.children[0].children[0].value
           })
 
           this.setState({
@@ -37,13 +61,13 @@ class LinkageSelect extends React.Component {
           })
         }
       })
-    } else if (type === 'levelTwo') {
+    } else if (type === 'city') {
       const { levelTwoArr } = this.state
       levelTwoArr.forEach(item => {
         if (item.value === value) {
           setFieldsValue({
-            levelTwo: item.value,
-            levelThree: item.children[0].value
+            city: item.value,
+            county: item.children[0].value
           })
 
           this.setState({
@@ -53,13 +77,25 @@ class LinkageSelect extends React.Component {
       })
     } else {
       setFieldsValue({
-        levelThree: value
+        county: value
       })
     }
   }
 
   render() {
     const { form } = this.props
+    const { dataSource } = this.state
+
+    // 没传form的话警告，form必传
+    if (!form) {
+      return <WarnBox title="请传入form" />
+    }
+
+    // 如果dataSource传入的不是数组，返回警告
+    if (!Array.isArray(dataSource)) {
+      return <WarnBox title="dataSource不是一个数组" />
+    }
+
     const { getFieldDecorator } = form
     const { levelOne, levelTwo, levelThree, levelOneArr, levelTwoArr, levelThreeArr } = this.state
 
@@ -68,14 +104,14 @@ class LinkageSelect extends React.Component {
         <div className="item">
           <span className="title">省：</span>
           <FormItem>
-            {getFieldDecorator('levelOne', {
+            {getFieldDecorator('province', {
               rules: [{ required: true, message: '请输入省！' }],
               initialValue: levelOne
             })(
               <Select
                 style={{ width: 120 }}
                 onChange={value => {
-                  this.handlelevelChange('levelOne', value)
+                  this.handlelevelChange('province', value)
                 }}
               >
                 {levelOneArr.map(item => (
@@ -88,14 +124,14 @@ class LinkageSelect extends React.Component {
         <div className="item">
           <span className="title">市：</span>
           <FormItem>
-            {getFieldDecorator('levelTwo', {
+            {getFieldDecorator('city', {
               rules: [{ required: true, message: '请输入市！' }],
               initialValue: levelTwo
             })(
               <Select
                 style={{ width: 120 }}
                 onChange={value => {
-                  this.handlelevelChange('levelTwo', value)
+                  this.handlelevelChange('city', value)
                 }}
               >
                 {levelTwoArr.map(item => (
@@ -108,14 +144,14 @@ class LinkageSelect extends React.Component {
         <div className="item">
           <span className="title">县：</span>
           <FormItem>
-            {getFieldDecorator('levelThree', {
+            {getFieldDecorator('county', {
               rules: [{ required: true, message: '请输入县！' }],
               initialValue: levelThree
             })(
               <Select
                 style={{ width: 120 }}
                 onChange={value => {
-                  this.handlelevelChange('levelThree', value)
+                  this.handlelevelChange('county', value)
                 }}
               >
                 {levelThreeArr.map(item => (

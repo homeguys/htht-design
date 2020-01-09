@@ -6,9 +6,11 @@ function HorizontalTimeChoice(props) {
   const { form } = props
 
   return (
-    <Form>
-      <TimeChoice form={form} />
-    </Form>
+    <div>
+      <Form>
+        <TimeChoice form={form} />
+      </Form>
+    </div>
   )
 }
 

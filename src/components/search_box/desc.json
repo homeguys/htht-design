@@ -13,5 +13,103 @@
       "title": "垂直时间选择",
       "detail": "垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。"
     }
+  ],
+  "apiData": [
+    {
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "form",
+      "param": "form",
+      "explain": "antd form组件原生的对象",
+      "type": ["object"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "mode",
+      "param": "mode",
+      "explain": "垂直或者水平类型",
+      "type": ["string: vertical | horizontal"],
+      "default": "horizontal"
+    },
+    {
+      "key": "radioData",
+      "param": "radioData",
+      "explain": "radioGroup组件数据",
+      "type": ["any[ ]"],
+      "default": "horizontal"
+    },
+    {
+      "key": "checkboxData",
+      "param": "checkboxData",
+      "explain": "checkboxGroup组件数据",
+      "type": ["any[ ]"],
+      "default": "horizontal"
+    },
+    {
+      "key": "selectData",
+      "param": "selectData",
+      "explain": "selectGroup组件数据",
+      "type": ["any[ ]"],
+      "default": "horizontal"
+    },
+    {
+      "key": "onSubmit",
+      "param": "onSubmit",
+      "explain": "提交表单",
+      "type": ["function"],
+      "default": "-"
+    },
+    {
+      "key": "FormKey",
+      "param": "FormKey"
+    },
+    {
+      "key": "startTime",
+      "param": "startTime",
+      "explain": "开始时间"
+    },
+    {
+      "key": "endTime",
+      "param": "endTime",
+      "explain": "结束时间"
+    },
+    {
+      "key": "minLong",
+      "param": "minLong",
+      "explain": "最小经度"
+    },
+    {
+      "key": "maxLong",
+      "param": "maxLong",
+      "explain": "最大经度"
+    },
+    {
+      "key": "minLat",
+      "param": "minLong",
+      "explain": "最小纬度"
+    },
+    {
+      "key": "maxLat",
+      "param": "maxLong",
+      "explain": "最大纬度"
+    },
+    {
+      "key": "radioGroup",
+      "param": "radioGroup",
+      "explain": "radio组键"
+    },
+    {
+      "key": "checkedGroup",
+      "param": "checkedGroup",
+      "explain": "checkedGroup组键"
+    },
+    {
+      "key": "selectGroup",
+      "param": "selectGroup",
+      "explain": "selectGroup组键"
+    }
   ]
 }

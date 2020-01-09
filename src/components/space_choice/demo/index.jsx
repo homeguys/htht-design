@@ -1,15 +1,17 @@
 import React from 'react'
 import { Form, InputNumber } from 'antd'
-import NoGetFieldDecorator from '../../form_valid/no_getFieldDecorator'
+import WarnBox from '../../utils/warn_box'
 
 function SpaceChoice(props) {
   const { form } = props
+
+  // 没传form的话警告，form必传
+  if (!form) {
+    return <WarnBox title="请传入form" />
+  }
+
   const { getFieldDecorator } = form
 
-  // 没传getFieldDecorator的话警告，getFieldDecorator必传
-  if (!getFieldDecorator) {
-    return <NoGetFieldDecorator />
-  }
   return (
     <div className="htht-space-choice htht-space-choice-two-line">
       <span className="title">空间选择：</span>

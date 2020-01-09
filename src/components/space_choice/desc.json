@@ -12,12 +12,40 @@
   ],
   "apiData": [
     {
-      "key": "1",
-      "param": "getFieldDecorator",
-      "explain": "用于和表单进行双向绑定，antd form组件原生的方法",
-      "type": ["function"],
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "form",
+      "param": "form",
+      "explain": "antd form组件原生的对象",
+      "type": ["object"],
       "default": "-",
       "edition": "0.0.5"
+    },
+    {
+      "key": "FormKey",
+      "param": "FormKey"
+    },
+    {
+      "key": "minLong",
+      "param": "minLong",
+      "explain": "最小经度"
+    },
+    {
+      "key": "maxLong",
+      "param": "maxLong",
+      "explain": "最大经度"
+    },
+    {
+      "key": "minLat",
+      "param": "minLat",
+      "explain": "最小纬度"
+    },
+    {
+      "key": "maxLat",
+      "param": "maxLat",
+      "explain": "最大纬度"
     }
   ]
 }

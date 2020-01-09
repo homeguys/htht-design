@@ -1,4 +1,3 @@
-```jsx
 import React from 'react'
 import { Form } from 'antd'
 import TimeSwitch from '../index'
@@ -17,4 +16,3 @@ function TimeSwitchDemo(props) {
 }
 
 export default Form.create({ name: 'vertical-time-switch' })(TimeSwitchDemo)
-```

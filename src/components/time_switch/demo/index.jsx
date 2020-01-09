@@ -1,11 +1,12 @@
 import React from 'react'
 import { Form, DatePicker, Select, message } from 'antd'
-import moment from 'moment' // eslint-disable-line
-import { toast } from '../../../utils/utils'
+import moment from 'moment'
+import toast from '../../utils/toast'
+import WarnBox from '../../utils/warn_box'
 
 const { Option } = Select
 
-class VerticalTimeSwitch extends React.Component {
+class TimeSwitch extends React.Component {
   constructor(props) {
     super(props)
     this.date = new Date()
@@ -13,19 +14,23 @@ class VerticalTimeSwitch extends React.Component {
 
   componentDidMount() {
     const switchBox = document.querySelector('.htht-time-switch-vertical .switch-box')
-    switchBox.addEventListener('click', this.switchTime, false)
+    if (switchBox) {
+      switchBox.addEventListener('click', this.switchTime, false)
+    }
   }
 
   componentWillUnmount() {
     const switchBox = document.querySelector('.htht-time-switch-vertical .switch-box')
-    switchBox.removeEventListener('click', this.switchTime, false)
+    if (switchBox) {
+      switchBox.removeEventListener('click', this.switchTime, false)
+    }
   }
 
   // 手动选择时间
   handleChangeDate = e => {
     const { form } = this.props
     const { setFieldsValue } = form
-    setFieldsValue({ day: e })
+    setFieldsValue({ date: e })
   }
 
   // 快速切换时间
@@ -33,8 +38,8 @@ class VerticalTimeSwitch extends React.Component {
     let { className } = e.target
     const { form, times } = this.props
     const { setFieldsValue, getFieldValue } = form
-    const currentDay = getFieldValue('day').valueOf()
-    const currentTime = getFieldValue('time')
+    const currentDay = getFieldValue('switch_date').valueOf()
+    const currentTime = getFieldValue('switch_time')
     let timeIndex = times.indexOf(currentTime)
     className = className.replace(/iconfont /, '')
 
@@ -42,7 +47,7 @@ class VerticalTimeSwitch extends React.Component {
       case 'icon_pre_day': {
         const newTime = currentDay - 24 * 60 * 60 * 1000
         const newDate = new Date(newTime)
-        setFieldsValue({ day: moment(newDate, 'YYYY-MM-DD') })
+        setFieldsValue({ switch_date: moment(newDate, 'YYYY-MM-DD') })
         break
       }
       case 'icon_pre_time': {
@@ -51,12 +56,12 @@ class VerticalTimeSwitch extends React.Component {
           toast(message, '已经是最小时次', 'info')
           return
         }
-        setFieldsValue({ time: times[timeIndex] })
+        setFieldsValue({ switch_time: times[timeIndex] })
         break
       }
 
       case 'icon_recover':
-        setFieldsValue({ day: moment(this.date, 'YYYY-MM-DD'), time: times[0] })
+        setFieldsValue({ switch_date: moment(this.date, 'YYYY-MM-DD'), switch_time: times[0] })
         break
       case 'icon_next_time': {
         timeIndex += 1
@@ -64,7 +69,7 @@ class VerticalTimeSwitch extends React.Component {
           toast(message, '已经是最大时次', 'info')
           return
         }
-        setFieldsValue({ time: times[timeIndex] })
+        setFieldsValue({ switch_time: times[timeIndex] })
         break
       }
       case 'icon_next_day': {
@@ -74,7 +79,7 @@ class VerticalTimeSwitch extends React.Component {
           return
         }
         const newDate = new Date(newTime)
-        setFieldsValue({ day: moment(newDate, 'YYYY-MM-DD') })
+        setFieldsValue({ switch_date: moment(newDate, 'YYYY-MM-DD') })
         break
       }
       default:
@@ -83,7 +88,13 @@ class VerticalTimeSwitch extends React.Component {
   }
 
   render() {
-    const { form, times } = this.props
+    const { form, times = [] } = this.props
+
+    // 没传form的话警告，form必传
+    if (!form) {
+      return <WarnBox title="请传入form" />
+    }
+
     const { getFieldDecorator } = form
 
     return (
@@ -92,7 +103,7 @@ class VerticalTimeSwitch extends React.Component {
           <div className="item">
             <span className="title">时间选择：</span>
             <Form.Item>
-              {getFieldDecorator('day', {
+              {getFieldDecorator('switch_date', {
                 rules: [{ required: true, message: '请输入开始时间！' }],
                 initialValue: moment(this.date, 'YYYY-MM-DD')
               })(
@@ -108,7 +119,7 @@ class VerticalTimeSwitch extends React.Component {
           </div>
           <div className="item">
             <Form.Item>
-              {getFieldDecorator('time', {
+              {getFieldDecorator('switch_time', {
                 rules: [{ required: true, message: '请输入时次！' }],
                 initialValue: times[0] // 默认选中时次数组第一个
               })(
@@ -133,4 +144,4 @@ class VerticalTimeSwitch extends React.Component {
   }
 }
 
-export default VerticalTimeSwitch
+export default TimeSwitch

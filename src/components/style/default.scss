@@ -27,6 +27,15 @@ $form-title-width: 0.7rem;
         padding: 0 0.1rem;
       }
     }
+
+    .ant-checkbox-wrapper + .ant-checkbox-wrapper {
+      margin-left: 0;
+    }
+
+    .ant-checkbox-wrapper {
+      margin-right: 0.08rem;
+      margin-bottom: 0.08rem;
+    }
   }
 
   .gap {

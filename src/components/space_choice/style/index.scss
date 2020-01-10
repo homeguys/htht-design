@@ -1,3 +1,5 @@
+@import '../../style/default.scss';
+
 // 两行空间选择
 @mixin spaceChoiceTwoLine() {
   .#{$htht-prefix}-space-choice.#{$htht-prefix}-space-choice-two-line {

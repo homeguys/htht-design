@@ -1,0 +1,22 @@
+.htht-time-switch {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 0.1rem;
+  justify-content: center; }
+  .htht-time-switch .date-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.1rem; }
+    .htht-time-switch .date-box .item {
+      display: flex;
+      align-items: center;
+      margin-right: 0.1rem; }
+      .htht-time-switch .date-box .item:last-child {
+        margin-right: 0; }
+  .htht-time-switch .switch-box {
+    display: flex;
+    padding: 0 0.3rem;
+    justify-content: space-around; }
+    .htht-time-switch .switch-box span {
+      cursor: pointer; }

@@ -1,3 +1,5 @@
+@import '../../style/default.scss';
+
 // 三级联动
 @mixin linkageSelect() {
   .#{$htht-prefix}-linkage-select {

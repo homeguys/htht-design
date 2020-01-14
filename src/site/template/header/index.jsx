@@ -8,23 +8,23 @@ import './style.scss'
 const { hthtPrefix } = varibles
 
 class Header extends React.Component {
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
-		return (
-			<div id={`${hthtPrefix}-header`}>
-				<div id="logo">
-					<Link to="/">
-						<img src={logoPic} alt="logo" />
-						<h1>南京航天宏图组件库</h1>
-					</Link>
-				</div>
-				<div id="nav">
-					<Links />
-				</div>
-			</div>
-		)
-	}
+  render() {
+    return (
+      <div id={`${hthtPrefix}-header`}>
+        <div id="logo">
+          <Link to="/">
+            <img src={logoPic} alt="logo" />
+            <h1>南京航天宏图组件库</h1>
+          </Link>
+        </div>
+        <div id="nav">
+          <Links />
+        </div>
+      </div>
+    )
+  }
 }
 
 export default Header

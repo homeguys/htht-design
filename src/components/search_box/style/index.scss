@@ -32,6 +32,9 @@
 
 // 纵向选择框
 @mixin searchBox() {
+  .#{$htht-prefix}-search-box {
+    @include antFormItemMarginBottom();
+  }
   @include searchBoxHorizontal();
   @include searchBoxVertical();
 }

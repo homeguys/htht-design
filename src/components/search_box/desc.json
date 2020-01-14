@@ -35,25 +35,32 @@
       "default": "horizontal"
     },
     {
+      "key": "linkageData",
+      "param": "linkageData",
+      "explain": "三级联动组件数据",
+      "type": ["any[ ]"],
+      "default": "-"
+    },
+    {
       "key": "radioData",
       "param": "radioData",
       "explain": "radioGroup组件数据",
       "type": ["any[ ]"],
-      "default": "horizontal"
+      "default": "-"
     },
     {
       "key": "checkboxData",
       "param": "checkboxData",
       "explain": "checkboxGroup组件数据",
       "type": ["any[ ]"],
-      "default": "horizontal"
+      "default": "-"
     },
     {
       "key": "selectData",
       "param": "selectData",
       "explain": "selectGroup组件数据",
       "type": ["any[ ]"],
-      "default": "horizontal"
+      "default": "-"
     },
     {
       "key": "onSubmit",

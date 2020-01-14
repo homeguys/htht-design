@@ -8,7 +8,7 @@ import WarnBox from '../../utils/warn_box'
 const FormItem = Form.Item
 const { Option } = Select
 
-function Searchbox(props) {
+function SearchBox(props) {
   const {
     form,
     mode,
@@ -110,4 +110,4 @@ function Searchbox(props) {
   )
 }
 
-export default Searchbox
+export default SearchBox

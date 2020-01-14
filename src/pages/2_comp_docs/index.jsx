@@ -8,17 +8,17 @@ const { hthtPrefix } = varibles
 
 @withRouter
 class CompDocs extends React.Component {
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
-		const { match } = this.props
-		const { url } = match
-		return (
-			<div id={`${hthtPrefix}-comp-docs`}>
-				<Routers url={url} />
-			</div>
-		)
-	}
+  render() {
+    const { match } = this.props
+    const { url } = match
+    return (
+      <div id={`${hthtPrefix}-comp-docs`}>
+        <Routers url={url} />
+      </div>
+    )
+  }
 }
 
 export default CompDocs

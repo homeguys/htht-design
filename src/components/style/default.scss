@@ -44,3 +44,9 @@ $form-title-width: 0.7rem;
     margin: 0 0.05rem;
   }
 }
+
+@mixin antFormItemMarginBottom() {
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+}

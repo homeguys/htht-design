@@ -22,10 +22,11 @@ class LinkageSelect extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const { dataSource } = nextProps
+    console.warn(dataSource)
     if ('dataSource' in nextProps && nextProps.dataSource !== prevState.dataSource) {
-      if (!Array.isArray(dataSource)) {
+      if (!Array.isArray(dataSource) || dataSource.length === 0) {
         return {
-          dataSource
+          dataSource: []
         }
       }
       return {
@@ -84,16 +85,10 @@ class LinkageSelect extends React.Component {
 
   render() {
     const { form } = this.props
-    const { dataSource } = this.state
 
     // 没传form的话警告，form必传
     if (!form) {
       return <WarnBox title="请传入form" />
-    }
-
-    // 如果dataSource传入的不是数组，返回警告
-    if (!Array.isArray(dataSource)) {
-      return <WarnBox title="dataSource不是一个数组" />
     }
 
     const { getFieldDecorator } = form

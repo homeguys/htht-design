@@ -1,6 +1,6 @@
 import React from 'react'
 import { Form } from 'antd'
-import Searchbox from '../index'
+import SearchBox from '../index'
 
 const radioData = [
   {
@@ -56,7 +56,7 @@ function SearchboxDemo(props) {
 
   return (
     <div style={{ width: '4rem' }}>
-      <Searchbox
+      <SearchBox
         form={form}
         mode="vertical"
         radioData={radioData}

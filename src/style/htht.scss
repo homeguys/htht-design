@@ -354,9 +354,11 @@ $htht-prefix: 'htht';
 
 /***********************************************************************************/
 // 修改antd默认样式
-#root {
-  .ant-form-item {
-    margin-bottom: 0;
+html {
+  body {
+    .ant-form-item {
+      margin-bottom: 0;
+    }
   }
 
   .ant-form-explain {

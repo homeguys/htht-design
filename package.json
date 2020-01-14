@@ -10,6 +10,8 @@
     "cesium": "1.62.0",
     "echarts": "^4.5.0",
     "highlight.js": "^9.17.1",
+    "htht-design": "^0.0.12",
+    "htht-one": "^0.0.7",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
@@ -28,7 +30,7 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "prepublish": "rm -rf ./lib"
+    "lint-fix": "eslint --fix --ext .js --ext .jsx src/"
   },
   "browserslist": [
     "last 2 version",

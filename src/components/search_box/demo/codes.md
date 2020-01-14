@@ -1,7 +1,7 @@
 ```jsx
 import React from 'react'
 import { Form } from 'antd'
-import Searchbox from '../index'
+import SearchBox from '../index'
 
 // 三级联动数据格式
 const linkageData = [
@@ -78,7 +78,7 @@ function SearchboxHorizontal(props) {
 
   return (
     <div>
-      <Searchbox linkageData={linkageData} form={form} onSubmit={() => handleSubmit(form)} />
+      <SearchBox linkageData={linkageData} form={form} onSubmit={() => handleSubmit(form)} />
     </div>
   )
 }
@@ -91,7 +91,7 @@ export default Form.create({ name: 'search_box_horizontal' })(SearchboxHorizonta
 ```jsx
 import React from 'react'
 import { Form } from 'antd'
-import Searchbox from '../index'
+import SearchBox from '../index'
 
 const radioData = [
   {
@@ -147,7 +147,7 @@ function SearchboxDemo(props) {
 
   return (
     <div style={{ width: '4rem' }}>
-      <Searchbox
+      <SearchBox
         form={form}
         mode="vertical"
         radioData={radioData}

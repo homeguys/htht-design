@@ -4,6 +4,7 @@
 @mixin spaceChoiceTwoLine() {
   .#{$htht-prefix}-space-choice.#{$htht-prefix}-space-choice-two-line {
     @include formCommon();
+    @include antFormItemMarginBottom();
   }
 }
 

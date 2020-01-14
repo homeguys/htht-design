@@ -9,19 +9,19 @@ const CompDocs = lazy(() => import(/* webpackChunkName: 'comp-docs' */ '../../pa
 const GisDocs = lazy(() => import(/* webpackChunkName: 'gis-docs' */ '../../pages/3_gis_docs'))
 
 export default [
-	{
-		name: '首页',
-		path: '/',
-		component: <Home />
-	},
-	{
-		name: '组件',
-		path: '/comp-docs',
-		component: <CompDocs />
-	},
-	{
-		name: 'GIS接口',
-		path: '/gis-docs',
-		component: <GisDocs />
-	}
+  {
+    name: '首页',
+    path: '/',
+    component: <Home />
+  },
+  {
+    name: '组件',
+    path: '/comp-docs',
+    component: <CompDocs />
+  },
+  {
+    name: 'GIS接口',
+    path: '/gis-docs',
+    component: <GisDocs />
+  }
 ]

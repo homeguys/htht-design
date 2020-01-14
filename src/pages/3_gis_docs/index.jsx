@@ -8,9 +8,9 @@ const { hthtPrefix } = varibles
 
 @withRouter
 class GisDocs extends React.Component {
-	componentDidMount() {}
+  componentDidMount() {}
 
-	render() {
+  render() {
     const { match } = this.props
     const { url } = match
     return (
@@ -18,7 +18,7 @@ class GisDocs extends React.Component {
         <Routers url={url} />
       </div>
     )
-	}
+  }
 }
 
 export default GisDocs

@@ -16,6 +16,9 @@
 
 // 时间选择
 @mixin timeChoice() {
+  .#{$htht-prefix}-time-choice {
+    @include antFormItemMarginBottom();
+  }
   @include timeChoiceHorizontal();
   @include timeChoiceVertical();
 }

@@ -10,7 +10,7 @@
     "cesium": "1.62.0",
     "echarts": "^4.5.0",
     "highlight.js": "^9.17.1",
-    "htht-design": "^0.0.12",
+    "htht-design": "0.0.13",
     "htht-one": "^0.0.7",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.7.2",

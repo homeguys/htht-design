@@ -1,10 +1,10 @@
 import React from 'react'
 
 class Home extends React.Component {
-  componentDidMount() {}
+  componentDidMount () {}
 
-  render() {
-    return <div id="home">home</div>
+  render () {
+    return <div id='home'>home</div>
   }
 }
 

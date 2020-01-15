@@ -37,13 +37,10 @@ module.exports = {
         libraryName: 'htht-design',
         libraryDirectory: 'lib',
         camel2UnderlineComponentName: true,
-        camel2DashComponentName: false,
         customName: name => {
-          return `htht-design/lib/${name}` // 核心配置 根据你自己的组件目录配置
+          return `htht-design/lib/${name}/demo` // 核心配置 根据你自己的组件目录配置
         },
-        style: () => {
-          return false
-        }
+        style: true
       },
       'htht-design'
     ]

@@ -22,7 +22,6 @@ class LinkageSelect extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const { dataSource } = nextProps
-    console.warn(dataSource)
     if ('dataSource' in nextProps && nextProps.dataSource !== prevState.dataSource) {
       if (!Array.isArray(dataSource) || dataSource.length === 0) {
         return {

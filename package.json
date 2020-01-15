@@ -1,6 +1,6 @@
 {
   "name": "htht-design",
-  "version": "0.1.0",
+  "version": "0.0.15",
   "private": false,
   "author": "wanglei 918061733@qq.com",
   "main": "lib/index.js",

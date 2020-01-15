@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="400" src="https://en.gravatar.com/userimage/178402859/af5b0008ab31001d58f0ca0a54835038.jpg">
+    <img width="100" src="https://en.gravatar.com/userimage/178402859/af5b0008ab31001d58f0ca0a54835038.jpg">
   </a>
 </p>
 
@@ -27,6 +27,25 @@ yarn add htht-design
 ```jsx
 import { Toolbar } from 'htht-design'
 ReactDOM.render(<Toolbar />, mountNode)
+```
+
+## 📦 按需引入 css
+
+```bash
+// .babelrc.js
+[
+  'import',
+  {
+    libraryName: 'htht-design',
+    libraryDirectory: 'lib',
+    camel2UnderlineComponentName: true,
+    customName: name => {
+      return `htht-design/lib/${name}/demo` // 核心配置 根据你自己的组件目录配置
+    },
+    style: true
+  },
+  'htht-design'
+]
 ```
 
 拷贝代码到本地运行:

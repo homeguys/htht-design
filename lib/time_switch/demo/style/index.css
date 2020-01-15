@@ -51,5 +51,7 @@
 }
 
 .htht-time-switch .switch-box span {
+  width: 0.18rem;
+  height: 0.18rem;
   cursor: pointer;
 }

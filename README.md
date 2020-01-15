@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://ant.design">
-    <img width="400" src="https://homeguys.oss-cn-hangzhou.aliyuncs.com/htht/u%3D2882575941%2C485497032%26fm%3D26%26gp%3D0.jpg">
+    <img width="400" src="https://en.gravatar.com/userimage/178402859/af5b0008ab31001d58f0ca0a54835038.jpg">
   </a>
 </p>
 
@@ -25,8 +25,8 @@ yarn add htht-design
 ## 🔨 Usage
 
 ```jsx
-import { Toolbar } from "htht-design";
-ReactDOM.render(<Toolbar />, mountNode);
+import { Toolbar } from 'htht-design'
+ReactDOM.render(<Toolbar />, mountNode)
 ```
 
 拷贝代码到本地运行:

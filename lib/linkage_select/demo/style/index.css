@@ -1,0 +1,23 @@
+.htht-linkage-select {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.htht-linkage-select .item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 0.1rem;
+}
+
+.htht-linkage-select .item:last-child {
+  margin-right: 0;
+}
+
+.htht-linkage-select .item .ant-form-item {
+  margin-bottom: 0;
+}

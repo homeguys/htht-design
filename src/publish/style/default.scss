@@ -1,0 +1,52 @@
+@import './theme.scss';
+
+$htht-prefix: 'htht';
+$form-title-width: 0.7rem;
+
+// 表单公用样式
+@mixin formCommon() {
+  .item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.1rem;
+
+    .title {
+      margin-right: 0.1rem;
+      width: $form-title-width;
+    }
+
+    .sub-title {
+      font-size: 0.13rem;
+      margin-right: 0.1rem;
+      width: $form-title-width;
+      text-align: center;
+
+      i {
+        font-style: normal;
+        background-color: $main-color;
+        border-radius: 0.06rem;
+        color: #fff;
+        padding: 0 0.1rem;
+      }
+    }
+
+    .ant-checkbox-wrapper + .ant-checkbox-wrapper {
+      margin-left: 0;
+    }
+
+    .ant-checkbox-wrapper {
+      margin-right: 0.08rem;
+      margin-bottom: 0.08rem;
+    }
+  }
+
+  .gap {
+    margin: 0 0.05rem;
+  }
+}
+
+@mixin antFormItemMarginBottom() {
+  .ant-form-item {
+    margin-bottom: 0;
+  }
+}

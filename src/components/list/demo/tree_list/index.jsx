@@ -61,11 +61,8 @@ const getParentKey = (key, tree) => {
   return parentKey
 }
 
-console.warn(gData)
-console.warn(dataList)
-
 class TreeList extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       expandedKeys: [],
@@ -98,7 +95,7 @@ class TreeList extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const { searchValue, expandedKeys, autoExpandParent } = this.state
     const loop = data =>
       data.map(item => {
@@ -125,8 +122,8 @@ class TreeList extends React.Component {
         return <TreeNode key={item.key} title={title} />
       })
     return (
-      <div className="htht-list htht-tree-list">
-        <Search style={{ marginBottom: 8 }} placeholder="Search" onChange={this.onChange} />
+      <div className='htht-list htht-tree-list'>
+        <Search style={{ marginBottom: 8 }} placeholder='Search' onChange={this.onChange} />
         <Tree
           onExpand={this.onExpand}
           expandedKeys={expandedKeys}

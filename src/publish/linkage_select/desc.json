@@ -1,0 +1,54 @@
+{
+  "main": {
+    "value": "LinkageSelect",
+    "name": "三级联动",
+    "detail": "三级联动选择，开始时间和结束时间的选择，方便查询数据"
+  },
+  "demo": [
+    {
+      "title": "三级联动",
+      "detail": "三级联动，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。垂直菜单，子菜单内嵌在菜单区域。"
+    }
+  ],
+  "apiData": [
+    {
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "form",
+      "param": "form",
+      "explain": "antd form组件原生的对象",
+      "type": ["object"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "dataSource",
+      "param": "dataSource",
+      "explain": "三级联动源数据",
+      "type": ["array"],
+      "default": "-",
+      "edition": "0.0.5"
+    },
+    {
+      "key": "FormKey",
+      "param": "FormKey"
+    },
+    {
+      "key": "province",
+      "param": "province",
+      "explain": "省级"
+    },
+    {
+      "key": "city",
+      "param": "city",
+      "explain": "市级"
+    },
+    {
+      "key": "county",
+      "param": "county",
+      "explain": "县级"
+    }
+  ]
+}

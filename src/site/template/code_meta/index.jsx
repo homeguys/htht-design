@@ -5,7 +5,7 @@ import Clipboard from 'react-clipboard.js'
 import { Tooltip } from 'antd'
 import { getParents } from '../../../utils/utils'
 
-function CodeMeta(props) {
+function CodeMeta (props) {
   const [copyTips, setCopyTips] = useState('复制代码')
   const [copyClass, setCopyClass] = useState('icon-copy')
 
@@ -24,7 +24,6 @@ function CodeMeta(props) {
   // 收缩展示代码
   const toggleCode = e => {
     const codeBox = getParents(e.target, '.code-box')
-    console.warn(codeBox)
     codeBox.classList.toggle('expend')
     // eslint-disable-next-line no-unused-expressions
     window.getSelection ? window.getSelection().removeAllRanges() : document.selection.empty()
@@ -45,24 +44,24 @@ function CodeMeta(props) {
   const { detail } = desc // demo 详情
 
   return (
-    <section className="code-box-meta">
-      <div className="code-box-title">
+    <section className='code-box-meta'>
+      <div className='code-box-title'>
         <b>{title}</b>
       </div>
-      <div className="code-box-description">
+      <div className='code-box-description'>
         <div>
           <p>{detail}</p>
         </div>
       </div>
-      <div className="code-box-actions">
+      <div className='code-box-actions'>
         <Clipboard data-clipboard-text={item.code} onSuccess={onSuccess}>
           <Tooltip title={copyTips}>
             <i className={copyClass} onMouseLeave={leaveCopyBtn} />
           </Tooltip>
         </Clipboard>
 
-        <Tooltip title="展开代码">
-          <i className="icon-expend" onClick={toggleCode} />
+        <Tooltip title='展开代码'>
+          <i className='icon-expend' onClick={toggleCode} />
         </Tooltip>
       </div>
     </section>

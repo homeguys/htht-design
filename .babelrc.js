@@ -25,19 +25,9 @@ module.exports = {
     [
       'import',
       {
-        libraryName: 'antd-mobile',
-        libraryDirectory: 'lib',
-        style: 'css'
-      },
-      'ant-mobile'
-    ],
-    [
-      'import',
-      {
         libraryName: 'htht-design',
         libraryDirectory: 'lib',
         camel2UnderlineComponentName: true,
-        camel2DashComponentName: false,
         customName: name => {
           return `htht-design/lib/${name}` // 核心配置 根据你自己的组件目录配置
         },

@@ -1,8 +1,0 @@
-.htht-linkage-select {
-  display: flex; }
-  .htht-linkage-select .item {
-    display: flex;
-    align-items: center;
-    margin-right: 0.1rem; }
-    .htht-linkage-select .item:last-child {
-      margin-right: 0; }

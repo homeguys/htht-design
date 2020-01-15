@@ -1,0 +1,22 @@
+@import '../../../style/default.scss';
+
+// 三级联动
+@mixin linkageSelect() {
+  .#{$htht-prefix}-linkage-select {
+    display: flex;
+
+    .item {
+      display: flex;
+      align-items: center;
+      margin-right: 0.1rem;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      @include antFormItemMarginBottom();
+    }
+  }
+}
+
+@include linkageSelect();

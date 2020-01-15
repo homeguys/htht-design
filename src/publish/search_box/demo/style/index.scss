@@ -1,0 +1,45 @@
+@import '../../../style/default.scss';
+@import '../../../time_choice/demo/style/index.scss';
+@import '../../../space_choice/demo/style/index.scss';
+@import '../../../linkage_select/demo/style/index.scss';
+
+// 横向选择框
+@mixin searchBoxHorizontal() {
+  .#{$htht-prefix}-search-box.#{$htht-prefix}-search-box-horizontal {
+    form {
+      display: flex;
+      align-items: center;
+
+      .item {
+        margin-bottom: 0;
+        margin-right: 0.1rem;
+      }
+    }
+  }
+}
+
+/***********************************************************************************/
+
+// 纵向选择框
+@mixin searchBoxVertical() {
+  .htht-search-box.htht-search-box-vertical {
+    width: 100%;
+
+    @include formCommon();
+
+    .ant-form-item {
+      flex: 1 1;
+    }
+  }
+}
+
+// 纵向选择框
+@mixin searchBox() {
+  .#{$htht-prefix}-search-box {
+    @include antFormItemMarginBottom();
+  }
+  @include searchBoxHorizontal();
+  @include searchBoxVertical();
+}
+
+@include searchBox();

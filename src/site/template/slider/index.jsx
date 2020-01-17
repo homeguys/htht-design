@@ -55,17 +55,20 @@ class Slider extends React.Component {
     })
   }
 
-  render() {
-    const { menuConfig } = this.props
+  render () {
+    const { menuConfig, location } = this.props
     const defaultOpenKeys = menuConfig.filter(item => item.children).map(ele => ele.path)
+    const { pathname } = location
+    const paths = pathname.split('/')
+    const defaultSelectedKeys = paths[paths.length - 1]
 
     return (
       <div id={`${hthtPrefix}-slider`}>
         <Menu
           onClick={this.handleClick}
-          defaultSelectedKeys={['preface']}
+          selectedKeys={[defaultSelectedKeys]}
           defaultOpenKeys={defaultOpenKeys}
-          mode="inline"
+          mode='inline'
         >
           {this.renderMenuItems(menuConfig)}
         </Menu>

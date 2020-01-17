@@ -227,6 +227,22 @@ export function deepObjectMerge(FirstOBJ, SecondOBJ) {
   return FirstOBJ
 }
 
+/**
+ * 清除同级其他元素高亮，当前元素设置高亮
+ * @param {*} lists
+ * @param {*} current
+ */
+export function setActive(lists, current, className) {
+  // 清除高亮
+  Array.from(lists).forEach(item => {
+    item.classList.remove(className)
+  })
+  // 当前增加高亮
+  if (current) {
+    current.classList.add(className)
+  }
+}
+
 // antd和iconfont组合一起
 export const IconFont = Icon.createFromIconfontCN({
   scriptUrl: '//at.alicdn.com/t/font_1575007_am2j2qus0nt.js'

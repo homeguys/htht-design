@@ -42,6 +42,14 @@
       li {
         height: 100%;
 
+        &.active,
+        &:hover {
+          a {
+            border-top-color: $main-color;
+            color: $main-color;
+          }
+        }
+
         a {
           display: flex;
           align-items: center;

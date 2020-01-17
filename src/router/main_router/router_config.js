@@ -11,7 +11,7 @@ const GisDocs = lazy(() => import(/* webpackChunkName: 'gis-docs' */ '../../page
 export default [
   {
     name: '首页',
-    path: '/',
+    path: '/home',
     component: <Home />
   },
   {

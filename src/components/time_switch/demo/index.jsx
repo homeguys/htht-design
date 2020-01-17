@@ -45,7 +45,8 @@ class TimeSwitch extends React.Component {
     const currentDay = getFieldValue('switch_date').valueOf()
     const currentTime = getFieldValue('switch_time')
     let currentClassName = current.className
-    let timeIndex = times.indexOf(currentTime)
+    let timeIndex = times && times.indexOf(currentTime)
+
     currentClassName = currentClassName.replace(/iconfont /, '')
 
     switch (currentClassName) {
@@ -56,6 +57,10 @@ class TimeSwitch extends React.Component {
         break
       }
       case 'icon_pre_time': {
+        if (!timeIndex) {
+          toast(message, '请传入时次', 'info')
+          return
+        }
         timeIndex -= 1
         if (timeIndex < 0) {
           toast(message, '已经是最小时次', 'info')
@@ -66,9 +71,16 @@ class TimeSwitch extends React.Component {
       }
 
       case 'icon_recover':
-        setFieldsValue({ switch_date: moment(this.date, 'YYYY-MM-DD'), switch_time: times[0] })
+        setFieldsValue({
+          switch_date: moment(this.date, 'YYYY-MM-DD'),
+          switch_time: times && times[0]
+        })
         break
       case 'icon_next_time': {
+        if (!timeIndex) {
+          toast(message, '请传入时次', 'info')
+          return
+        }
         timeIndex += 1
         if (timeIndex >= times.length) {
           toast(message, '已经是最大时次', 'info')

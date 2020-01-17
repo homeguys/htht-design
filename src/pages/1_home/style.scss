@@ -1,0 +1,123 @@
+#home {
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  .banner {
+    padding: 2rem 1.4rem 0.8rem;
+    margin-top: -0.7rem;
+    text-align: left;
+    color: #4b4b4c;
+    background: url(../../static/images/banner.png) no-repeat 4.5rem -0.2rem;
+    background-size: 14rem;
+
+    h2 {
+      font-size: 0.6rem;
+      color: #333;
+    }
+
+    p {
+      margin: 0.23rem 0 0.06rem;
+      font-size: 0.18rem;
+      line-height: 0.32rem;
+    }
+
+    .rec-btns {
+      margin-top: 0.36rem;
+
+      .btn-link {
+        display: inline-block;
+        box-sizing: border-box;
+        width: 1.64rem;
+        height: 0.42rem;
+        text-align: center;
+        line-height: 0.38rem;
+        font-size: 0.18rem;
+        color: #fff;
+        background-color: #89c6ff;
+        border-radius: 0.03rem;
+        margin-bottom: 0.5rem;
+        margin-right: 0.18rem;
+        border: 0.02rem solid #89c6ff;
+      }
+    }
+  }
+
+  .features {
+    margin: 0 0.9rem;
+    box-shadow: 0 0.04rem 0.3rem 0 rgba(66, 81, 148, 0.1);
+
+    ul {
+      display: flex;
+      justify-content: space-around;
+      padding: 0 0.8rem;
+      text-align: left;
+      color: #666;
+
+      li {
+        flex: 1;
+        max-width: 2.2rem;
+        padding: 0.6rem 0.16rem 0.1rem;
+        margin: 0 0.1rem;
+        font-size: 0.13rem;
+        line-height: 1.4;
+        text-align: center;
+
+        &:hover {
+          img {
+            transform: scale(0.5);
+          }
+
+          .text {
+            transform: translateY(-0.6rem);
+
+            .h2 {
+              opacity: 0;
+            }
+            p {
+              opacity: 1;
+            }
+          }
+        }
+
+        img {
+          width: 1.3rem;
+          margin-bottom: 0.13rem;
+          transform-origin: center 0;
+          transition: all 0.5s;
+        }
+
+        .text {
+          transition: all 0.5s;
+
+          .h1 {
+            padding: 0.07rem 0 0;
+            font-size: 0.22rem;
+            font-weight: 500;
+            color: #333;
+          }
+
+          .h2 {
+            font-size: 0.18rem;
+            transition: all 0.5s;
+          }
+
+          p {
+            margin-top: -0.18rem;
+            font-size: 0.14rem;
+            opacity: 0;
+            transition: all 0.5s;
+          }
+        }
+      }
+    }
+  }
+
+  footer {
+    width: 100%;
+    padding-top: 0.6rem;
+    padding-bottom: 0.2rem;
+    text-align: center;
+    font-size: 0.14rem;
+  }
+}

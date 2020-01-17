@@ -6,7 +6,7 @@ export default () => (
   <ul>
     {mainRouterConfig.map(item => {
       return (
-        <li key={item.path}>
+        <li key={item.path} className={`nav-item ${item.path}`}>
           <Link to={item.path}>{item.name}</Link>
         </li>
       )

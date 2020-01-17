@@ -2,7 +2,7 @@ import React from 'react'
 import Playbar from '../index'
 
 class PlaybarBasic extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       marks: {
@@ -27,36 +27,6 @@ class PlaybarBasic extends React.Component {
         18: '05:00',
         19: '06:00',
         20: '00:00'
-        // 21: '01:00',
-        // 22: '02:00',
-        // 23: '03:00',
-        // 24: '04:00',
-        // 25: '05:00',
-        // 26: '06:00',
-        // 27: '06:00',
-        // 28: '06:00',
-        // 29: '06:00',
-        // 30: '06:00',
-        // 31: '01:00',
-        // 32: '02:00',
-        // 33: '03:00',
-        // 34: '04:00',
-        // 35: '05:00',
-        // 36: '06:00',
-        // 37: '06:00',
-        // 38: '06:00',
-        // 39: '06:00',
-        // 40: '06:00',
-        // 41: '01:00',
-        // 42: '02:00',
-        // 43: '03:00',
-        // 44: '04:00',
-        // 45: '05:00',
-        // 46: '06:00',
-        // 47: '06:00',
-        // 48: '06:00',
-        // 49: '06:00',
-        // 50: '06:00'
       }
     }
     this.count = 0
@@ -80,13 +50,13 @@ class PlaybarBasic extends React.Component {
     console.warn(value)
   }
 
-  render() {
+  render () {
     const { marks } = this.state
 
     return (
       <div>
         <Playbar marks={marks} onChange={this.onChange} />
-        <input type="button" value="按钮" onClick={this.changeMarks} />
+        <input type='button' value='按钮' onClick={this.changeMarks} />
       </div>
     )
   }

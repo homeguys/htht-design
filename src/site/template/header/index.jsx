@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import logoPic from '../../../static/images/icon_logo.jpeg'
@@ -11,24 +10,36 @@ const { hthtPrefix } = varibles
 
 @withRouter
 class Header extends React.Component {
+  constructor (props) {
+    super(props)
+    this.lis = null
+  }
+
   componentDidMount () {
     const nav = document.getElementById('nav')
-    const lis = nav.querySelectorAll('li')
+    this.lis = nav.querySelectorAll('li')
     nav.addEventListener(
       'click',
       e => {
         const li = e.target.parentNode
-        setActive(lis, li, 'active')
+        setActive(this.lis, li, 'active')
       },
       false
     )
+    this.setHighLight()
+  }
+
+  componentDidUpdate () {
+    this.setHighLight()
+  }
+
+  setHighLight () {
     const { location } = this.props
     const { pathname } = location
-
-    lis.forEach(item => {
+    this.lis.forEach(item => {
       const tagPath = item.className.split(' ')[1]
       if (pathname.includes(tagPath)) {
-        setActive(lis, item, 'active')
+        setActive(this.lis, item, 'active')
       }
     })
   }

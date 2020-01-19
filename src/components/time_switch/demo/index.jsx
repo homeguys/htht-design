@@ -46,6 +46,9 @@ class TimeSwitch extends React.Component {
     const currentTime = getFieldValue('switch_time')
     let currentClassName = current.className
     let timeIndex = times && times.indexOf(currentTime)
+    console.warn(times)
+    console.warn(currentTime)
+    console.warn(timeIndex)
 
     currentClassName = currentClassName.replace(/iconfont /, '')
 
@@ -57,7 +60,7 @@ class TimeSwitch extends React.Component {
         break
       }
       case 'icon_pre_time': {
-        if (!timeIndex) {
+        if (timeIndex !== 0 && !timeIndex) {
           toast(message, '请传入时次', 'info')
           return
         }
@@ -77,7 +80,7 @@ class TimeSwitch extends React.Component {
         })
         break
       case 'icon_next_time': {
-        if (!timeIndex) {
+        if (timeIndex !== 0 && !timeIndex) {
           toast(message, '请传入时次', 'info')
           return
         }

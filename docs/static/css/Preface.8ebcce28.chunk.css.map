@@ -1,1 +1,0 @@
-{"version":3,"sources":["/Users/wanglei/WorkSpace/htht-design/src/components/preface/style.scss"],"names":[],"mappings":"AAAA,SACE,gBAAA,CAAkB,AADpB,YAII,eAAA,CAAiB","file":"Preface.8ebcce28.chunk.css","sourcesContent":[".preface {\n  font-size: 0.15rem;\n\n  h2 {\n    margin: 0.25rem 0;\n  }\n}\n"]}

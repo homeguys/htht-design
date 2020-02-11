@@ -17,7 +17,6 @@ class Preface extends React.Component {
   componentDidMount () {
     axios.get(README).then(res => {
       const content = marked(res.data)
-      console.warn(content)
       this.setState({
         content
       })
@@ -30,7 +29,6 @@ class Preface extends React.Component {
     return (
       <DocContent>
         <div className='preface' dangerouslySetInnerHTML={{ __html: content }} />
-        {/* <div>preface</div> */}
       </DocContent>
     )
   }

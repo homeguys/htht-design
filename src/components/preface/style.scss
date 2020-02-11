@@ -1,7 +1,5 @@
-.preface {
-  font-size: 0.15rem;
+@import '../../style/default.scss';
 
-  h2 {
-    margin: 0.25rem 0;
-  }
+.preface {
+  @include showMark();
 }

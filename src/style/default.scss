@@ -43,7 +43,7 @@ $header-height: 0.65rem;
   pre {
     code {
       display: block;
-      padding: 0.2rem;
+      padding: 0.1rem 0.2rem;
       font-size: 0.14rem;
       font-family: 'Lucida Console', Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
       line-height: 2;
@@ -129,8 +129,7 @@ $header-height: 0.65rem;
   }
 }
 
-@include apiContainer();
-
+// 修改antd原有样式
 @mixin changeAntdCss() {
   .ant-spin-spinning {
     position: relative;
@@ -142,5 +141,31 @@ $header-height: 0.65rem;
   .ant-tag {
     font-size: 0.14rem;
     line-height: 0.24rem;
+  }
+}
+
+// 展示markdown公用样式
+@mixin showMark() {
+  font-size: 0.15rem;
+
+  h1 {
+    font-size: 0.35rem;
+    margin-bottom: 0.2rem;
+  }
+
+  h2 {
+    font-size: 0.25rem;
+    margin: 0.3rem 0 0.2rem 0;
+  }
+
+  h1,
+  h2 {
+    padding-bottom: 0.05rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  p {
+    font-size: 0.18rem;
+    margin-bottom: 0.16rem;
   }
 }

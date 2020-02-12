@@ -1,15 +1,15 @@
 import React, { Fragment } from 'react'
 import { Form, DatePicker } from 'antd'
-import WarnBox from '../../utils/warn_box'
+import WarnBox from '../../common/warn_box'
 
-function TimeChoice(props) {
+function TimeChoice (props) {
   const { form, mode } = props
   // 没传mode或者传horizontal和vertical之外的值，默认是horizontal
   const checked = mode && mode === 'vertical'
 
   // 没传form的话警告，form必传
   if (!form) {
-    return <WarnBox title="请传入form" />
+    return <WarnBox title='请传入form' />
   }
 
   // 判断横向还是纵向来赋值class名
@@ -18,11 +18,11 @@ function TimeChoice(props) {
 
   return (
     <div className={`htht-time-choice ${className}`}>
-      <div className="item">
+      <div className='item'>
         {checked ? (
-          <span className="title">开始时间：</span>
+          <span className='title'>开始时间：</span>
         ) : (
-          <span className="title">时间选择：</span>
+          <span className='title'>时间选择：</span>
         )}
         <Form.Item>
           {getFieldDecorator('startTime', {
@@ -30,7 +30,7 @@ function TimeChoice(props) {
           })(
             <DatePicker
               showToday={false}
-              format="YYYY-MM-DD"
+              format='YYYY-MM-DD'
               allowClear={false}
               style={{ width: '1.4rem' }}
             />
@@ -38,14 +38,14 @@ function TimeChoice(props) {
         </Form.Item>
         {!checked ? (
           <Fragment>
-            <span className="gap">-</span>
+            <span className='gap'>-</span>
             <Form.Item>
               {getFieldDecorator('endTime', {
                 rules: [{ required: true, message: '请输入结束时间！' }]
               })(
                 <DatePicker
                   showToday={false}
-                  format="YYYY-MM-DD"
+                  format='YYYY-MM-DD'
                   allowClear={false}
                   style={{ width: '1.4rem' }}
                 />
@@ -55,15 +55,15 @@ function TimeChoice(props) {
         ) : null}
       </div>
       {checked ? (
-        <div className="item">
-          <span className="title">结束时间：</span>
+        <div className='item'>
+          <span className='title'>结束时间：</span>
           <Form.Item>
             {getFieldDecorator('endTime', {
               rules: [{ required: true, message: '请输入结束时间！' }]
             })(
               <DatePicker
                 showToday={false}
-                format="YYYY-MM-DD"
+                format='YYYY-MM-DD'
                 allowClear={false}
                 style={{ width: '1.4rem' }}
               />

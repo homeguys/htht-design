@@ -7,14 +7,14 @@ import demos from './demo/demos'
 import { handleArrs } from '../../utils/utils'
 
 export default class extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {
       codes: ''
     }
   }
 
-  componentDidMount() {
+  componentDidMount () {
     axios.get(demoCodes).then(res => {
       const { data } = res
       let codes = data.split('---').filter(Boolean)
@@ -28,11 +28,12 @@ export default class extends React.Component {
     })
   }
 
-  render() {
+  render () {
     const { codes } = this.state
     const mainDesc = desc.main
     const demoDesc = desc.demo
+    const { apiData } = desc
     const data = handleArrs(demos, codes, demoDesc)
-    return <MainContent data={data} mainDesc={mainDesc} />
+    return <MainContent data={data} mainDesc={mainDesc} apiData={apiData} />
   }
 }

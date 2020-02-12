@@ -2,8 +2,8 @@
 import React from 'react'
 import { Form, DatePicker, Select, message } from 'antd'
 import moment from 'moment'
-import { toast, getParents } from '../../utils/utils'
-import WarnBox from '../../utils/warn_box'
+import { toast, getParents } from '../../common/utils'
+import WarnBox from '../../common/warn_box'
 
 const { Option } = Select
 
@@ -46,9 +46,6 @@ class TimeSwitch extends React.Component {
     const currentTime = getFieldValue('switch_time')
     let currentClassName = current.className
     let timeIndex = times && times.indexOf(currentTime)
-    console.warn(times)
-    console.warn(currentTime)
-    console.warn(timeIndex)
 
     currentClassName = currentClassName.replace(/iconfont /, '')
 

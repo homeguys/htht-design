@@ -59,7 +59,12 @@ function RoseType() {
       inRange: {
         colorLightness: [0, 1]
       }
-    }
+    },
+    series: [
+      {
+        roseType: 'radius'
+      }
+    ]
   }
 
   return (
@@ -94,7 +99,8 @@ function RoseTypeHollow() {
     color: ['#407fff', '#e15d68', '#00cccd', '#fea763', '#04b71d'],
     series: [
       {
-        radius: ['15%', '55%']
+        radius: ['15%', '55%'],
+        roseType: 'radius'
       }
     ]
   }

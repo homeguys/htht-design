@@ -21,5 +21,25 @@
       "title": "多彩图例饼图",
       "detail": "多彩图例饼图"
     }
+  ],
+  "apiData": [
+    {
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "dataSource",
+      "param": "dataSource",
+      "explain": "饼图展示的数据",
+      "type": ["object[]"],
+      "default": "-"
+    },
+    {
+      "key": "option",
+      "param": "option",
+      "explain": "饼图的配置项，自定义样式传入不同配置",
+      "type": ["object"],
+      "default": "默认简单配置"
+    }
   ]
 }

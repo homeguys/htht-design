@@ -3,15 +3,15 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/bar'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
-import { deepObjectMerge, createHash } from '../../../utils/utils'
+import 'echarts/lib/component/legend'
+import { deepObjectMerge, createHash } from '../../common/utils'
 
 class ChartBar extends React.Component {
-  constructor(props) {
-    // console.log('aa')
-    debugger
+  constructor (props) {
     super(props)
     this.state = {}
-    this.hash = createHash(6)
+    this.hash = createHash(8)
+    this.myChart = null
     this.option = {
       backgroundColor: '#2c343c',
       tooltip: {
@@ -96,28 +96,37 @@ class ChartBar extends React.Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidMount () {
+    this.renderCharts()
+  }
+
+  componentDidUpdate () {
+    this.renderCharts()
+  }
+
+  /** echants响应屏幕改变 */
+  screenChange () {
+    window.addEventListener('resize', () => {
+      this.myChart.resize()
+    })
+  }
+
+  // 渲染柱状图
+  renderCharts () {
     const { dataSource, option } = this.props
-    const myChart = echarts.init(document.getElementById(`htht-chart-bar-${this.hash}`))
+    this.myChart = echarts.init(document.getElementById(`htht-chart-bar-${this.hash}`))
     const newOption = deepObjectMerge(this.option, option)
 
     newOption.xAxis.data = dataSource.xAxisData
     newOption.series[0].data = dataSource.seriesData
-
+    this.myChart.clear()
     // 绘制图表
-    myChart.setOption(newOption)
+    this.myChart.setOption(newOption)
     this.screenChange()
   }
 
-  /** echants响应屏幕改变 */
-  screenChange() {
-    window.addEventListener('resize', () => {
-      this.chartPie.resize()
-    })
-  }
-
-  render() {
-    return <div className="htht-chart-bar" id={`htht-chart-bar-${this.hash}`} />
+  render () {
+    return <div className='htht-chart-bar' id={`htht-chart-bar-${this.hash}`} />
   }
 }
 

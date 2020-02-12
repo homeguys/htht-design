@@ -9,5 +9,25 @@
       "title": "折线图",
       "detail": "折线图"
     }
+  ],
+  "apiData": [
+    {
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "dataSource",
+      "param": "dataSource",
+      "explain": "折线图展示的数据",
+      "type": ["object[]"],
+      "default": "-"
+    },
+    {
+      "key": "option",
+      "param": "option",
+      "explain": "折线图的配置项，自定义样式传入不同配置",
+      "type": ["object"],
+      "default": "默认简单配置"
+    }
   ]
 }

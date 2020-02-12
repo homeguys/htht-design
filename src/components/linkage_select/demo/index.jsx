@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react'
 import { Form, Select } from 'antd'
-import WarnBox from '../../utils/warn_box'
+import WarnBox from '../../common/warn_box'
 
 const { Option } = Select
 const FormItem = Form.Item

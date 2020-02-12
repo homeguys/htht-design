@@ -4,14 +4,14 @@ import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
 import 'echarts/lib/component/legend'
-import { deepObjectMerge, createHash } from '../../../utils/utils'
+import { deepObjectMerge, createHash } from '../../common/utils'
 
 class ChartPie extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
     this.hash = createHash(6)
-    this.chartPie = null
+    this.myChart = null
     this.option = {
       backgroundColor: '#2c343c',
 
@@ -70,23 +70,32 @@ class ChartPie extends React.Component {
     }
   }
 
+  componentDidMount () {
+    this.renderCharts()
+  }
+
   componentDidUpdate () {
-    const { dataSource, option } = this.props
-    this.chartPie = echarts.init(document.getElementById(`htht-chart-pie-${this.hash}`))
-    const newOption = deepObjectMerge(this.option, option)
-
-    newOption.series[0].data = dataSource
-
-    // 绘制图表
-    this.chartPie.setOption(newOption)
-    this.screenChange()
+    this.renderCharts()
   }
 
   /** echants响应屏幕改变 */
   screenChange () {
     window.addEventListener('resize', () => {
-      this.chartPie.resize()
+      this.myChart.resize()
     })
+  }
+
+  // 渲染图表
+  renderCharts () {
+    const { dataSource, option } = this.props
+    this.myChart = echarts.init(document.getElementById(`htht-chart-pie-${this.hash}`))
+    const newOption = deepObjectMerge(this.option, option)
+
+    newOption.series[0].data = dataSource
+    this.myChart.clear()
+    // 绘制图表
+    this.myChart.setOption(newOption)
+    this.screenChange()
   }
 
   render () {

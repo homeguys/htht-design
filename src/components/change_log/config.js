@@ -1,5 +1,15 @@
 export default [
   {
+    edition: '0.0.19',
+    changeDate: '2020-02-13',
+    list: [
+      '将组件内部utils文件夹更名为common',
+      '修改图表组件初始化不更新bug',
+      'npm包增加chartPie、chartLine、chartBar、chartGauge组件',
+      '完成chartPie、chartLine、chartBar组件测试和apitable编写'
+    ]
+  },
+  {
     edition: '0.0.18',
     changeDate: '2020-02-12',
     list: [

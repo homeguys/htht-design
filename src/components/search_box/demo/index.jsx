@@ -3,7 +3,7 @@ import { Form, Radio, Checkbox, Select, Button } from 'antd'
 import TimeChoice from '../../time_choice/demo'
 import SpaceChoice from '../../space_choice/demo'
 import LinkageSelect from '../../linkage_select/demo'
-import WarnBox from '../../utils/warn_box'
+import WarnBox from '../../common/warn_box'
 
 const FormItem = Form.Item
 const { Option } = Select

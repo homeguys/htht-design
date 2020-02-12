@@ -14,6 +14,10 @@
 
 </div>
 
+<p>
+  <a href="https://homeguys.github.io/htht-design">https://homeguys.github.io/htht-design</a>
+</p>
+
 ## 📦 Install
 
 ```bash

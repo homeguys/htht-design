@@ -9,7 +9,7 @@ const dataSource = [
   { value: 400, name: '搜索引擎' }
 ]
 
-function RoseType() {
+function RoseType () {
   const option = {
     title: {
       text: '南丁格尔图'
@@ -21,11 +21,16 @@ function RoseType() {
       inRange: {
         colorLightness: [0, 1]
       }
-    }
+    },
+    series: [
+      {
+        roseType: 'radius'
+      }
+    ]
   }
 
   return (
-    <div className="basic-pie-demo">
+    <div className='basic-pie-demo'>
       <ChartPie dataSource={dataSource} option={option} />
     </div>
   )

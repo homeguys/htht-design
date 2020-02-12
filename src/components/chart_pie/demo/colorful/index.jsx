@@ -56,7 +56,7 @@ const dataSource = [
   }
 ]
 
-function ColorfulPie() {
+function ColorfulPie () {
   const option = {
     title: {
       text: '多彩饼图'
@@ -134,7 +134,7 @@ function ColorfulPie() {
   }
 
   return (
-    <div className="basic-pie-demo">
+    <div className='basic-pie-demo'>
       <ChartPie dataSource={dataSource} option={option} />
     </div>
   )

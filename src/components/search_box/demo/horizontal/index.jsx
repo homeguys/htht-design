@@ -3,7 +3,7 @@ import { Form } from 'antd'
 import SearchBox from '../index'
 
 // 三级联动数据格式
-const linkageData = [
+const dataSource = [
   {
     value: 'Zhejiang',
     name: '浙江省',
@@ -67,17 +67,17 @@ const linkageData = [
 ]
 
 // 提交表单
-function handleSubmit(form) {
+function handleSubmit (form) {
   const { getFieldsValue } = form
   console.warn(getFieldsValue())
 }
 
-function SearchboxHorizontal(props) {
+function SearchboxHorizontal (props) {
   const { form } = props
 
   return (
     <div>
-      <SearchBox linkageData={linkageData} form={form} onSubmit={() => handleSubmit(form)} />
+      <SearchBox dataSource={dataSource} form={form} onSubmit={() => handleSubmit(form)} />
     </div>
   )
 }

@@ -6,10 +6,11 @@ import 'echarts/lib/component/title'
 import { deepObjectMerge, createHash } from '../../../utils/utils'
 
 class ChartLine extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
     this.hash = createHash(6)
+    this.chartLine = null
     this.option = {
       backgroundColor: '#2c343c',
       xAxis: {
@@ -33,9 +34,9 @@ class ChartLine extends React.Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     const { dataSource, option } = this.props
-    const myChart = echarts.init(document.getElementById(`htht-chart-line-${this.hash}`))
+    this.chartLine = echarts.init(document.getElementById(`htht-chart-line-${this.hash}`))
     const newOption = deepObjectMerge(this.option, option)
 
     newOption.xAxis.data = dataSource.xAxisData
@@ -47,14 +48,14 @@ class ChartLine extends React.Component {
   }
 
   /** echants响应屏幕改变 */
-  screenChange() {
+  screenChange () {
     window.addEventListener('resize', () => {
-      this.chartPie.resize()
+      this.chartLine.resize()
     })
   }
 
-  render() {
-    return <div className="htht-chart-line" id={`htht-chart-line-${this.hash}`} />
+  render () {
+    return <div className='htht-chart-line' id={`htht-chart-line-${this.hash}`} />
   }
 }
 

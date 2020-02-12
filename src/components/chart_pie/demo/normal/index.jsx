@@ -9,21 +9,16 @@ const dataSource = [
   { value: 400, name: '搜索引擎' }
 ]
 
-function normalPie() {
+function normalPie () {
   const option = {
     title: {
       text: '普通饼图'
     },
-    color: ['#407fff', '#e15d68', '#00cccd', '#fea763', '#04b71d'],
-    series: [
-      {
-        roseType: false
-      }
-    ]
+    color: ['#407fff', '#e15d68', '#00cccd', '#fea763', '#04b71d']
   }
 
   return (
-    <div className="basic-pie-demo">
+    <div className='basic-pie-demo'>
       <ChartPie dataSource={dataSource} option={option} />
     </div>
   )

@@ -3,13 +3,15 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
+import 'echarts/lib/component/legend'
 import { deepObjectMerge, createHash } from '../../../utils/utils'
 
 class ChartPie extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.state = {}
     this.hash = createHash(6)
+    this.chartPie = null
     this.option = {
       backgroundColor: '#2c343c',
 
@@ -34,7 +36,6 @@ class ChartPie extends React.Component {
           type: 'pie',
           radius: '55%',
           center: ['50%', '55%'],
-          roseType: 'radius',
           label: {
             normal: {
               textStyle: {
@@ -61,7 +62,7 @@ class ChartPie extends React.Component {
 
           animationType: 'scale',
           animationEasing: 'elasticOut',
-          animationDelay() {
+          animationDelay () {
             return Math.random() * 200
           }
         }
@@ -69,28 +70,27 @@ class ChartPie extends React.Component {
     }
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     const { dataSource, option } = this.props
-    const myChart = echarts.init(document.getElementById(`htht-chart-pie-${this.hash}`))
+    this.chartPie = echarts.init(document.getElementById(`htht-chart-pie-${this.hash}`))
     const newOption = deepObjectMerge(this.option, option)
 
     newOption.series[0].data = dataSource
 
-    console.warn(newOption)
     // 绘制图表
-    myChart.setOption(newOption)
+    this.chartPie.setOption(newOption)
     this.screenChange()
   }
 
   /** echants响应屏幕改变 */
-  screenChange() {
+  screenChange () {
     window.addEventListener('resize', () => {
       this.chartPie.resize()
     })
   }
 
-  render() {
-    return <div className="htht-chart-pie" id={`htht-chart-pie-${this.hash}`} />
+  render () {
+    return <div className='htht-chart-pie' id={`htht-chart-pie-${this.hash}`} />
   }
 }
 

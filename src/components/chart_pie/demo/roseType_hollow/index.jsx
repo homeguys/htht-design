@@ -9,7 +9,7 @@ const dataSource = [
   { value: 400, name: '搜索引擎' }
 ]
 
-function RoseTypeHollow() {
+function RoseTypeHollow () {
   const option = {
     title: {
       text: '镂空南丁格尔图'
@@ -17,13 +17,14 @@ function RoseTypeHollow() {
     color: ['#407fff', '#e15d68', '#00cccd', '#fea763', '#04b71d'],
     series: [
       {
-        radius: ['15%', '55%']
+        radius: ['15%', '55%'],
+        roseType: 'radius'
       }
     ]
   }
 
   return (
-    <div className="basic-pie-demo">
+    <div className='basic-pie-demo'>
       <ChartPie dataSource={dataSource} option={option} />
     </div>
   )

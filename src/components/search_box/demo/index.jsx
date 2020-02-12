@@ -8,11 +8,11 @@ import WarnBox from '../../utils/warn_box'
 const FormItem = Form.Item
 const { Option } = Select
 
-function SearchBox(props) {
+function SearchBox (props) {
   const {
     form,
     mode,
-    linkageData,
+    dataSource,
     radioData = [],
     checkboxData = [],
     selectData = [],
@@ -23,7 +23,7 @@ function SearchBox(props) {
 
   // 没传form的话警告，form必传
   if (!form) {
-    return <WarnBox title="请传入form" />
+    return <WarnBox title='请传入form' />
   }
 
   // 判断横向还是纵向来赋值class名
@@ -37,8 +37,8 @@ function SearchBox(props) {
         <TimeChoice form={form} />
         {!checked ? (
           <Fragment>
-            <LinkageSelect form={form} dataSource={linkageData} />
-            <Button type="primary" htmlType="submit" onClick={onSubmit}>
+            <LinkageSelect form={form} dataSource={dataSource} />
+            <Button type='primary' htmlType='submit' onClick={onSubmit}>
               提交
             </Button>
           </Fragment>
@@ -46,9 +46,9 @@ function SearchBox(props) {
           <Fragment>
             <SpaceChoice form={form} />
             {radioData.length ? (
-              <div className="htht-radio-choice htht-radio-choice-horizontal">
-                <div className="item">
-                  <span className="title">单选要素：</span>
+              <div className='htht-radio-choice htht-radio-choice-horizontal'>
+                <div className='item'>
+                  <span className='title'>单选要素：</span>
                   <FormItem>
                     {getFieldDecorator('radioGroup')(
                       <Radio.Group>
@@ -64,9 +64,9 @@ function SearchBox(props) {
               </div>
             ) : null}
             {checkboxData.length ? (
-              <div className="htht-check-choice htht-check-choice-horizontal">
-                <div className="item">
-                  <span className="title">多选要素：</span>
+              <div className='htht-check-choice htht-check-choice-horizontal'>
+                <div className='item'>
+                  <span className='title'>多选要素：</span>
                   <FormItem>
                     {getFieldDecorator('checkedGroup')(
                       <Checkbox.Group>
@@ -82,12 +82,12 @@ function SearchBox(props) {
               </div>
             ) : null}
             {selectData.length ? (
-              <div className="htht-select-choice">
-                <div className="item">
-                  <span className="title">下拉选择：</span>
+              <div className='htht-select-choice'>
+                <div className='item'>
+                  <span className='title'>下拉选择：</span>
                   <FormItem>
                     {getFieldDecorator('selectGroup')(
-                      <Select placeholder="请选择下拉" style={{ width: '100%' }}>
+                      <Select placeholder='请选择下拉' style={{ width: '100%' }}>
                         {selectData.map(item => (
                           <Option key={item.value} value={item.value}>
                             {item.name}
@@ -100,7 +100,7 @@ function SearchBox(props) {
               </div>
             ) : null}
 
-            <Button type="primary" block onClick={onSubmit}>
+            <Button type='primary' block onClick={onSubmit}>
               提交
             </Button>
           </Fragment>

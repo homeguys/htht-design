@@ -10,7 +10,7 @@ class ChartPie extends React.Component {
   constructor (props) {
     super(props)
     this.state = {}
-    this.hash = createHash(6)
+    this.hash = createHash(8)
     this.myChart = null
     this.option = {
       backgroundColor: '#2c343c',

@@ -15,7 +15,7 @@
 </div>
 
 <p>
-  文档地址：<a href="https://homeguys.github.io/htht-design">https://homeguys.github.io/htht-design</a>
+  <b>文档地址：</b><a href="https://homeguys.github.io/htht-design" target="blank">https://homeguys.github.io/htht-design</a>
 </p>
 
 ## 📦 Install

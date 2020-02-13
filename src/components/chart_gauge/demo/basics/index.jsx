@@ -2,11 +2,11 @@ import React from 'react'
 import ChartGauge from '../index'
 
 const color = '#f7872f'
-const value = 30
+const value = 50
 
-function Basics() {
+function Basics () {
   return (
-    <div className="basic-pie-demo">
+    <div className='basic-pie-demo'>
       <ChartGauge value={value} color={color} />
     </div>
   )

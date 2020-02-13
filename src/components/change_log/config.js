@@ -5,7 +5,7 @@ export default [
     list: [
       '将组件内部utils文件夹更名为common',
       '修改图表组件初始化不更新bug',
-      'npm包增加chartPie、chartLine、chartBar、chartGauge组件',
+      'npm包增加chartPie、chartLine、chartBar组件',
       '完成chartPie、chartLine、chartBar组件测试和apitable编写'
     ]
   },

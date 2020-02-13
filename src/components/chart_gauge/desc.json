@@ -9,5 +9,32 @@
       "title": "仪表盘",
       "detail": "仪表盘"
     }
+  ],
+  "apiData": [
+    {
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "value",
+      "param": "value",
+      "explain": "展示的百分比",
+      "type": ["number"],
+      "default": "-"
+    },
+    {
+      "key": "color",
+      "param": "color",
+      "explain": "高亮展示的颜色",
+      "type": ["string"],
+      "default": "-"
+    },
+    {
+      "key": "option",
+      "param": "option",
+      "explain": "饼图的配置项，自定义样式传入不同配置",
+      "type": ["object"],
+      "default": "默认简单配置"
+    }
   ]
 }

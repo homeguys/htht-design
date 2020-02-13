@@ -1,3 +1,5 @@
+/* eslint-disable no-restricted-globals */
+/* eslint-disable class-methods-use-this */
 /* eslint-disable no-useless-concat */
 /* eslint-disable prefer-template */
 import React from 'react'
@@ -5,19 +7,28 @@ import echarts from 'echarts/lib/echarts'
 import 'echarts/lib/chart/pie'
 import 'echarts/lib/component/tooltip'
 import 'echarts/lib/component/title'
-import { deepObjectMerge, createHash } from '../../../utils/utils'
+import { deepObjectMerge, createHash } from '../../common/utils'
 
 class ChartGauge extends React.Component {
-  constructor(props) {
+  constructor (props) {
     super(props)
     this.hash = createHash(8)
+    this.myChart = null
   }
 
-  componentDidUpdate() {
-    const { option, color, value } = this.props
-    const myChart = echarts.init(document.getElementById(`htht-chart-gauge-${this.hash}`))
+  componentDidMount () {
+    this.renderChart()
+  }
 
-    const innerOption = {
+  componentDidUpdate () {
+    this.renderChart()
+  }
+
+  // 获取默认配置
+  getDefaultOption (value1, color) {
+    const value = isNaN(value1) ? 30 : Number(value1)
+
+    return {
       backgroundColor: '#2c343c',
       grid: {
         left: '0%',
@@ -46,7 +57,7 @@ class ChartGauge extends React.Component {
           hoverAnimation: false,
           data: [
             {
-              value,
+              value: value || 30,
               label: {
                 normal: {
                   rich: {
@@ -58,7 +69,7 @@ class ChartGauge extends React.Component {
                       fontFamily: '方正粗倩_GBK'
                     },
                     b: {
-                      color,
+                      color: color || '#f7872f',
                       align: 'center',
                       fontSize: 16
                     },
@@ -70,7 +81,7 @@ class ChartGauge extends React.Component {
                     }
                   },
                   formatter: () => {
-                    return '{a|' + 30 + '}' + ' {c|%}' + `\n\n{b|${'正常'}}`
+                    return '{a|' + (value || 30) + '}' + ' {c|%}' + `\n\n{b|${'正常'}}`
                   },
                   position: 'center',
                   show: true,
@@ -83,7 +94,7 @@ class ChartGauge extends React.Component {
               },
               itemStyle: {
                 normal: {
-                  color,
+                  color: color || '#f7872f',
                   shadowColor: '#82ffff',
                   borderWidth: 2,
                   shadowBlur: 5
@@ -92,7 +103,7 @@ class ChartGauge extends React.Component {
             },
             {
               name: '未使用',
-              value: 100 - value,
+              value: 100 - (value || 30),
               itemStyle: {
                 normal: {
                   color: '#154e48',
@@ -105,23 +116,29 @@ class ChartGauge extends React.Component {
         }
       ]
     }
-
-    const newOption = deepObjectMerge(innerOption, option)
-
-    // 绘制图表
-    myChart.setOption(newOption)
-    this.screenChange()
   }
 
   /** echants响应屏幕改变 */
-  screenChange() {
+  screenChange () {
     window.addEventListener('resize', () => {
-      this.chartPie.resize()
+      this.myChart.resize()
     })
   }
 
-  render() {
-    return <div className="htht-chart-gauge" id={`htht-chart-gauge-${this.hash}`} />
+  // 渲染gauge图表
+  renderChart () {
+    const { option, color, value } = this.props
+    this.myChart = echarts.init(document.getElementById(`htht-chart-gauge-${this.hash}`))
+    const newOption = deepObjectMerge(this.getDefaultOption(value, color), option)
+    this.myChart.clear()
+
+    // 绘制图表
+    this.myChart.setOption(newOption)
+    this.screenChange()
+  }
+
+  render () {
+    return <div className='htht-chart-gauge' id={`htht-chart-gauge-${this.hash}`} />
   }
 }
 

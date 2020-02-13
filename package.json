@@ -32,8 +32,10 @@
     "start": "node scripts/start.js",
     "build": "node --max_old_space_size=4096 scripts/build.js",
     "lint-fix": "eslint --fix --ext .js --ext .jsx src/",
-    "pub": "npm run clean && gulp",
-    "clean": "rimraf lib"
+    "pub": "npm run cleanLib && gulp",
+    "page": "npm run cleanDoc && npm run build",
+    "cleanLib": "rimraf lib",
+    "cleanDoc": "rimraf docs"
   },
   "browserslist": [
     "last 2 version",

@@ -1,49 +1,63 @@
 import React from 'react'
-import { Form, DatePicker } from 'antd'
-import { hthtPrefix } from '../../../config/varibles'
+import WarnBox from '../../common/warn_box'
 
-const FormItem = Form.Item
+class VideoPlay extends React.Component {
+  constructor (props) {
+    super(props)
+    this.controls = null
+    this.video = null
+  }
 
-class TimeChoice extends React.Component {
-	componentDidMount() {}
+  componentDidMount () {
+    this.controls = document.querySelector('.htht-videoplay .controls')
+    this.video = document.querySelector('.htht-videoplay video')
 
-	render() {
-		const { style, mode } = this.props
-		const dateStyle = style || { width: '1.4rem' }
+    // 播放暂停按钮点击
+    if (this.controls) {
+      this.controls.addEventListener('click', this.autoPlayVideo, false)
+    }
+  }
 
-		return (
-			<div className="htht-time-choice">
-				<span className="title">时间选择：</span>
-				<FormItem>
-					{getFieldDecorator('startTime', {
-						rules: [{ required: true, message: '请输入开始时间！' }]
-					})(
-						<DatePicker
-							showToday={false}
-							format="YYYY-MM-DD"
-							allowClear={false}
-							onChange={e => this.handleChange(e, 'startTime')}
-							style={dateStyle}
-						/>
-					)}
-				</FormItem>
-				<span className="gap">-</span>
-				<FormItem>
-					{getFieldDecorator('endTime', {
-						rules: [{ required: true, message: '请输入结束时间！' }]
-					})(
-						<DatePicker
-							showToday={false}
-							format="YYYY-MM-DD"
-							allowClear={false}
-							onChange={e => this.handleChange(e, 'endTime')}
-							style={dateStyle}
-						/>
-					)}
-				</FormItem>
-			</div>
-		)
-	}
+  componentWillUnmount () {
+    this.controls.removeEventListener('click', this.autoPlayVideo)
+  }
+
+  autoPlayVideo = e => {
+    if (e.target.className.includes('pause')) {
+      this.video.pause()
+    } else {
+      this.video.play()
+    }
+    e.target.classList.toggle('pause')
+  }
+
+  showControls = () => {
+    this.controls.style.display = 'block'
+  }
+
+  hideControls = () => {
+    this.controls.style.display = 'none'
+  }
+
+  render () {
+    const { videoSrc, videoPoster } = this.props
+
+    // 没传videoSrc的话警告
+    if (!videoSrc) {
+      return <WarnBox title='请传入videoSrc' />
+    }
+
+    return (
+      <div
+        className='htht-videoplay'
+        onMouseEnter={this.showControls}
+        onMouseLeave={this.hideControls}
+      >
+        <video src={videoSrc} poster={videoPoster} />
+        <i className='controls' />
+      </div>
+    )
+  }
 }
 
-export default TimeChoice
+export default VideoPlay

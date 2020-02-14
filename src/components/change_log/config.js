@@ -1,12 +1,17 @@
 export default [
   {
+    edition: '0.1.0',
+    changeDate: '2020-02-17',
+    list: ['增加ChartGague、VideoPlay等组件', 'component文件夹中增加images文件夹']
+  },
+  {
     edition: '0.0.19',
     changeDate: '2020-02-13',
     list: [
       '将组件内部utils文件夹更名为common',
       '修改图表组件初始化不更新bug',
-      'npm包增加chartPie、chartLine、chartBar组件',
-      '完成chartPie、chartLine、chartBar组件测试和apitable编写'
+      'npm包增加ChartPie、ChartLine、ChartBar组件',
+      '完成ChartPie、ChartLine、ChartBar组件测试和apitable编写'
     ]
   },
   {

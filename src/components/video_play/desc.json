@@ -12,12 +12,22 @@
   ],
   "apiData": [
     {
-      "key": "1",
-      "param": "John Brown",
-      "explain": "New York No. 1 Lake Park",
-      "type": ["nice", "developer"],
-      "default": 32,
-      "edition": "0.0.5"
+      "key": "API",
+      "param": "API"
+    },
+    {
+      "key": "videoSrc",
+      "param": "videoSrc",
+      "explain": "视频文件",
+      "type": ["Ogg", "MPEG4", "WebM"],
+      "default": "-"
+    },
+    {
+      "key": "videoPoster",
+      "param": "videoPoster",
+      "explain": "视频封面",
+      "type": ["png", "jpeg"],
+      "default": "-"
     }
   ]
 }

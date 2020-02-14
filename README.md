@@ -10,7 +10,7 @@
 
 南京航天宏图 UI 组件库
 
-基于 react 实现的精致的 web 页面组件库，基于 antd design、echarts、cesiumJs 封装的组件库，便于直接使用。（测试阶段，预发布，暂不可用）
+基于 react 实现的精致的 web 页面组件库，基于 antd design、echarts、cesiumJs 封装的组件库，便于直接使用。
 
 </div>
 
